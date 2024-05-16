@@ -1,4 +1,6 @@
-# Run this script from the top level directory
+if(basename(getwd()) != "sig_attribution_paper_code") {
+  stop("Run this script from the top level directory")
+}
 
 source("analysis/code/analysis_utils.R")
 
