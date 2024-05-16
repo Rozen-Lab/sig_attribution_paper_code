@@ -1,0 +1,17 @@
+# Original paramaters
+"","DBS1","DBS6"
+"prob",1,0.0121951219512195
+"size",1.12075347804712,1.15745821235036
+"mu",2731.42377570983,102
+# Parameters derived from synthetic exposures
+"","DBS1","DBS6"
+"prob",1,NA
+"size",1.19716932695949,NA
+"mu",2602.28339247126,NA
+# Some signatures not represented in the synthetic data:
+# DBS6 
+# Difference between original parameters and parameters derived from synthetic exposures
+"","DBS1","DBS6"
+"prob",0,NA
+"size",-0.0764158489123714,NA
+"mu",129.140383238574,NA

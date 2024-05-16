@@ -1,0 +1,40 @@
+************************ Stepwise Description of Signature Assignment to Samples ************************
+
+
+
+
+                    ################ Sample 1 #################
+############################# Initial Composition ####################################
+    DBS2
+0  637.0
+L2 Error %: 0.08
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+    DBS2
+0  637.0
+L2 Error %: 0.08
+Cosine Similarity: 1.0
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2']
+L2 Error % 0.08
+Cosine Similarity 1.0
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2']
+L2 Error % 0.08
+Cosine Similarity 1.0
+
+#################### Final Composition #################################
+['DBS2']
+L2 Error % 0.08
+Cosine Similarity 1.0
+####################################### Composition After Add-Remove #######################################
+    DBS2
+0  637.0
+L2 Error %: 0.08
+Cosine Similarity: 1.0

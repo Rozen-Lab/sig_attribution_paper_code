@@ -1,0 +1,43 @@
+# Run this script from the top level directory, attribution_paper_code
+
+source("analysis/code/analysis_utils.R")
+
+sbs_cpu_seconds_file <-
+  "analysis/summary/SBS/syn/total_cpu_seconds.csv"
+sbs_cpu_plot_object <-
+  cpu_barplot(sbs_cpu_seconds_file,
+              main = "Synthetic SBS",
+              ylim = c(0, 450)
+  )
+
+dbs_cpu_seconds_file <-
+  "analysis/summary/DBS/syn/total_cpu_seconds.csv"
+dbs_cpu_plot_object <-
+  cpu_barplot(dbs_cpu_seconds_file,
+              main = "Synthetic DBS",
+              ylim = c(0, 450)
+  )
+
+id_cpu_seconds_file <-
+  "analysis/summary/ID/syn/total_cpu_seconds.csv"
+id_cpu_plot_object <-
+  cpu_barplot(id_cpu_seconds_file,
+              main = "Synthetic ID",
+              ylim = c(0, 450)
+  )
+
+output_home <- "output_for_paper/"
+
+ggplot_to_pdf(
+  plot_objects = c(
+    list(sbs_cpu_plot_object),
+    list(dbs_cpu_plot_object),
+    list(id_cpu_plot_object)
+  ),
+  file = file.path(
+    output_home,
+    "figure_6_cpu_time_three_types.pdf"
+  ),
+  nrow = 3, ncol = 3,
+  width = 8.2677, height = 11.6929, units = "in"
+)

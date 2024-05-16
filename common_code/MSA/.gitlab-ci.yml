@@ -1,0 +1,16 @@
+
+stages:
+  - test
+
+test_nextflow:
+  image: ssenkin/msa:latest
+  stage: test
+  before_script:
+    - apt-get -y update --allow-releaseinfo-change && apt-get -y upgrade
+    - mkdir -p /usr/share/man/man1
+    - apt-get -y install default-jre default-jdk
+    - java -version
+    - apt-get -y install curl
+    - curl -s https://get.nextflow.io | bash
+  script:
+    - ./nextflow run run_auto_optimised_analysis.nf -profile conda
