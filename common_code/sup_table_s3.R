@@ -1,4 +1,8 @@
-# Run this script from the top level directory
+if(basename(getwd()) != "sig_attribution_paper_code") {
+  stop("Run this script from the top level directory")
+}
+
+rm(list = ls())
 
 source("analysis/code/analysis_utils.R")
 
@@ -15,13 +19,13 @@ all_syn_exp <-
 
 # These are the signatures removed before
 # exploring the power set: "SBS9"  "SBS20" "SBS28" "SBS43" "SBS51" "SBS58"
-# Among these the synthetic data only contained SBS20, SBS28
+# Among these, the synthetic data contained only SBS20, SBS28
 keep <- c(1, grep("Stomach-AdenoCA", (colnames(all_syn_exp))))
 stom.exp <- all_syn_exp[, ..keep]
 st <- t(stom.exp[, 2:101])
 colnames(st) <- dplyr::pull(stom.exp, V1)
 
-# None of the synthetic stomach spectra have SBS28
+# None of the synthetic stomach spectra had SBS28
 stopifnot(all(st[, "SBS28"] == 0))
 
 # Remove synthetic stomach spectra with SBS20
