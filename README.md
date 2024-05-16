@@ -7,4 +7,4 @@ The R code for the "Presence Attribute Signature Activity" (PASA) algorithm is f
 
 `remotes::install_github(repo = "steverozen/mSigAct", ref = "v3.0.1-branch")`
 
-The PASA algorithm is implemented in the function mSigAct::PresenceAttributeSigActivity.
+The PASA algorithm is implemented in the function `mSigAct::PresenceAttributeSigActivity`.
