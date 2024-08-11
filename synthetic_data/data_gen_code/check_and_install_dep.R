@@ -11,7 +11,7 @@ if (!requireNamespace("ICAMS", quietly = TRUE)) {
 }
 
 if (!requireNamespace("cosmicsig", quietly = TRUE)) {
-  remotes::install_github(repo = "Rozen-Lab/cosmicsig", ref = "v1.0.7-branch")
+  remotes::install_github(repo = "Rozen-Lab/cosmicsig", ref = "v1.2.0-branch")
 }
 
 if (!requireNamespace("PCAWG7", quietly = TRUE)) {
