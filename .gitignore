@@ -22,6 +22,7 @@ output_for_paper/msa_opt3
 
 common_code/old_*
 output_for_paper/old_*
+synthetic_data/**/old_*
 
 not_to_include
 investigation

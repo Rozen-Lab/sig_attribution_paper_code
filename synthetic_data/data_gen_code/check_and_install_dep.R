@@ -19,8 +19,8 @@ if (!requireNamespace("PCAWG7", quietly = TRUE)) {
 }
 
 if (!requireNamespace("SynSigGen", quietly = TRUE) ||
-    packageVersion("SynSigGen") < "1.2.1") {
-  remotes::install_github(repo = "steverozen/SynSigGen",ref = "1.2.1-branch")
+    packageVersion("SynSigGen") < "1.2.2") {
+  remotes::install_github(repo = "steverozen/SynSigGen",ref = "1.2.2-branch")
 }
 
 if (!requireNamespace("mSigAct", quietly = TRUE)) {
