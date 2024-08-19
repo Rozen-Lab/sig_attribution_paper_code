@@ -8,11 +8,11 @@ time_used <- system.time({
     run_sigpro_file = "analysis/code/run_sigpro.py",
     seed_in_use = 145879,
     context_type = "96",
-    input_root = "analysis/raw_output/SBS/sigpro/syn/input",
-    output_root = "analysis/raw_output/SBS/sigpro/syn/output"
+    input_root = "analysis/raw_output/SBS/sigpro_v0.1.7/syn/input",
+    output_root = "analysis/raw_output/SBS/sigpro_v0.1.7/syn/output"
   )
 })
 
 saveRDS(time_used,
-  file = "analysis/raw_output/SBS/sigpro/syn/output/time_used.Rds"
+  file = "analysis/raw_output/SBS/sigpro_v0.1.7/syn/output/time_used.Rds"
 )

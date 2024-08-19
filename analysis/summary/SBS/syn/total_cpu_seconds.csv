@@ -1,6 +1,7 @@
 "tool","total_cpu_seconds"
 "pasa",60239.025
 "sigpro",397.264
+"sigpro_v0.1.7",382.766
 "fitms",88.565
 "msa_opt",1483560
 "mp",47.403

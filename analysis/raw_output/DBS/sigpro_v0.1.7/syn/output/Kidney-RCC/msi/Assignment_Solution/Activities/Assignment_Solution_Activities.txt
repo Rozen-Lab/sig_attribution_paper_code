@@ -1,0 +1,4 @@
+Samples	DBS2	DBS4	DBS6	DBS7	DBS9	DBS11
+Kidney-RCC::MSI-H.S.1	110	0	0	0	0	0
+Kidney-RCC::MSI-H.S.2	29	0	0	0	0	0
+Kidney-RCC::MSI-H.S.3	5	0	0	0	0	0

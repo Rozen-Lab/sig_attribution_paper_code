@@ -13,6 +13,7 @@ analysis/**/.nextflow*
 analysis/**/not_to_include
 analysis/**/msa_opt2
 analysis/**/msa_opt3
+analysis/**/old_*
 
 common_code/msa_opt2
 common_code/msa_opt3
@@ -22,6 +23,8 @@ output_for_paper/msa_opt3
 
 common_code/old_*
 output_for_paper/old_*
+
+synthetic_data/**/old_*
 
 not_to_include
 investigation
