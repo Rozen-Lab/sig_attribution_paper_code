@@ -13,6 +13,7 @@ analysis/**/.nextflow*
 analysis/**/not_to_include
 analysis/**/msa_opt2
 analysis/**/msa_opt3
+analysis/**/old_*
 
 common_code/msa_opt2
 common_code/msa_opt3

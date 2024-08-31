@@ -204,9 +204,18 @@ input_sigs_sbs96 <-
 sbs40 <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96[, "SBS40", drop = FALSE]
 input_sigs_sbs96 <- cbind(input_sigs_sbs96, sbs40)
 
-sig_params_sbs96_selected_types <-
+real_exposures_sbs96_all <-
+  SynSigGen::MergeExposures(
+    list.of.exposures =
+      list(
+        real_exposures_sbs96,
+        real_kidney_exposures_sbs96
+      )
+  )
+
+sig_params_sbs96_all_types <-
   SynSigGen:::GetSynSigParamsFromExposures(
-    exposures = real_exposures_sbs96,
+    exposures = real_exposures_sbs96_all,
     distribution = distribution,
     sig.params = SynSigGen::signature.params$SBS96
   )
@@ -222,7 +231,7 @@ synthetic_tumors_sbs96_no_msi_pole <-
     real.exposures = real_exposures_sbs96_no_msi_pole,
     distribution = distribution,
     sample.prefix.name = sample_prefix_name,
-    sig.params = sig_params_sbs96_selected_types
+    sig.params = sig_params_sbs96_all_types
   )
 unlink(output_dir_sbs96_no_msi_pole, recursive = TRUE)
 syn_exposures_sbs96_no_msi_pole <-
@@ -240,7 +249,7 @@ synthetic_tumors_sbs96_msi <-
     distribution = distribution,
     sample_prefix_name = sample_prefix_name,
     tumor_marker_name = "MSI-H",
-    sig_params = sig_params_sbs96_selected_types
+    sig_params = sig_params_sbs96_all_types
   )
 unlink(output_dir_sbs96_msi, recursive = TRUE)
 syn_exposures_sbs96_msi <-
@@ -258,7 +267,7 @@ synthetic_tumors_sbs96_pole <-
     distribution = distribution,
     sample_prefix_name = sample_prefix_name,
     tumor_marker_name = "POLE",
-    sig_params = sig_params_sbs96_selected_types
+    sig_params = sig_params_sbs96_all_types
   )
 unlink(output_dir_sbs96_pole, recursive = TRUE)
 syn_exposures_sbs96_pole <-
@@ -281,13 +290,6 @@ output_dir_kidney_sbs96_msi <-
 
 input_sigs_sbs96_v2 <- cosmicsig::COSMIC_v3.4$signature$GRCh37$SBS96
 
-sig_params_kidney_sbs96 <-
-  SynSigGen:::GetSynSigParamsFromExposures(
-    exposures = real_kidney_exposures_sbs96,
-    distribution = distribution,
-    sig.params = SynSigGen::signature.params$SBS96
-  )
-
 # Generate non MSI-H synthetic kidney tumors
 synthetic_tumors_kidney_sbs96_no_msi <-
   SynSigGen::GenerateSyntheticTumors(
@@ -299,7 +301,7 @@ synthetic_tumors_kidney_sbs96_no_msi <-
     real.exposures = real_kidney_exposures_sbs96_no_msi,
     distribution = distribution,
     sample.prefix.name = sample_prefix_name,
-    sig.params = sig_params_kidney_sbs96
+    sig.params = sig_params_sbs96_all_types
   )
 unlink(output_dir_kidney_sbs96_no_msi, recursive = TRUE)
 syn_exposures_kidney_sbs96_no_msi <-
@@ -317,7 +319,7 @@ synthetic_tumors_kidney_sbs96_msi <-
     distribution = distribution,
     sample_prefix_name = sample_prefix_name,
     tumor_marker_name = "MSI-H",
-    sig_params = sig_params_kidney_sbs96
+    sig_params = sig_params_sbs96_all_types
   )
 unlink(output_dir_kidney_sbs96_msi, recursive = TRUE)
 syn_exposures_kidney_sbs96_msi <-
@@ -340,18 +342,10 @@ synthetic_exposures_sbs96_all <-
       )
   )
 
-real_exposures_sbs96_all <-
-  SynSigGen::MergeExposures(
-    list.of.exposures =
-      list(
-        real_exposures_sbs96,
-        real_kidney_exposures_sbs96
-      )
-  )
 output_dir_sbs96 <-
   "./synthetic_data/SBS/intermed_results/SBS96.syn.exposures.no.noise"
-output_dir_sbs96_nb_size_10 <-
-  "./synthetic_data/SBS/intermed_results/SBS96.syn.exposures.noisy.neg.binom.size.10"
+output_dir_sbs96_nb_size_selected <-
+  "./synthetic_data/SBS/intermed_results/SBS96.syn.exposures.noisy.neg.binom.size.selected"
 
 write_sig_params(
   dir = output_dir_sbs96,
@@ -359,7 +353,7 @@ write_sig_params(
   synthetic_exposure = synthetic_exposures_sbs96_all,
   cancer_types = c(cancer_types, "Kidney-RCC"),
   distribution = distribution,
-  sig_params = sig_params_sbs96_selected_types,
+  sig_params = sig_params_sbs96_all_types,
   sample_prefix_name = sample_prefix_name,
   mutation_type = mutation_type
 )
@@ -380,26 +374,27 @@ mSigTools::write_exposure(
 )
 
 # Add noise to the synthetic tumors
-sbs96_noisy_tumors_size_10 <-
+sbs96_noisy_tumors_size_selected <-
   SynSigGen::GenerateNoisyTumors(
     seed = seed,
-    dir = output_dir_sbs96_nb_size_10,
+    dir = output_dir_sbs96_nb_size_selected,
     input.exposure = synthetic_exposures_sbs96_all,
     signatures = input_sigs_sbs96_v3,
-    n.binom.size = 10
+    n.binom.size = 9
   )
 
-noisy_exposures_size_10_sbs96 <- sbs96_noisy_tumors_size_10$exposures
+noisy_exposures_size_selected_sbs96 <- 
+  sbs96_noisy_tumors_size_selected$exposures
 
 get_sig_universes(
   exposures = real_exposures_sbs96_all,
   filename = file.path(
-    output_dir_sbs96_nb_size_10,
+    output_dir_sbs96_nb_size_selected,
     "ground.truth.sig.universe.csv"
   ), # This is signature names for each cancer type
   sigs = input_sigs_sbs96_v3,
   sig_file = file.path(
-    output_dir_sbs96_nb_size_10,
+    output_dir_sbs96_nb_size_selected,
     "ground.truth.sigs.csv"
   )
 )
@@ -418,10 +413,10 @@ par(mfrow = c(3, 3))
 plot_exposure_distribution(
   real_exposure = real_exposures_sbs96_all,
   synthetic_exposure = synthetic_exposures_sbs96_all,
-  noisy_exposure = noisy_exposures_size_10_sbs96,
-  size = 10,
+  noisy_exposure = noisy_exposures_size_selected_sbs96,
+  size = 9,
   distribution = distribution,
-  sig_params = sig_params_sbs96_selected_types,
+  sig_params = sig_params_sbs96_all_types,
   sample_prefix_name = sample_prefix_name
 )
 grDevices::dev.off()
@@ -433,7 +428,7 @@ grDevices::dev.off()
 
 source("synthetic_data/data_gen_code/data_gen_rename.R")
 
-old_dataset_names <- basename(output_dir_sbs96_nb_size_10)
+old_dataset_names <- basename(output_dir_sbs96_nb_size_selected)
 
 data_gen_rename(
   dataset = "SBS",
