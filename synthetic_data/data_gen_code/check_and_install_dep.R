@@ -46,7 +46,7 @@ if (getOption('timeout') == 60) {
   options(timeout = 1000)
 }
 if (!requireNamespace("signature.tools.lib", quietly = TRUE)) {
-  remotes::install_github(repo = "Nik-Zainal-Group/signature.tools.lib", ref = "v2.3.0")
+  remotes::install_github("Nik-Zainal-Group/signature.tools.lib@v2.4.5")
 }
 
 

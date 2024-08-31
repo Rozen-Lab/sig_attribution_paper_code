@@ -1,7 +1,7 @@
 # Run this script with the top level directory as the working directory
 source("analysis/code/analysis_utils.R")
 
-output_home <- "analysis/raw_output/SBS/fitms/syn"
+output_home <- "analysis/raw_output/SBS/fitms_v2.4.5/syn"
 
 time_used <- system.time({
   run_fitms_syn(
