@@ -773,7 +773,7 @@ run_sigpro_syn <- function(dataset_name, python_bin, run_sigpro_file,
   cancer_types <- list.files(path = input_root)
 
   all_exposure_output <- list()
-  all_times <- list()
+  time_by_cancer_type <- list()
   for (cancer_type in cancer_types) {
     
     time_used <- system.time({
@@ -799,9 +799,12 @@ run_sigpro_syn <- function(dataset_name, python_bin, run_sigpro_file,
       
     })# system.time
     
-    all_times[[cancer_type]] <- time_used
+    time_by_cancer_type[[cancer_type]] <- time_used
     
   } # For cancer_type
+  
+  saveRDS(time_by_cancer_type,
+          file.path(output_root, "time_by_cancer_type.Rds"))
 
   all_sigpro_output_exposure <-
     mSigAct:::MergeListOfExposures(all_exposure_output)
