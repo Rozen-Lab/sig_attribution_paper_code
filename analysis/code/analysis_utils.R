@@ -773,26 +773,35 @@ run_sigpro_syn <- function(dataset_name, python_bin, run_sigpro_file,
   cancer_types <- list.files(path = input_root)
 
   all_exposure_output <- list()
+  all_times <- list()
   for (cancer_type in cancer_types) {
-    sub_folders <- list.files(file.path(input_root, cancer_type))
-
-    for (sub_folder in sub_folders) {
-      full_input_dir <- file.path(input_root, cancer_type, sub_folder)
-      output_dir <- file.path(output_root, cancer_type, sub_folder)
-
-      sigpro_exposure <-
-        execute_sigpro_in_r(
-          python_bin = python_bin,
-          run_sigpro_file = run_sigpro_file,
-          input_dir = full_input_dir,
-          output_dir = output_dir,
-          seed_in_use = seed_in_use,
-          context_type = context_type
-        )
-      result_type <- paste0(cancer_type, "_", sub_folder)
-      all_exposure_output[[result_type]] <- sigpro_exposure
-    }
-  }
+    
+    time_used <- system.time({
+      
+      sub_folders <- list.files(file.path(input_root, cancer_type))
+      
+      for (sub_folder in sub_folders) {
+        full_input_dir <- file.path(input_root, cancer_type, sub_folder)
+        output_dir <- file.path(output_root, cancer_type, sub_folder)
+        
+        sigpro_exposure <-
+          execute_sigpro_in_r(
+            python_bin = python_bin,
+            run_sigpro_file = run_sigpro_file,
+            input_dir = full_input_dir,
+            output_dir = output_dir,
+            seed_in_use = seed_in_use,
+            context_type = context_type
+          )
+        result_type <- paste0(cancer_type, "_", sub_folder)
+        all_exposure_output[[result_type]] <- sigpro_exposure
+      } # for (sub_folder)
+      
+    })# system.time
+    
+    all_times[[cancer_type]] <- time_used
+    
+  } # For cancer_type
 
   all_sigpro_output_exposure <-
     mSigAct:::MergeListOfExposures(all_exposure_output)
