@@ -90,7 +90,7 @@ run_mp_syn <- function(dataset_name, output_home,
   
   saveRDS(time_by_cancer_type,
           file.path(output_home, "time_by_cancer_type.Rds"))
-  
+
   all_exposures <- lapply(all_retvals, FUN = function(retval) {
     return(mSigAct:::RemoveZeroActivitySig(retval$fit_res$contribution))
   })
