@@ -7,7 +7,7 @@ if (!requireNamespace("magrittr", quietly = TRUE)) {
 }
 
 if (!requireNamespace("ICAMS", quietly = TRUE)) {
-  remotes::install_github("steverozen/ICAMS", ref = "v3.0.6-branch")
+  remotes::install_github("steverozen/ICAMS", ref = "v3.0.8-branch")
 }
 
 if (!requireNamespace("cosmicsig", quietly = TRUE)) {

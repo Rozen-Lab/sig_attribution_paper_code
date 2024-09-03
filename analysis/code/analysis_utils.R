@@ -11,8 +11,7 @@ library(data.table)
 library(mSigTools)
 library(mSigAct)
 
-library(ICAMS) # ? >= v3.0.8-branch
-# remotes::install_github("steverozen/ICAMS", ref = "v3.0.8-branch")
+library(ICAMS) # remotes::install_github("steverozen/ICAMS", ref = "v3.0.8-branch")
 
 get_exposure <- function(exposure, tool) {
   tmp <- t(exposure)
