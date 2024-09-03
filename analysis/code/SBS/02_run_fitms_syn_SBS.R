@@ -1,13 +1,18 @@
 # Run this script with the top level directory as the working directory
-source("analysis/code/analysis_utils.R")
+source("analysis/code/fitms_analysis.R")
 
-output_home <- "analysis/raw_output/SBS/fitms/syn"
+run_fitms <- function() {
+  
+  output_home <- "analysis/raw_output/SBS/fitms_01/syn"
+  time_used <- system.time({
+    run_fitms_syn(
+      dataset_name = "SBS",
+      output_home = output_home,
+      rare_sig_threshold = 0.01
+    )
+  })
+  
+  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+}
 
-time_used <- system.time({
-  run_fitms_syn(
-    dataset_name = "SBS",
-    output_home = output_home
-  )
-})
-
-saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+run_fitms()
