@@ -1,5 +1,5 @@
 # Run this script with the top level directory as the working directory
-source("analysis/code/analysis_utils.R")
+source("analysis/code/mp_analysis.R")
 
 output_home <- "analysis/raw_output/SBS/mp/syn"
 
