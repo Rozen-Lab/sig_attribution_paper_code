@@ -70,9 +70,13 @@ run_generic_syn <- function(dataset_name, output_home,
   
   all_retvals <- list()
   time_by_cancer_type <- list()
-  for (cancer_type in cancer_types) {
+  for (cancer_type in cancer_types) { 
+    message(cancer_type)
     spectra <- all_spectra[[cancer_type]]
     sig_names <- names(sig_universe[[cancer_type]])
+    ####
+    more_args$sig_props <- sig_universe[[cancer_type]]
+    ####
     sig <- gt_sig[, sig_names, drop = FALSE]
     output_dir <- file.path(output_home, cancer_type)
     
