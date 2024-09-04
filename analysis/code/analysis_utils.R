@@ -1,7 +1,7 @@
 library(rje)
 library(tidyverse)
 library(writexl)
-# library(rvest)
+library(rvest)
 library(dplyr)
 library(stringr)
 library(ggplot2)
