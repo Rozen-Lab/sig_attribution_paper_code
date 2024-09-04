@@ -30,7 +30,7 @@ call_deconstruct <- function(spectra,
   # and rows signatures
   weights <- lapply(allretval, `[[`, "weights")
   exposure_matrix <- t(do.call(rbind, weights))
-  browser()
+  stop("need to multiply by number of mutations")
   return(exposure_matrix)
 }
 
