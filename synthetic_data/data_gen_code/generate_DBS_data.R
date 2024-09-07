@@ -111,18 +111,18 @@ sum(num_samples_msi_scaled) + sum(num_samples_pole_scaled) +
 ##                 Generation of synthetic data                 ##
 ##################################################################
 
-output_dir_dbs78_no_msi_pole <- "./synthetic_data/DBS/intermed_results/PCAWG.DBS78.syn.exposures.no.msi"
-output_dir_dbs78_msi <- "./synthetic_data/DBS/intermed_results/PCAWG.DBS78.syn.exposures.msi"
-output_dir_dbs78_pole <- "./synthetic_data/DBS/intermed_results/PCAWG.DBS78.syn.exposures.pole"
-output_dir_dbs78 <- "./synthetic_data/DBS/intermed_results/PCAWG.DBS78.syn.exposures.no.noise"
-output_dir_dbs78_nb_size_1 <-
-  "./synthetic_data/DBS/intermed_results/PCAWG.DBS78.syn.exposures.noisy.neg.binom.size.1"
+output_dir_dbs78_no_msi_pole <- "./synthetic_data/DBS/intermed_results/DBS78.syn.exposures.no.msi"
+output_dir_dbs78_msi <- "./synthetic_data/DBS/intermed_results/DBS78.syn.exposures.msi"
+output_dir_dbs78_pole <- "./synthetic_data/DBS/intermed_results/DBS78.syn.exposures.pole"
+output_dir_dbs78 <- "./synthetic_data/DBS/intermed_results/DBS78.syn.exposures.no.noise"
+output_dir_dbs78_nb_size_selected <-
+  "./synthetic_data/DBS/intermed_results/DBS78.syn.exposures.noisy.neg.binom.size.selected"
 
 distribution <- "neg.binom"
 sample_prefix_name <- ""
 mutation_type <- "DBS78"
 seed <- 658220
-input_sigs_dbs78 <- cosmicsig::COSMIC_v3.2$signature$GRCh37$DBS78
+input_sigs_dbs78 <- cosmicsig::COSMIC_v3.4$signature$GRCh37$DBS78
 
 sig_params_dbs78_nine_types <-
   SynSigGen:::GetSynSigParamsFromExposures(
@@ -216,25 +216,26 @@ mSigTools::write_exposure(
   file     = file.path(output_dir_dbs78, "ground.truth.syn.exposures.csv"))
 
 # Add noise to the synthetic tumors
-dbs78_noisy_tumors_size_1 <-
+dbs78_noisy_tumors_size_selected <-
   SynSigGen::GenerateNoisyTumors(
     seed = seed,
-    dir = output_dir_dbs78_nb_size_1,
+    dir = output_dir_dbs78_nb_size_selected,
     input.exposure = synthetic_exposures_dbs78,
     signatures = input_sigs_dbs78,
     n.binom.size = 1
   )
 
-noisy_exposures_size_1_dbs78 <- dbs78_noisy_tumors_size_1$exposures
+noisy_exposures_size_selected_dbs78 <- 
+  dbs78_noisy_tumors_size_selected$exposures
 
 # duplicate call because downstream copying code expects 
 # files in both locations
 get_sig_universes(
   exposures = real_exposures_dbs78, 
-  filename = file.path(output_dir_dbs78_nb_size_1,
+  filename = file.path(output_dir_dbs78_nb_size_selected,
                        "ground.truth.sig.universe.csv"),
   sigs = input_sigs_dbs78,
-  sig_file = file.path(output_dir_dbs78_nb_size_1,
+  sig_file = file.path(output_dir_dbs78_nb_size_selected,
                        "ground.truth.sigs.csv"))
 
 #################################################################
@@ -251,7 +252,7 @@ par(mfrow = c(3, 3))
 plot_exposure_distribution(
   real_exposure = real_exposures_dbs78,
   synthetic_exposure = synthetic_exposures_dbs78,
-  noisy_exposure = noisy_exposures_size_1_dbs78,
+  noisy_exposure = noisy_exposures_size_selected_dbs78,
   size = 1,
   distribution = distribution,
   sig_params = sig_params_dbs78_nine_types,
@@ -265,7 +266,7 @@ grDevices::dev.off()
 
 source("synthetic_data/data_gen_code/data_gen_rename.R")
 
-old_dataset_names <- basename(output_dir_dbs78_nb_size_1)
+old_dataset_names <- basename(output_dir_dbs78_nb_size_selected)
 
 data_gen_rename(dataset = "DBS",
                 old_dataset_name = old_dataset_names, 
