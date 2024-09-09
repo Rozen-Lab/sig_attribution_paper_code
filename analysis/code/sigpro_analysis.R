@@ -18,11 +18,11 @@ call_sigpro <- function (spectra,
   return(retval)
 }
 
-run_sigpro <- function(mut_type, rare_sig_threshold) {
+run_sigpro <- function(mut_type, more_args) {
   out_fragment = paste0("fitms_", formatC(rare_sig_threshold, digits = 2, format = "f"))
-  more_args <- list(rare_sig_threshold = rare_sig_threshold)
+  more_args$ <- list(rare_sig_threshold = rare_sig_thres
   output_home <-
-    file.path("analysis/raw_output", mut_type, out_fragment, "syn")
+    file.path("analysis/raw_output", mut_type, "sigpro/syn")
   time_used <- system.time({
     run_generic_syn(
       dataset_name = mut_type,
