@@ -1,0 +1,80 @@
+************************ Stepwise Description of Signature Assignment to Samples ************************
+
+
+
+
+                    ################ Sample 1 #################
+############################# Initial Composition ####################################
+     DBS1   DBS6
+0  3863.0  120.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+     DBS1
+0  3983.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS1']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS1']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['DBS1']
+L2 Error % 0.18
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     DBS1
+0  3983.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 2 #################
+############################# Initial Composition ####################################
+    DBS1
+0  649.0
+L2 Error %: 0.03
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+    DBS1
+0  649.0
+L2 Error %: 0.03
+Cosine Similarity: 1.0
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS1']
+L2 Error % 0.03
+Cosine Similarity 1.0
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS1']
+L2 Error % 0.03
+Cosine Similarity 1.0
+
+#################### Final Composition #################################
+['DBS1']
+L2 Error % 0.03
+Cosine Similarity 1.0
+####################################### Composition After Add-Remove #######################################
+    DBS1
+0  649.0
+L2 Error %: 0.03
+Cosine Similarity: 1.0
