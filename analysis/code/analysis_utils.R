@@ -35,6 +35,12 @@ all_stats <- function(xx, mc_cores) {
 
   one.row <- function(ii) {
     # ii is a row index in xx
+    
+    if (ii == 7020) {
+      browser()
+      message("row 7020")
+      # stop("row 7020")
+    }
     rr <- xx[ii, ]
     # rr is a 1-row tibble
     sid <- dplyr::pull(rr, Sample.ID)
@@ -46,7 +52,7 @@ all_stats <- function(xx, mc_cores) {
         MD = NA, SMD = NA, sens = NA, prec = NA, F1 = NA, Combined = NA
       ))
     } else {
-      gt <- dplyr::filter(
+      gt <- dplyr::filter(  # Get the ground truth exposures for one sample
         xx, Sample.ID == sid,
         Tool == "Ground-Truth"
       )
@@ -82,6 +88,11 @@ all_stats <- function(xx, mc_cores) {
       # the same signatures not in the signature universe.
 
       prec <- TP / (TP + FP)
+      if ((TP + FP) == 0) {
+        prec <- 1
+        # browser()
+        # message("0 denominator")
+      }
 
       F1 <- (2 * TP) / (2 * TP + FP + FN)
 
@@ -125,7 +136,7 @@ new_all_stats <- function(xx, mc_cores) {
         xx, Sample.ID == sid,
         Tool == "Ground-Truth"
       )
-      browser()
+
       gt <- dplyr::mutate(gt, Sample.ID = NULL, Tool = NULL)
       me <- dplyr::mutate(rr, Sample.ID = NULL, Tool = NULL)
 
@@ -190,7 +201,7 @@ compute_and_write_stats <- function(exposure_all, output_dir, mc_cores) {
   if (!dir.exists(output_dir)) {
     dir.create(output_dir, recursive = TRUE)
   }
-
+  message("writing statistics from compute_and_write_stats to ", output_dir)
   data.table::fwrite(
     exposure_all,
     file.path(output_dir, "all_inferred_exposures.csv")
@@ -292,170 +303,6 @@ get_all_input <- function(dataset_name,
   ))
 }
 
-write_sigpro_file <- function(catalog, sig, output_dir) {
-  if (!dir.exists(output_dir)) {
-    dir.create(output_dir, recursive = TRUE)
-  }
-  ICAMS:::ConvertCatalogToSigProfilerFormat(
-    input.catalog = catalog,
-    file = file.path(output_dir, "catalog.tsv")
-  )
-  ICAMS:::ConvertCatalogToSigProfilerFormat(
-    input.catalog = sig,
-    file = file.path(output_dir, "sigs.tsv")
-  )
-}
-
-write_sigpro_msi_sample_sig <-
-  function(spectra, msi_samples, sig, output_dir) {
-    output_dir_non_msi <- file.path(output_dir, "non_msi")
-    output_dir_msi <- file.path(output_dir, "msi")
-
-    if (length(msi_samples) == 0) {
-      write_sigpro_file(
-        catalog = spectra, sig = sig,
-        output_dir = output_dir_non_msi
-      )
-    } else {
-      spectra_msi <- spectra[, msi_samples, drop = FALSE]
-      sig_msi <- sig
-      write_sigpro_file(
-        catalog = spectra_msi, sig = sig_msi,
-        output_dir = output_dir_msi
-      )
-
-      non_msi_samples <- setdiff(colnames(spectra), msi_samples)
-      spectra_non_msi <- spectra[, non_msi_samples, drop = FALSE]
-      msi_sig_names <- get_msi_sig_names()
-      non_msi_sig_names <- setdiff(colnames(sig), msi_sig_names)
-      sig_non_msi <- sig[, non_msi_sig_names, drop = FALSE]
-
-      write_sigpro_file(
-        catalog = spectra_non_msi, sig = sig_non_msi,
-        output_dir = output_dir_non_msi
-      )
-    }
-  }
-
-classify_sigpro_msi_sample_sig_syn <-
-  function(dataset_name, output_home,
-           data_top_folder_name = "synthetic_data",
-           cancer_types = NULL) {
-    all_inputs <- get_all_input(
-      dataset_name = dataset_name,
-      data_top_folder_name = data_top_folder_name
-    )
-    all_spectra <- all_inputs$spectra_list
-    gt_sig <- all_inputs$ground_truth_sigs
-    sig_universe <- all_inputs$signature_universes
-
-    if (is.null(cancer_types)) {
-      cancer_types <- all_inputs$cancer_types
-    }
-
-    for (cancer_type in cancer_types) {
-      spectra <- all_spectra[[cancer_type]]
-      sig_names <- names(sig_universe[[cancer_type]])
-      sig <- gt_sig[, sig_names, drop = FALSE]
-      output_dir <- file.path(output_home, cancer_type)
-
-      # Check whether there are any MSI-H samples in spectra
-      msi_samples <- grep(pattern = "MSI", x = colnames(spectra), value = TRUE)
-      write_sigpro_msi_sample_sig(
-        spectra = spectra, msi_samples = msi_samples,
-        sig = sig, output_dir = output_dir
-      )
-    }
-  }
-
-execute_sigpro_in_r <-
-  function(python_bin, run_sigpro_file, input_dir,
-           output_dir, seed_in_use, context_type) {
-    py_args <-
-      c(run_sigpro_file, input_dir, output_dir, seed_in_use, context_type)
-    system_ret <- system2(python_bin, args = py_args)
-    if (system_ret != 0) {
-      msg <- paste(py_args, collapse = " ")
-      stop("Could not run this command:\n", python_bin, " ", msg)
-    }
-
-    sigpro_output <-
-      file.path(
-        output_dir,
-        "Assignment_Solution/Activities/Assignment_Solution_Activities.txt"
-      )
-    sigpro_exposure <-
-      t(read.table(sigpro_output, header = TRUE, sep = "\t", row.names = 1))
-    return(sigpro_exposure)
-  }
-
-run_sigpro_syn <- function(dataset_name, python_bin, run_sigpro_file,
-                           seed_in_use, context_type, input_root, output_root,
-                           data_top_folder_name = "synthetic_data",
-                           cancer_types = NULL) {
-  classify_sigpro_msi_sample_sig_syn(
-    dataset_name = dataset_name,
-    output_home = input_root,
-    data_top_folder_name = data_top_folder_name,
-    cancer_types = cancer_types
-  )
-
-  cancer_types <- list.files(path = input_root)
-
-  all_exposure_output <- list()
-  time_by_cancer_type <- list()
-  for (cancer_type in cancer_types) {
-    
-    time_used <- system.time({
-      
-      sub_folders <- list.files(file.path(input_root, cancer_type))
-      
-      for (sub_folder in sub_folders) {
-        full_input_dir <- file.path(input_root, cancer_type, sub_folder)
-        output_dir <- file.path(output_root, cancer_type, sub_folder)
-        
-        sigpro_exposure <-
-          execute_sigpro_in_r(
-            python_bin = python_bin,
-            run_sigpro_file = run_sigpro_file,
-            input_dir = full_input_dir,
-            output_dir = output_dir,
-            seed_in_use = seed_in_use,
-            context_type = context_type
-          )
-        result_type <- paste0(cancer_type, "_", sub_folder)
-        all_exposure_output[[result_type]] <- sigpro_exposure
-      } # for (sub_folder)
-      
-    })# system.time
-    
-    time_by_cancer_type[[cancer_type]] <- time_used
-    
-  } # for (cancer_type in cancer_types
-  
-  saveRDS(time_by_cancer_type,
-          file.path(output_root, "time_by_cancer_type.Rds"))
-
-  all_sigpro_output_exposure <-
-    mSigAct:::MergeListOfExposures(all_exposure_output)
-
-  original_spectra_file <-
-    file.path(data_top_folder_name, dataset_name, "ground.truth.syn.catalog.csv")
-
-  original_spectra <- ICAMS::ReadCatalog(original_spectra_file)
-
-  if (setequal(
-    colnames(original_spectra),
-    colnames(all_sigpro_output_exposure)
-  )) {
-    all_sigpro_output_exposure <-
-      all_sigpro_output_exposure[, colnames(original_spectra), drop = FALSE]
-  }
-
-  mSigTools::write_exposure(all_sigpro_output_exposure,
-    file = file.path(output_root, "inferred_exposures.csv")
-  )
-}
 
 compare_syn_results <-
   function(dataset, syn_exp_files, tool_names, output_dir,

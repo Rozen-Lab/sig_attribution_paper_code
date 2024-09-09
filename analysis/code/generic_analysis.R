@@ -15,6 +15,8 @@ run_generic_msi <-
       spectra_non_msi <- spectra[, non_msi_samples, drop = FALSE]
       non_msi_sig_names <- setdiff(colnames(sig), msi_sig_names)
       
+      more_args$is_msi <- TRUE
+
       retval_msi <-
         attribute_function(
           spectra = spectra_msi,
@@ -30,6 +32,8 @@ run_generic_msi <-
       non_msi_samples <- colnames(spectra)
       retval_key <- cancer_type
     }
+    
+    more_args$is_msi <- FALSE
     
     retval_non_msi <-
       attribute_function(
@@ -51,12 +55,12 @@ run_generic_syn <- function(dataset_name, output_home,
                                 attribute_function,
                                 more_args) {
   message("Start running the job")
-  
+
   if (!dir.exists(output_home)) {
     dir.create(path = output_home, recursive = TRUE)
   }
   
-  all_inputs <- get_all_input(
+  all_inputs <- get_all_input( # defined in analysis_utils.R
     dataset_name = dataset_name,
     data_top_folder_name = data_top_folder_name
   )
@@ -76,6 +80,7 @@ run_generic_syn <- function(dataset_name, output_home,
     sig_names <- names(sig_universe[[cancer_type]])
     ####
     more_args$sig_props <- sig_universe[[cancer_type]]
+    more_args$cancer_type <- cancer_type
     ####
     sig <- gt_sig[, sig_names, drop = FALSE]
     output_dir <- file.path(output_home, cancer_type)
@@ -90,6 +95,7 @@ run_generic_syn <- function(dataset_name, output_home,
           attribute_function = attribute_function,
           more_args
         )
+      # retval is a list of matrices of with rows being signatures and columns being samples
     }) # system.time
     
     time_by_cancer_type[[cancer_type]] <- time_used

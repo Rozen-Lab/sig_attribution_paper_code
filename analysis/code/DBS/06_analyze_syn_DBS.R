@@ -21,3 +21,5 @@ compare_syn_results(
   output_dir = output_dir_syn,
   mc_cores = cores_to_use
 )
+
+# foo2 <- read_csv("analysis/summary/DBS/syn/all_summary_stats.csv")

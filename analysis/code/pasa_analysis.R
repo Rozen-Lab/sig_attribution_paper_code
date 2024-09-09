@@ -15,7 +15,9 @@ call_pasa <- function (spectra,
     save.files                = FALSE
   )
   pasa_report_error_msg(retval = retval, cancer_type = cancer_type)
-  return(retval)
+  # browser()
+  exposure_matrix = retval$proposed.assignment
+  return(exposure_matrix)
 }
 
 

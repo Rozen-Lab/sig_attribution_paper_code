@@ -8,21 +8,3 @@ sigpro_args$context_type = "DINUC"
 sigpro_args$seed_in_use = 145879
 sigpro_args$python_bin = "/home/e0012078/software/miniconda3/bin/python"
 run_sigpro("DBS", sigpro_args)
-
-### Below here OLD
-
-time_used <- system.time({
-  run_sigpro_syn(
-    dataset_name = "DBS",
-    python_bin = "/home/e0012078/software/miniconda3/bin/python",
-    run_sigpro_file = "analysis/code/run_sigpro.py",
-    seed_in_use = 145879,
-    context_type = "DINUC",
-    input_root = "analysis/raw_output/DBS/sigpro/syn/input",
-    output_root = "analysis/raw_output/DBS/sigpro/syn/output"
-  )
-})
-
-saveRDS(time_used,
-        file = "analysis/raw_output/DBS/sigpro/syn/output/time_used.Rds"
-)
