@@ -1,13 +1,6 @@
 # Run this script with the top level directory as the working directory
-source("analysis/code/analysis_utils.R")
+stopifnot(basename(getwd()) == "sig_attribution_paper_code")
 
-output_home <- "analysis/raw_output/DBS/mp/syn"
+source("analysis/code/mp_analysis.R")
 
-time_used <- system.time({
-  run_mp_syn(
-    dataset_name = "DBS",
-    output_home = output_home
-  )
-})
-
-saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+run_mp("DBS")
