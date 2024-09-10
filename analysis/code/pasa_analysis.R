@@ -26,16 +26,13 @@ run_pasa <- function(mut_type, more_args) {
     file.path("analysis/raw_output", mut_type, "pasa/syn")
   message("PASA, writing to ", output_home)
   more_args$output_home = output_home
-  time_used <- system.time({
-    run_generic_syn(
-      dataset_name = mut_type,
-      output_home = output_home,
-      attribute_function = call_pasa,
-      more_args = more_args
-    )
-  })
   
-  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+  run_generic_syn(
+    dataset_name = mut_type,
+    output_home = output_home,
+    attribute_function = call_pasa,
+    more_args = more_args
+  )
 }
 
 

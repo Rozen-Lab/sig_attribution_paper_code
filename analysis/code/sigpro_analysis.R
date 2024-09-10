@@ -80,15 +80,11 @@ run_sigpro <- function(mut_type, more_args) {
   output_home <-
     file.path("analysis/raw_output", mut_type, "sigpro/syn")
   more_args$mutation_type = mut_type
-  time_used <- system.time({
-    run_generic_syn(
-      dataset_name = mut_type,
-      output_home = output_home, # Duplicate info here and in call_sigpro
-      attribute_function = call_sigpro,
-      more_args = more_args
-    )
-  })
-  
-  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+  run_generic_syn(
+    dataset_name = mut_type,
+    output_home = output_home, # Duplicate info here and in call_sigpro
+    attribute_function = call_sigpro,
+    more_args = more_args
+  )
 }
 

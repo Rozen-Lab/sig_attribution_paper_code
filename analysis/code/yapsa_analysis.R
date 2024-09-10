@@ -15,20 +15,17 @@ call_yapsa <- function(spectra,
   return(exposure_matrix)
 }
 
-run_yapsa <- function(mut_type, cutoff) {
-  out_fragment = paste0("yapsa_", formatC(cutoff, digits = 2, format = "f"))
-  more_args <- list(in_per_sample_cutoff = cutoff)
+run_yapsa <- function(mut_type, in_per_sample_cutoff) {
+  out_fragment = paste0("yapsa_", formatC(in_per_sample_cutoff, digits = 2, format = "f"))
+  more_args <- list(in_per_sample_cutoff = in_per_sample_cutoff)
   output_home <-
     file.path("analysis/raw_output", mut_type, out_fragment, "syn")
   message("YAPSA, writing to ", output_home)
-  time_used <- system.time({
-    run_generic_syn(
-      dataset_name = mut_type,
-      output_home = output_home,
-      attribute_function = call_yapsa,
-      more_args = more_args
-    )
-  })
   
-  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+  run_generic_syn(
+    dataset_name = mut_type,
+    output_home = output_home,
+    attribute_function = call_yapsa,
+    more_args = more_args
+  )
 }

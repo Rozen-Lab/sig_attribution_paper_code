@@ -4,8 +4,7 @@ source("analysis/code/generic_analysis.R")
 
 call_mp <- function(spectra, 
                     signatures, 
-                    more_args
-) {
+                    more_args) {
   retval <- 
     MutationalPatterns::fit_to_signatures_strict(
       mut_matrix = spectra, 
@@ -17,14 +16,11 @@ call_mp <- function(spectra,
 run_mp <- function(mut_type, cutoff) {
   output_home <- file.path("analysis/raw_output", mut_type, "mp/syn")
   message("MutationalPatterns, writing to ", output_home)
-  time_used <- system.time({
+
     run_generic_syn(
       dataset_name = mut_type,
       output_home = output_home,
       attribute_function = call_mp,
       more_args = NULL
     )
-  })
-  
-  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
 }

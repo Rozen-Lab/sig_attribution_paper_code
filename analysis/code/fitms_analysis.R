@@ -58,15 +58,12 @@ run_fitms <- function(mut_type, rare_sig_threshold) {
   more_args <- list(rare_sig_threshold = rare_sig_threshold)
   output_home <-
     file.path("analysis/raw_output", mut_type, out_fragment, "syn")
-  time_used <- system.time({
-    run_generic_syn(
-      dataset_name = mut_type,
-      output_home = output_home,
-      attribute_function = call_fitms,
-      more_args = more_args
-    )
-  })
   
-  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+  run_generic_syn(
+    dataset_name = mut_type,
+    output_home = output_home,
+    attribute_function = call_fitms,
+    more_args = more_args
+  )
 }
 

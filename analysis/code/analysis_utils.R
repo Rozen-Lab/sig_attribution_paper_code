@@ -13,6 +13,8 @@ library(mSigAct)
 
 library(ICAMS) # remotes::install_github("steverozen/ICAMS", ref = "v3.0.8-branch")
 
+source("analysis/code/generic_analysis.R")
+
 get_exposure <- function(exposure, tool) {
   tmp <- t(exposure)
   df1 <- data.frame(
@@ -22,12 +24,6 @@ get_exposure <- function(exposure, tool) {
   df2 <- cbind(df1, tmp)
   rownames(df2) <- NULL
   return(df2)
-}
-
-get_msi_sig_names <- function() {
-  sig_names <-
-    c("SBS6", "SBS14", "SBS15", "SBS20", "SBS21", "SBS26", "SBS44")
-  return(sig_names)
 }
 
 all_stats <- function(xx, mc_cores) {
@@ -259,48 +255,6 @@ compute_and_write_stats <- function(exposure_all, output_dir, mc_cores) {
     assessment_each_sample,
     file = file.path(output_dir, "assessment_each_sample.csv")
   )
-}
-
-get_all_input <- function(dataset_name,
-                          data_top_folder_name = "synthetic_data") {
-  data_home <- file.path(data_top_folder_name, dataset_name)
-
-  spectra <- ICAMS::ReadCatalog(
-    file = file.path(data_home, "ground.truth.syn.catalog.csv")
-  )
-
-  ground_truth_sigs <- ICAMS::ReadCatalog(
-    file.path(data_home, "ground.truth.sigs.csv"),
-    catalog.type = "counts.signature"
-  )
-
-  sig_universe_info <- data.table::fread(
-    file.path(data_home, "ground.truth.sig.universe.csv"),
-    fill = TRUE
-  )
-
-  spectra_list <- PCAWG7::SplitPCAWGMatrixByTumorType(spectra)
-
-  cancer_types <- names(spectra_list)
-
-  signature_universes <-
-    sapply(cancer_types, FUN = function(cancer_type) {
-      one_type_info <- sig_universe_info[V1 == cancer_type, -1]
-      sig_props <- unlist(one_type_info[2, ])
-      sig_props <- as.numeric(sig_props[sig_props != ""])
-
-      sig_names <- unlist(one_type_info[1, ])
-      sig_names <- sig_names[sig_names != ""]
-      names(sig_props) <- sig_names
-      return(sig_props)
-    })
-
-  return(list(
-    spectra_list = spectra_list,
-    ground_truth_sigs = ground_truth_sigs,
-    signature_universes = signature_universes,
-    cancer_types = cancer_types
-  ))
 }
 
 
@@ -690,7 +644,7 @@ get_msa_total_elapsed_time <- function(msa_output_dir, mc_cores) {
   return(msa_total_elapsed_time)
 }
 
-get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
+OLD_get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
   rds_files <-
     list.files(
       path = ouput_dir,
@@ -720,7 +674,7 @@ get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
   return(total_cpu_seconds)
 }
 
-get_elapsed_time <- function(ouput_dir, mc_cores = 1) {
+OLD_get_elapsed_time <- function(ouput_dir, mc_cores = 1) {
   rds_files <-
     list.files(
       path = ouput_dir,

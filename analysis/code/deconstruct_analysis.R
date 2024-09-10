@@ -22,7 +22,7 @@ call_deconstruct <- function(spectra,
                contexts.needed = FALSE, # Not counts, proportions in the spectra
                tri.counts.method = "default", # No adjustments for exome versus genome 
                # trinucleotide frequencies
-               signature.cutoff = more_args$signature_cutoff  # The default is 0.06
+               signature.cutoff = more_args$signature.cutoff  # The default is 0.06
              )
            })
   
@@ -34,20 +34,18 @@ call_deconstruct <- function(spectra,
   return(exposure_matrix)
 }
 
-run_deconstruct <- function(mut_type, cutoff) {
-  out_fragment = paste0("deconstruct_", formatC(cutoff, digits = 2, format = "f"))
-  more_args = list(signature_cutoff = cutoff) 
+run_deconstruct <- function(mut_type, signature.cutoff) {
+  out_fragment = paste0("deconstruct_", 
+                        formatC(signature.cutoff, digits = 2, format = "f"))
+  more_args = list(signature.cutoff = signature.cutoff) 
   output_home <-
     file.path("analysis/raw_output", mut_type, out_fragment, "syn")
   message("deconstructSigs, writing to ", output_home)
-  time_used <- system.time({
-    run_generic_syn(
-      dataset_name = mut_type,
-      output_home = output_home,
-      attribute_function = call_deconstruct,
-      more_args = more_args
-    )
-  })
   
-  saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+  run_generic_syn(
+    dataset_name = mut_type,
+    output_home = output_home,
+    attribute_function = call_deconstruct,
+    more_args = more_args
+  )
 }

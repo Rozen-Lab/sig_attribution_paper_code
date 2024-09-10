@@ -1,0 +1,72 @@
+# Run this script with the top level directory as the working directory
+stopifnot(basename(getwd()) == "sig_attribution_paper_code")
+rm(list = ls())
+source("analysis/code/pasa_analysis.R")
+
+total_cores <- parallel::detectCores() # 256 on the machine we are using
+mc_cores_per_sample <- min(5, total_cores)
+pasa_DBS_args = list()
+pasa_DBS_args$mc_cores_per_sample  <- mc_cores_per_sample
+pasa_DBS_args$num_parallel_samples <- floor(total_cores / mc_cores_per_sample)
+pasa_DBS_args$seed_in_use = seed = 145879
+rm(mc_cores_per_sample, total_cores)
+run_pasa(mut_type = "DBS",  more_args = pasa_DBS_args)
+rm(pasa_DBS_args)
+
+#######
+
+rm(list = ls())
+source("analysis/code/fitms_analysis.R")
+for (rare_sig_threshold in c(0.01, 0.03, 0.06)) {
+  run_fitms("DBS", rare_sig_threshold)
+}
+
+#######
+
+rm(list = ls())
+source("analysis/code/mp_analysis.R")
+run_mp("DBS")
+
+#######
+
+rm(list = ls())
+source("analysis/code/sigpro_analysis.R")
+sigpro_args = list()
+sigpro_args$context_type = "DINUC"
+sigpro_args$seed_in_use = 145879
+sigpro_args$python_bin = "/home/e0012078/software/miniconda3/bin/python"
+run_sigpro("DBS", sigpro_args)
+
+#######
+
+rm(list = ls())
+source("analysis/code/yapsa_analysis.R")
+# default in_per_sample_cutoff is 0
+for (in_per_sample_cutoff in c(0, 0.01, 0.03, 0.06, 0.1)) {
+  run_yapsa("DBS", in_per_sample_cutoff)
+}
+
+#######
+
+rm(list = ls())
+source("analysis/code/yapsa_analysis.R")
+# default in_per_sample_cutoff is 0
+for (in_per_sample_cutoff in c(0, 0.01, 0.03, 0.06, 0.1)) {
+  run_yapsa("DBS", in_per_sample_cutoff)
+}
+
+#######
+
+rm(list = ls())
+source("analysis/code/deconstruct_analysis.R")
+# 0.06 is the default for signature.cutoff
+for (signature.cutoff in c(0, 0.03, 0.06, 0.1)) {
+  run_deconstruct("DBS", signature.cutoff)
+}
+
+#######
+
+rm(list = ls())
+source("analysis/code/sigest_analysis.R")
+run_sigest("DBS")
+
