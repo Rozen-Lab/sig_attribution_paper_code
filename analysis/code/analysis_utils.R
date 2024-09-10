@@ -644,64 +644,6 @@ get_msa_total_elapsed_time <- function(msa_output_dir, mc_cores) {
   return(msa_total_elapsed_time)
 }
 
-OLD_get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
-  rds_files <-
-    list.files(
-      path = ouput_dir,
-      full.names = TRUE, recursive = TRUE,
-      pattern = "^time_used.Rds"
-    )
-  tool_names <- basename(sub("/syn.*", "", rds_files))
-  total_cpu_seconds <- sapply(rds_files, FUN = function(file) {
-    tmp <- readRDS(file)
-    return(sum(tmp[c(1, 2, 4, 5)]))
-  })
-  names(total_cpu_seconds) <- tool_names
-
-  top_level_dirs <- list.dirs(path = ouput_dir, recursive = FALSE)
-  msa_dirs <- grep(pattern = "msa", x = top_level_dirs, value = TRUE)
-  msa_cpu_hours <- sapply(msa_dirs, FUN = function(msa_dir) {
-    get_msa_total_cpu_hours(
-      msa_output_dir = msa_dir,
-      mc_cores = mc_cores
-    )
-  })
-  msa_tool_names <- basename(sub("/syn.*", "", msa_dirs))
-  names(msa_cpu_hours) <- msa_tool_names
-  msa_cpu_seconds <- msa_cpu_hours * 60 * 60
-
-  total_cpu_seconds <- c(total_cpu_seconds, msa_cpu_seconds)
-  return(total_cpu_seconds)
-}
-
-OLD_get_elapsed_time <- function(ouput_dir, mc_cores = 1) {
-  rds_files <-
-    list.files(
-      path = ouput_dir,
-      full.names = TRUE, recursive = TRUE,
-      pattern = "^time_used.Rds"
-    )
-  tool_names <- basename(sub("/syn.*", "", rds_files))
-  elapsed_time <- sapply(rds_files, FUN = function(file) {
-    tmp <- readRDS(file)
-    return(tmp[3])
-  })
-  names(elapsed_time) <- tool_names
-
-  top_level_dirs <- list.dirs(path = ouput_dir, recursive = FALSE)
-  msa_dirs <- grep(pattern = "msa", x = top_level_dirs, value = TRUE)
-  msa_elapsed_time <- sapply(msa_dirs, FUN = function(msa_dir) {
-    get_msa_total_elapsed_time(
-      msa_output_dir = msa_dir,
-      mc_cores = mc_cores
-    )
-  })
-  msa_tool_names <- basename(sub("/syn.*", "", msa_dirs))
-  names(msa_elapsed_time) <- msa_tool_names
-  elapsed_time_all_tools <- c(elapsed_time, msa_elapsed_time)
-  return(elapsed_time_all_tools)
-}
-
 summarize_msa_results <- function(msa_output_dir, mut_type) {
   pattern <- paste0(mut_type, "_mutations_table.csv")
   exposure_files <-
