@@ -7,16 +7,18 @@ call_deconstruct <- function(spectra,
                              signatures, 
                              more_args
                              ) {
-  spectra <- t(spectra)
-  spectra <- spectra / rowSums(spectra) # This software runs on proportions
-  spectra <- as.data.frame(spectra)
+
+  my_spectra = sweep(spectra, 2, colSums(spectra), FUN = "/")
+  my_spectra <- as.data.frame(t(my_spectra))
+
   signatures <-as.data.frame(t(signatures))
 
   allretval <- 
-    lapply(rownames(spectra),
+    lapply(rownames(my_spectra),
            function(sample.id) {
+            
              retval <- deconstructSigs::whichSignatures(
-               tumor.ref = spectra,
+               tumor.ref = my_spectra,
                sample.id = sample.id,
                signatures.ref = signatures,
                contexts.needed = FALSE, # Not counts, proportions in the spectra
@@ -24,13 +26,15 @@ call_deconstruct <- function(spectra,
                # trinucleotide frequencies
                signature.cutoff = more_args$signature.cutoff  # The default is 0.06
              )
+
+             return(retval$weights)  # a data.frame
            })
   
   # Need to return an exposure matrix, with columns samples
   # and rows signatures
-  weights <- lapply(allretval, `[[`, "weights")
-  exposure_matrix <- t(do.call(rbind, weights))
-  exposure_matrix <- exposure_matrix * sum(spectra)
+  # browser()
+  proportion_matrix <- t(do.call(rbind, allretval))
+  exposure_matrix = sweep(proportion_matrix, 2, colSums(spectra), FUN = "*")
   return(exposure_matrix)
 }
 
