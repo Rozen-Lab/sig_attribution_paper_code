@@ -9,23 +9,21 @@ source("analysis/code/generic_analysis.R")
 
 call_sigest <- function(spectra, 
                         signatures, 
-                        more_args) {
-
-  one_sample = function(sample.id) {
-    spectrum = spectra[ , sample.id, drop = FALSE]
-    my.m = spectrum / sum(spectrum)
-
-    retval <- SignatureEstimation::decomposeQP(
-      m = my.m,
-      P = signatures
-    )
-    if (any(is.na(retval))) {
-      message("NA for ", sample.id)
-    }
-    return(retval * sum(spectrum))
-  }
-  
-  allretval <- lapply(colnames(spectra), one_sample)
+                        more_args
+) {
+  allretval <- 
+    lapply(colnames(spectra),
+           function(sample.id) {
+             my.m = spectra[ , sample.id, drop = FALSE]
+             retval <- SignatureEstimation::decomposeQP(
+               m = my.m,
+               P = signatures
+             )
+             if (any(is.na(retval))) {
+               message("NA for ", sample.id)
+             }
+             return(retval * sum(my.m))
+           })
   
   # Need to return an exposure matrix, with samples in columns
   # and signatures in rows

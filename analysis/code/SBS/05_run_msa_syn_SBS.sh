@@ -1,5 +1,13 @@
 #!/bin/bash
-PROJECT_DIR=/home/e0012078/packages/raw/paa_paper_code
+
+if [ "$(basename "$PWD")" = "sig_attribution_paper_code" ]; then
+  echo "Current directory is ok"
+else 
+  echo "Run this script from sig_attribution_paper_code" >&2
+  exit 1
+fi
+
+PROJECT_DIR="."
 DIR1=analysis/code/SBS/msa
 DIR2=analysis/code/SBS/msa_opt
 BASH_FILE_NAME=run_bash_script_syn_SBS.sh
