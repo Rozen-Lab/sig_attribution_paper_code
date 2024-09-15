@@ -5,11 +5,11 @@ source("synthetic_data/data_gen_code/data_gen_utils.R")
 library(dplyr)
 library(ggpubr)
 library(gridExtra)
-library(SynSigGen) # remotes::install_github(repo = "steverozen/SynSigGen", ref = "1.2.1-branch")
-library(ICAMS) # remotes::install_github("steverozen/ICAMS", ref = "v3.0.5-branch")
-library(mSigAct) # remotes::install_github(repo = "steverozen/mSigAct", ref = "v2.3.4-branch")
+library(SynSigGen) # remotes::install_github(repo = "steverozen/SynSigGen",ref = "1.2.2-branch")
+library(ICAMS) # remotes::install_github("steverozen/ICAMS", ref = "v3.0.8-branch")
+library(mSigAct) # remotes::install_github(repo = "steverozen/mSigAct", ref = "v3.0.1-branch")
 library(PCAWG7) # remotes::install_github(repo = "steverozen/PCAWG7", ref = "v0.1.3-branch")
-library(cosmicsig) # remotes::install_github(repo = "Rozen-Lab/cosmicsig", ref = "v1.0.7-branch")
+library(cosmicsig) # remotes::install_github(repo = "Rozen-Lab/cosmicsig", ref = "v1.2.0-branch")
 
 # Get the real exposure for tumors from selected cancer types
 real_exposure_id_all <- PCAWG7::exposure$PCAWG$ID
@@ -29,7 +29,7 @@ retval <- lapply(cancer_types, FUN = function(cancer_type) {
 })
 real_exposure_id <- do.call("cbind", retval)
 
-sigs_id <- cosmicsig::COSMIC_v3.2$signature$GRCh37$ID
+sigs_id <- cosmicsig::COSMIC_v3.4$signature$GRCh37$ID
 
 # Get the real tumor spectra from selected cancer types
 real_spectra_id <-
@@ -45,7 +45,7 @@ real_distance_id <- get_distance(
 # Add noise to noiseless synthetic data with different negative-binomial size
 # parameter
 dir_noiseless_id <-
-  "synthetic_data/ID/intermed_results/PCAWG.ID.syn.exposures.no.noise/"
+  "synthetic_data/ID/intermed_results/ID.syn.exposures.no.noise/"
 noiseless_data_id <- get_syn_data_info(dir = dir_noiseless_id)
 seed <- 658220
 
