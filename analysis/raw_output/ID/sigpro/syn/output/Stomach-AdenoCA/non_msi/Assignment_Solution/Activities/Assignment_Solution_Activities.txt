@@ -57,7 +57,7 @@ Stomach-AdenoCA::S.55	681	400	0	445	573	0	301	0
 Stomach-AdenoCA::S.56	269	576	0	0	0	0	0	0
 Stomach-AdenoCA::S.57	1057	118	0	0	0	0	0	0
 Stomach-AdenoCA::S.58	150	169	0	339	0	0	0	0
-Stomach-AdenoCA::S.59	146	519	0	331	0	0	0	0
+Stomach-AdenoCA::S.59	150	532	0	329	0	0	0	0
 Stomach-AdenoCA::S.60	1393	408	0	0	0	0	0	0
 Stomach-AdenoCA::S.61	132	655	0	511	475	0	0	0
 Stomach-AdenoCA::S.62	630	683	0	0	0	0	0	1995

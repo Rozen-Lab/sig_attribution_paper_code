@@ -11,7 +11,7 @@ L2 Error %: 0.03
 Cosine Similarity: 1.0
 ############################## Composition After Initial Remove ###############################
            ID1          ID2
-0  3676.368294  9834.631706
+0  3676.368295  9834.631705
 L2 Error %: 0.03
 Cosine Similarity: 1.0
 

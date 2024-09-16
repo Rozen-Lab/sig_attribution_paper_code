@@ -11,7 +11,7 @@ L2 Error %: 0.25
 Cosine Similarity: 0.97
 ############################## Composition After Initial Remove ###############################
           ID1         ID4         ID5        ID13
-0  112.854849  505.853173  397.436316  152.855661
+0  112.854849  505.853172  397.436317  152.855661
 L2 Error %: 0.3
 Cosine Similarity: 0.95
 
@@ -131,7 +131,7 @@ L2 Error %: 0.15
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID5        ID13
-0  311.762145  478.237855
+0  311.762144  478.237856
 L2 Error %: 0.19
 Cosine Similarity: 0.98
 
@@ -251,7 +251,7 @@ L2 Error %: 0.16
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
          ID1         ID2         ID5         ID8
-0  30.330322  129.926607  240.870556  174.872515
+0  30.330322  129.926607  240.870556  174.872514
 L2 Error %: 0.2
 Cosine Similarity: 0.98
 
@@ -331,7 +331,7 @@ L2 Error %: 0.23
 Cosine Similarity: 0.97
 ############################## Composition After Initial Remove ###############################
           ID1        ID2         ID5
-0  128.456818  41.648804  366.894378
+0  128.456818  41.648804  366.894379
 L2 Error %: 0.25
 Cosine Similarity: 0.97
 
@@ -371,7 +371,7 @@ L2 Error %: 0.27
 Cosine Similarity: 0.96
 ############################## Composition After Initial Remove ###############################
           ID2         ID8        ID13
-0  106.022558  503.301671  389.675771
+0  106.022558  503.301672  389.675771
 L2 Error %: 0.33
 Cosine Similarity: 0.94
 
@@ -451,7 +451,7 @@ L2 Error %: 0.15
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
          ID1         ID2         ID5         ID8        ID13
-0  57.281723  127.878085  532.679576  303.267644  110.892973
+0  57.281723  127.878085  532.679576  303.267643  110.892973
 L2 Error %: 0.16
 Cosine Similarity: 0.99
 
@@ -571,7 +571,7 @@ L2 Error %: 0.15
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID8        ID13
-0  282.417861  957.582139
+0  282.417862  957.582138
 L2 Error %: 0.22
 Cosine Similarity: 0.98
 
@@ -611,7 +611,7 @@ L2 Error %: 0.13
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID1         ID4         ID5        ID13
-0  280.154026  169.170798  459.678716  325.996459
+0  280.154027  169.170798  459.678716  325.996459
 L2 Error %: 0.15
 Cosine Similarity: 0.99
 
@@ -690,8 +690,8 @@ Cosine Similarity: 0.95
 L2 Error %: 0.23
 Cosine Similarity: 0.97
 ############################## Composition After Initial Remove ###############################
-         ID1        ID5         ID8        ID13
-0  80.689942  331.98968  272.296706  162.023672
+         ID1         ID5         ID8        ID13
+0  80.689942  331.989681  272.296706  162.023672
 L2 Error %: 0.24
 Cosine Similarity: 0.97
 
@@ -770,8 +770,8 @@ Cosine Similarity: 0.98
 L2 Error %: 0.17
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
-         ID1          ID5         ID8       ID13
-0  93.373431  1111.788323  222.108026  175.73022
+         ID1          ID5         ID8        ID13
+0  93.373431  1111.788323  222.108025  175.730221
 L2 Error %: 0.21
 Cosine Similarity: 0.98
 
@@ -1331,7 +1331,7 @@ L2 Error %: 0.25
 Cosine Similarity: 0.97
 ############################## Composition After Initial Remove ###############################
          ID1         ID5        ID8
-0  55.361615  907.250245  147.38814
+0  55.361615  907.250246  147.38814
 L2 Error %: 0.28
 Cosine Similarity: 0.96
 
@@ -1491,7 +1491,7 @@ L2 Error %: 0.35
 Cosine Similarity: 0.94
 ############################## Composition After Initial Remove ###############################
         ID1         ID5        ID8        ID9
-0  58.76781  305.847952  79.611913  85.772326
+0  58.76781  305.847952  79.611912  85.772326
 L2 Error %: 0.35
 Cosine Similarity: 0.94
 
@@ -1531,7 +1531,7 @@ L2 Error %: 0.27
 Cosine Similarity: 0.96
 ############################## Composition After Initial Remove ###############################
          ID1         ID5         ID8
-0  23.762072  172.222896  116.015032
+0  23.762072  172.222896  116.015031
 L2 Error %: 0.27
 Cosine Similarity: 0.96
 
@@ -1651,7 +1651,7 @@ L2 Error %: 0.19
 Cosine Similarity: 0.98
 ############################## Composition After Initial Remove ###############################
          ID1         ID5         ID8        ID13
-0  42.627078  158.019341  144.923615  158.429965
+0  42.627078  158.019341  144.923615  158.429966
 L2 Error %: 0.23
 Cosine Similarity: 0.97
 
@@ -1771,7 +1771,7 @@ L2 Error %: 0.16
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID5         ID8        ID13
-0  717.682508  196.381178  423.936314
+0  717.682507  196.381178  423.936315
 L2 Error %: 0.2
 Cosine Similarity: 0.98
 
@@ -1811,7 +1811,7 @@ L2 Error %: 0.19
 Cosine Similarity: 0.98
 ############################## Composition After Initial Remove ###############################
          ID1         ID5        ID13
-0  168.30374  301.064402  268.631857
+0  168.30374  301.064402  268.631858
 L2 Error %: 0.21
 Cosine Similarity: 0.98
 
@@ -1931,7 +1931,7 @@ L2 Error %: 0.28
 Cosine Similarity: 0.96
 ############################## Composition After Initial Remove ###############################
           ID5       ID13
-0  313.491026  86.508974
+0  313.491025  86.508975
 L2 Error %: 0.33
 Cosine Similarity: 0.94
 
@@ -2131,7 +2131,7 @@ L2 Error %: 0.13
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID5         ID13
-0  808.564304  1516.435696
+0  808.564303  1516.435697
 L2 Error %: 0.17
 Cosine Similarity: 0.99
 
@@ -2411,7 +2411,7 @@ L2 Error %: 0.07
 Cosine Similarity: 1.0
 ############################## Composition After Initial Remove ###############################
           ID1         ID5
-0  587.505192  309.494808
+0  587.505191  309.494809
 L2 Error %: 0.09
 Cosine Similarity: 1.0
 
@@ -2451,7 +2451,7 @@ L2 Error %: 0.32
 Cosine Similarity: 0.95
 ############################## Composition After Initial Remove ###############################
           ID1          ID4         ID8        ID13
-0  217.560153  1916.900833  479.578127  724.960888
+0  217.560153  1916.900833  479.578127  724.960887
 L2 Error %: 0.34
 Cosine Similarity: 0.94
 
@@ -2771,7 +2771,7 @@ L2 Error %: 0.11
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID1         ID5         ID8        ID13
-0  120.055559  449.355558  363.847287  623.741596
+0  120.055559  449.355557  363.847287  623.741597
 L2 Error %: 0.13
 Cosine Similarity: 0.99
 
@@ -2811,7 +2811,7 @@ L2 Error %: 0.13
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID1        ID5        ID13
-0  128.147085  243.54407  316.308845
+0  128.147085  243.54407  316.308846
 L2 Error %: 0.14
 Cosine Similarity: 0.99
 
@@ -2891,7 +2891,7 @@ L2 Error %: 0.08
 Cosine Similarity: 1.0
 ############################## Composition After Initial Remove ###############################
           ID2         ID9        ID13
-0  178.544684  123.226114  665.229202
+0  178.544684  123.226113  665.229203
 L2 Error %: 0.08
 Cosine Similarity: 1.0
 
@@ -3131,7 +3131,7 @@ L2 Error %: 0.31
 Cosine Similarity: 0.95
 ############################## Composition After Initial Remove ###############################
          ID1         ID5
-0  83.072676  741.927324
+0  83.072675  741.927325
 L2 Error %: 0.33
 Cosine Similarity: 0.94
 
@@ -3251,7 +3251,7 @@ L2 Error %: 0.13
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID1         ID8        ID13
-0  101.060394  164.175678  711.763927
+0  101.060395  164.175678  711.763927
 L2 Error %: 0.15
 Cosine Similarity: 0.99
 
@@ -3331,7 +3331,7 @@ L2 Error %: 0.14
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID5         ID8        ID13
-0  593.507573  519.729343  627.763084
+0  593.507572  519.729343  627.763085
 L2 Error %: 0.17
 Cosine Similarity: 0.99
 
@@ -3451,7 +3451,7 @@ L2 Error %: 0.17
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
           ID1        ID2         ID5
-0  139.845375  42.716728  316.437896
+0  139.845375  42.716728  316.437897
 L2 Error %: 0.18
 Cosine Similarity: 0.98
 
@@ -3690,8 +3690,8 @@ Cosine Similarity: 0.98
 L2 Error %: 0.16
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
-         ID1         ID5         ID8        ID13
-0  102.75839  476.999371  808.586478  756.655761
+         ID1        ID5         ID8        ID13
+0  102.75839  476.99937  808.586479  756.655762
 L2 Error %: 0.17
 Cosine Similarity: 0.99
 
@@ -3730,8 +3730,8 @@ Cosine Similarity: 0.99
 L2 Error %: 0.2
 Cosine Similarity: 0.98
 ############################## Composition After Initial Remove ###############################
-       ID1        ID2         ID5        ID8       ID13
-0  80.1698  39.127722  201.303079  62.124608  142.27479
+       ID1        ID2        ID5        ID8       ID13
+0  80.1698  39.127722  201.30308  62.124608  142.27479
 L2 Error %: 0.21
 Cosine Similarity: 0.98
 
@@ -3850,8 +3850,8 @@ Cosine Similarity: 0.98
 L2 Error %: 0.13
 Cosine Similarity: 0.99
 ############################## Composition After Initial Remove ###############################
-         ID1        ID2         ID8        ID13
-0  157.31785  47.915112  395.312095  325.454942
+          ID1        ID2         ID8        ID13
+0  157.317851  47.915112  395.312095  325.454942
 L2 Error %: 0.13
 Cosine Similarity: 0.99
 
