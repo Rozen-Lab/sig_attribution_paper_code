@@ -126,8 +126,10 @@ get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
     msa_tool_names <- basename(sub("/syn.*", "", msa_dirs))
     names(msa_cpu_hours) <- msa_tool_names
     msa_cpu_seconds <- msa_cpu_hours * 60 * 60
-    
-    total_cpu_seconds <- c(total_cpu_seconds, msa_cpu_seconds)
+    # browser()
+    msa_table = tibble(tool_name = names(msa_cpu_seconds),
+                       total_cpu_sec = msa_cpu_hours)
+    total_cpu_seconds <- rbind(total_cpu_seconds, msa_table)
   } else {
     message("No MSA results")
   }
@@ -135,11 +137,95 @@ get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
     dplyr::summarise(sum_of_cpu_by_cancer_type = sum(cpu_seconds)) ->
     sum_cpu_by_cancer_type
   
-  new_total_cpu = dplyr::full_join(total_cpu_seconds, sum_cpu_by_cancer_type)
-    
   # browser()
+  new_total_cpu = dplyr::full_join(total_cpu_seconds, sum_cpu_by_cancer_type)
+
   return(list(total_cpu_seconds          = new_total_cpu, 
               cpu_seconds_by_cancer_type = cpu_by_cancer_type))
+}
+
+
+get_msa_cpu_hours <- function(html_file) {
+  html <- read_html(html_file)
+  
+  all_text <- html %>%
+    html_nodes("div") %>%
+    html_text()
+  
+  tmp <- grep(pattern = "CPU-Hours", x = all_text, value = TRUE)[1]
+  tmp2 <- unlist(stringr::str_split(string = tmp, pattern = "\n"))
+  index <- grep(pattern = "CPU-Hours", x = tmp2)
+  cpu_hours <- as.numeric(tmp2[index + 1])
+  return(cpu_hours)
+}
+
+
+get_msa_total_cpu_hours <- function(msa_output_dir, mc_cores) {
+  msa_time_files <- list.files(
+    path = msa_output_dir,
+    full.names = TRUE, recursive = TRUE,
+    pattern = "^MSA-nf_report.html"
+  )
+  msa_time_files2 <-
+    grep(
+      pattern = "/raw/", x = msa_time_files, invert = TRUE,
+      value = TRUE
+    )
+  
+  msa_cpu_hours <-
+    parallel::mclapply(msa_time_files2,
+                       FUN = get_msa_cpu_hours,
+                       mc.cores = mc_cores
+    )
+  
+  total_cpu_hours <- sum(unlist(msa_cpu_hours))
+  return(total_cpu_hours)
+}
+
+get_msa_total_elapsed_time <- function(msa_output_dir, mc_cores) {
+  msa_time_files <- list.files(
+    path = msa_output_dir,
+    full.names = TRUE, recursive = TRUE,
+    pattern = "^MSA-nf_report.html"
+  )
+  msa_time_files2 <-
+    grep(
+      pattern = "/raw/", x = msa_time_files, invert = TRUE,
+      value = TRUE
+    )
+  
+  msa_elapsed_time <-
+    parallel::mclapply(msa_time_files2,
+                       FUN = get_msa_elapsed_time,
+                       mc.cores = mc_cores
+    )
+  
+  msa_total_elapsed_time <- sum(unlist(msa_elapsed_time))
+  return(msa_total_elapsed_time)
+}
+
+get_msa_elapsed_time <- function(html_file) {
+  html <- read_html(html_file)
+  
+  all_text <- html %>%
+    html_nodes("div") %>%
+    html_text()
+  
+  tmp <- grep(pattern = "duration", x = all_text, value = TRUE)[1]
+  tmp2 <- unlist(stringr::str_split(string = tmp, pattern = "\n"))
+  tmp3 <- grep(pattern = "duration", x = tmp2, value = TRUE)
+  minute_used <-
+    as.numeric(na.omit(stringr::str_extract(
+      string = tmp3,
+      pattern = "(\\d)+(?=m)"
+    )))
+  seconds_used <-
+    as.numeric(na.omit(stringr::str_extract(
+      string = tmp3,
+      pattern = "(\\d)+(?=s)"
+    )))
+  elapsed_seconds <- minute_used * 60 + seconds_used
+  return(elapsed_seconds)
 }
 
 

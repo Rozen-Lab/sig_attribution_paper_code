@@ -11,30 +11,17 @@ call_musical <- function (spectra,
                           "musical/syn")
   msi_str     = ifelse(more_args$is_msi, "msi", "non_msi")
   
-  # Need to put the files in sigpro input dir!!!  
-  sigpro_input_dir       = file.path(sigpro_path, "input", more_args$cancer_type, msi_str)
-  sigpro_output_dir      = file.path(sigpro_path, "output", more_args$cancer_type, msi_str)
+  # Need to put the .tsv files for one run of musical in a place from which python can read them
+  input_dir  = file.path(sigpro_path, "input", more_args$cancer_type, msi_str)
+  write_musical_input(spectra, signatures, input_dir)
   
-  write_sigpro_input(spectra, signatures, sigpro_input_dir)
-  
-  expsoures = py_run_string('run_musical()')
+  # expsoures = py_run_string('run_musical()')
   # or?
+  browser()
   dictionary = py_run_string('exposures = run_musical()')
   
-  
-  
-  
-  #....... the rest is old
-  sigpro_exposure <-
-    execute_sigpro_in_r(
-      python_bin      = more_args$python_bin,
-      run_sigpro_file = "analysis/code/run_sigpro.py",
-      input_dir       = sigpro_input_dir,
-      output_dir      = sigpro_output_dir,
-      seed_in_use     = more_args$seed_in_use,
-      context_type    = more_args$context_type
-    )
-  return(sigpro_exposure)
+  return(dictionary)
+
 } 
 
 
@@ -70,8 +57,9 @@ NOT_NEEDED_EXCEPT_READ_TABLE_execute_sigpro_in_r <-
     return(sigpro_exposure)
   }
 
-
-write_sigpro_input <- function(catalog, sig, output_dir) {
+# This is a copy of write_sigpro_input
+# Create tsv files for one run of musical
+write_musical_input <- function(catalog, sig, output_dir) {
   if (!dir.exists(output_dir)) {
     dir.create(output_dir, recursive = TRUE)
   }
@@ -88,7 +76,7 @@ write_sigpro_input <- function(catalog, sig, output_dir) {
 
 run_musical <- function(mut_type, more_args) {
   use_condaenv("musical2")
-  source_python("analysis/code/musical_analysis.py")
+  source_python("analysis/code/run_musical.py")
   # browser()
   output_home <-
     file.path("analysis/raw_output", mut_type, "musical/syn")
