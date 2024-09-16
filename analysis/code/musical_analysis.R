@@ -1,11 +1,14 @@
 source("analysis/code/generic_analysis.R")
 
-call_sigpro <- function (spectra, 
+library(reticulate)
+
+# Run musical on one set of spectra with one set of signatures
+call_musical <- function (spectra, 
                          signatures, 
                          more_args) {
   sigpro_path = file.path("analysis/raw_output", 
                           more_args$mutation_type, 
-                          "sigpro/syn")
+                          "musical/syn")
   msi_str     = ifelse(more_args$is_msi, "msi", "non_msi")
   
   # Need to put the files in sigpro input dir!!!  
@@ -14,6 +17,14 @@ call_sigpro <- function (spectra,
   
   write_sigpro_input(spectra, signatures, sigpro_input_dir)
   
+  expsoures = py_run_string('run_musical()')
+  # or?
+  dictionary = py_run_string('exposures = run_musical()')
+  
+  
+  
+  
+  #....... the rest is old
   sigpro_exposure <-
     execute_sigpro_in_r(
       python_bin      = more_args$python_bin,
@@ -38,7 +49,7 @@ call_sigpro <- function (spectra,
 # possible msi folder, whicih contains sigpro output
 
 
-execute_sigpro_in_r <-
+NOT_NEEDED_EXCEPT_READ_TABLE_execute_sigpro_in_r <-
   function(python_bin, run_sigpro_file, input_dir,
            output_dir, seed_in_use, context_type) {
     py_args <-
@@ -75,16 +86,17 @@ write_sigpro_input <- function(catalog, sig, output_dir) {
 }
 
 
-run_sigpro <- function(mut_type, more_args) {
+run_musical <- function(mut_type, more_args) {
+  use_condaenv("musical2")
+  source_python("analysis/code/musical_analysis.py")
   # browser()
   output_home <-
-    file.path("analysis/raw_output", mut_type, "sigpro/syn")
+    file.path("analysis/raw_output", mut_type, "musical/syn")
   more_args$mutation_type = mut_type
   run_generic_syn(
     dataset_name = mut_type,
     output_home = output_home, # Duplicate info here and in call_sigpro
-    attribute_function = call_sigpro,
+    attribute_function = call_musical,
     more_args = more_args
   )
 }
-
