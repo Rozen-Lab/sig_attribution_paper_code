@@ -113,18 +113,18 @@ sum(num_samples_msi_scaled) + sum(num_samples_pole_scaled) +
 ##                 Generation of synthetic data                 ##
 ##################################################################
 
-output_dir_id_no_msi_pole <- "./synthetic_data/ID/intermed_results/PCAWG.ID.syn.exposures.no.msi.pole"
-output_dir_id_msi <- "./synthetic_data/ID/intermed_results/PCAWG.ID.syn.exposures.msi"
-output_dir_id_pole <- "./synthetic_data/ID/intermed_results/PCAWG.ID.syn.exposures.pole"
-output_dir_id <- "./synthetic_data/ID/intermed_results/PCAWG.ID.syn.exposures.no.noise"
-output_dir_id_nb_size_4 <-
-  "./synthetic_data/ID/intermed_results/PCAWG.ID.syn.exposures.noisy.neg.binom.size.4"
+output_dir_id_no_msi_pole <- "./synthetic_data/ID/intermed_results/ID.syn.exposures.no.msi.pole"
+output_dir_id_msi <- "./synthetic_data/ID/intermed_results/ID.syn.exposures.msi"
+output_dir_id_pole <- "./synthetic_data/ID/intermed_results/ID.syn.exposures.pole"
+output_dir_id <- "./synthetic_data/ID/intermed_results/ID.syn.exposures.no.noise"
+output_dir_id_nb_size_selected <-
+  "./synthetic_data/ID/intermed_results/ID.syn.exposures.noisy.neg.binom.size.selected"
 
 distribution <- "neg.binom"
 sample_prefix_name <- ""
 mutation_type <- "ID"
 seed <- 658220
-input_sigs_id <- cosmicsig::COSMIC_v3.2$signature$GRCh37$ID
+input_sigs_id <- cosmicsig::COSMIC_v3.4$signature$GRCh37$ID
 
 sig_params_id_nine_types <-
   SynSigGen:::GetSynSigParamsFromExposures(
@@ -218,23 +218,24 @@ mSigTools::write_exposure(
   file     = file.path(output_dir_id, "ground.truth.syn.exposures.csv"))
 
 # Add noise to the synthetic tumors
-id_noisy_tumors_size_4 <-
+id_noisy_tumors_size_selected <-
   SynSigGen::GenerateNoisyTumors(
     seed = seed,
-    dir = output_dir_id_nb_size_4,
+    dir = output_dir_id_nb_size_selected,
     input.exposure = synthetic_exposures_id,
     signatures = input_sigs_id,
     n.binom.size = 4
   )
 
-noisy_exposures_size_4_id <- id_noisy_tumors_size_4$exposures
+noisy_exposures_size_selected_id <- 
+  id_noisy_tumors_size_selected$exposures
 
 get_sig_universes(
   exposures = real_exposures_id, 
-  filename = file.path(output_dir_id_nb_size_4,
+  filename = file.path(output_dir_id_nb_size_selected,
                        "ground.truth.sig.universe.csv"),
   sigs = input_sigs_id,
-  sig_file = file.path(output_dir_id_nb_size_4,
+  sig_file = file.path(output_dir_id_nb_size_selected,
                        "ground.truth.sigs.csv"))
 
 #################################################################
@@ -251,7 +252,7 @@ par(mfrow = c(3, 3))
 plot_exposure_distribution(
   real_exposure = real_exposures_id,
   synthetic_exposure = synthetic_exposures_id,
-  noisy_exposure = noisy_exposures_size_4_id,
+  noisy_exposure = noisy_exposures_size_selected_id,
   size = 4,
   distribution = distribution,
   sig_params = sig_params_id_nine_types,
@@ -265,7 +266,7 @@ grDevices::dev.off()
 
 source("synthetic_data/data_gen_code/data_gen_rename.R")
 
-old_dataset_names <- basename(output_dir_id_nb_size_4)
+old_dataset_names <- basename(output_dir_id_nb_size_selected)
 
 data_gen_rename(dataset = "ID",
                 old_dataset_name = old_dataset_names, 
