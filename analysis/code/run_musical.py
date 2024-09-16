@@ -11,7 +11,7 @@ Run this with the top level directory as the working directory.
 
 """
 
-def run_musical(in_directory, out_directory, seed_in_use):
+def run_musical(in_directorytop, seed_in_use):
   import numpy as np
   import pandas as pd
   # import scipy.stats as stats
