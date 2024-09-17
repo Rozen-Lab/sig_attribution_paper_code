@@ -32,10 +32,9 @@ all_stats <- function(xx, mc_cores) {
   one.row <- function(ii) {
     # ii is a row index in xx
     
-    if (ii == 7020) {
+    if (ii == 8101) {
       browser()
-      message("row 7020")
-      # stop("row 7020")
+      message("row 8101")
     }
     rr <- xx[ii, ]
     # rr is a 1-row tibble
@@ -55,6 +54,12 @@ all_stats <- function(xx, mc_cores) {
       gt <- dplyr::mutate(gt, Sample.ID = NULL, Tool = NULL)
       me <- dplyr::mutate(rr, Sample.ID = NULL, Tool = NULL)
       stopifnot(colnames(gt) == colnames(me))
+      if (!all(dim(gt) == dim(me))) {
+        print(dim(gt))
+        print(dim(me))
+
+        browser()
+      }
       md <- sum(abs(gt - me))
 
       called.pos <- which(me > 0)

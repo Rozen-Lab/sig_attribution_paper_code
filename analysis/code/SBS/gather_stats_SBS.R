@@ -1,23 +1,7 @@
-source("analysis/code/analysis_utils.R")
+# Run this script with the top level directory as the working directory
+stopifnot(basename(getwd()) == "sig_attribution_paper_code")
+rm(list = ls())
+source("analysis/code/gather_stats_any.R")
 library(parallel)
 
-syn_exp_files <- list.files(
-  path = "analysis/raw_output/SBS/",
-  full.names = TRUE, recursive = TRUE,
-  pattern = "^inferred_exposures.csv"
-)
-tool_names <- basename(sub("/syn.*", "", syn_exp_files))
-
-dataset <- "SBS"
-output_dir_syn <- "analysis/summary/SBS/syn"
-
-total_cores <- parallel::detectCores()
-cores_to_use <- total_cores / 2
-
-compare_syn_results(
-  dataset = dataset,
-  syn_exp_files = syn_exp_files,
-  tool_names = tool_names,
-  output_dir = output_dir_syn,
-  mc_cores = cores_to_use
-)
+gather_stats_any("SBS")
