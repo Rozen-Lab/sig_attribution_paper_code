@@ -2,6 +2,5 @@
 stopifnot(basename(getwd()) == "sig_attribution_paper_code")
 rm(list = ls())
 source("analysis/code/gather_stats_any.R")
-library(parallel)
 
 gather_stats_any("DBS")

@@ -10,14 +10,13 @@ gather_stats_any = function(mutation_type) {
   )
   tool_names <- basename(sub("/syn.*", "", syn_exp_files))
   
-  dataset <- "ID"
   output_dir_syn <- file.path("analysis/summary", mutation_type, "syn")
   
   total_cores <- parallel::detectCores()
   cores_to_use <- total_cores / 2
   
   compare_syn_results(
-    dataset = dataset,
+    dataset = mutation_type,
     syn_exp_files = syn_exp_files,
     tool_names = tool_names,
     output_dir = output_dir_syn,
