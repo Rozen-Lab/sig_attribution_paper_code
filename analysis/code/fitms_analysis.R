@@ -20,7 +20,7 @@ call_fitms <- function(spectra, signatures, more_args) {
   common_sig_names <- base::intersect(common_sig_names, colnames(signatures))
   ##                                    
   
-  message("Common ", common_sig_names)
+  # message("Common ", common_sig_names)
 
   rare_sig_names <- names(sig_props)[sig_props < rare_sig_threshold]
   
@@ -28,7 +28,7 @@ call_fitms <- function(spectra, signatures, more_args) {
   rare_sig_names <- base::intersect(rare_sig_names, colnames(signatures))
   ##
   
-  message("rare", rare_sig_names)
+  # message("rare", rare_sig_names)
   
   if (length(common_sig_names) > 0) {
     common_sig <- signatures[, common_sig_names, drop = FALSE]
@@ -54,10 +54,11 @@ call_fitms <- function(spectra, signatures, more_args) {
 }
 
 run_fitms <- function(mut_type, rare_sig_threshold) {
-  out_fragment = paste0("fitms_", formatC(rare_sig_threshold, digits = 2, format = "f"))
+  out_fragment = paste0("fitms_", formatC(rare_sig_threshold, digits = 3, format = "f"))
   more_args <- list(rare_sig_threshold = rare_sig_threshold)
   output_home <-
     file.path("analysis/raw_output", mut_type, out_fragment, "syn")
+  message("Writing fitms with rare_sig_threshold ", rare_sig_threshold, " to ", output_home)
   
   run_generic_syn(
     dataset_name = mut_type,
