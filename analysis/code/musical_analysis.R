@@ -1,6 +1,9 @@
 source("analysis/code/generic_analysis.R")
 
-library(reticulate)
+# library(reticulate)
+# 
+# This code requires conda and the musical2 conda environment; see
+# file conda_env_for_musica.yml in this directory
 
 # Run musical on one set of spectra with one set of signatures
 call_musical <- function (spectra, 
