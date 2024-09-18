@@ -559,7 +559,7 @@ one_boxplot_all_types <-
       theme(
         plot.title = element_text(size = 11),
         axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 45, vjust = 0.5),
+        axis.text.x = element_text(angle = 90, vjust = 0.5),
         legend.position = legend_position,
         plot.margin = margin(
           t = 5,
@@ -637,7 +637,7 @@ one_boxplot_by_type <-
       plot_object <-
         plot_object +
         theme(
-          axis.text.x = element_text(angle = 45, vjust = 0.5),
+          axis.text.x = element_text(angle = 90, vjust = 0.5),
           legend.position = "bottom",
           axis.text.y = element_blank(),
           axis.title.y = element_blank(),
