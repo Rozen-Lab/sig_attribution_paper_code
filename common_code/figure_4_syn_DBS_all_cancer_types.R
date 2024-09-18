@@ -1,25 +1,23 @@
-# Run this script from the top level directory
+# Run this script with the top level directory as the working directory
+stopifnot(basename(getwd()) == "sig_attribution_paper_code")
+rm(list = ls())
 
-source("analysis/code/analysis_utils.R")
+source("common_code/plot_functions.R")
 
 data_home <- "analysis/summary/DBS/syn/"
-indata <-
+orig_indata <-
   data.table::fread(file.path(data_home, "assessment_each_sample.csv"))
-indata <- change_tool_names(indata)
+indata <- change_tool_names(orig_indata)
 
 plot_objects <-
-  boxplots_all_types(
-    assesment_by_sample = indata
+  boxplots_combined_cancer_types(
+    assesment_by_sample = indata,
+    tools_to_plot = global_tools_to_plot
   )
-
-output_home <- "output_for_paper/"
 
 ggplot_to_pdf(
   plot_objects = plot_objects,
-  file = file.path(
-    output_home,
-    "figure_4_syn_DBS_all_cancer_types.pdf"
-  ),
+  file = "figure_4_DBS_all_cancer_types.pdf",
   nrow = 4, ncol = 2,
   width = 8.2677, height = 11.6929, units = "in"
 )
