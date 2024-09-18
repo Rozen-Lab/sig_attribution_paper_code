@@ -167,7 +167,7 @@ compute_and_write_stats <- function(exposure_all, output_dir, mc_cores) {
     ) ->
   summary.stats
 
-  summary.stats2 <- dplyr::arrange(summary.stats, desc(med.Combined))
+  summary.stats2 <- dplyr::arrange(summary.stats, desc(m.Combined))
 
   write.csv(summary.stats2,
     file = file.path(output_dir, "all_summary_stats.csv")

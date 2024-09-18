@@ -13,17 +13,17 @@ all_tools =
   c("PASA", "musical", "fitms_0.010", "fitms_0.030", "fitms_0.060",  "fitms_0.005", 
     "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "yapsa_0.01", "deconstruct_0.06",
     "yapsa_0.06", "mutsig", "yapsa_0.00",  "deconstruct_0.10", "deconstruct_0.00", "yapsa_0.10",
-    "QP_null",  "sigest")
+    "QP_null",  "sigest", "msa", "msa_opt")
 
 # These need to be the display tool names
 global_tools_to_plot =
   c("PASA", "MuSiCal", "FitMS_01",  
-    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP")
+    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", "MSA_opt")
 
 
 raw_tools_to_plot = 
   c("PASA", "musical", "fitms_0.010",  
-    "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest")
+    "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest", 'msa_opt')
 
 change_tool_names <- function(dt) {
   dt[Tool == "pasa", Tool := "PASA"]
@@ -55,9 +55,9 @@ old_custom_colors <-
   )
 
 custom_colors =
-  rev(RColorBrewer::brewer.pal(9, "Set1"))
+  rev(RColorBrewer::brewer.pal(10, "Set3"))
 canonical_tool_order =
-  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP")
+  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP", "MSA_opt")
 names(custom_colors) = canonical_tool_order
 
 
@@ -116,10 +116,19 @@ one_boxplot_by_cancer_type <-
     last_plot = TRUE
     measure <- sym(measure)
     xlab <- sym(xlab)
-
+    # browser()
     plot_object <-
       ggplot(df, aes(x = !!xlab, y = !!measure, fill = Tool)) +
       geom_boxplot(outlier.size = 0.1, outlier.color = "grey") +
+      
+      
+      stat_summary(
+        fun = mean, geom = "point", shape = 18,
+        size = 2, color = "red", fill = "red"
+      ) +
+      
+      
+      
       scale_fill_manual(values = custom_colors) +
       theme_minimal() +
       theme(
@@ -136,7 +145,7 @@ one_boxplot_by_cancer_type <-
       ) +
       ggtitle(main) +
       ylab(ylab) +
-      scale_y_continuous(labels = scale_fn)
+      scale_y_continuous(labels = scale_fn) + coord_cartesian(ylim = c(0, NA))
     
     if (last_plot) {
       plot_object <-
@@ -314,8 +323,8 @@ one_boxplot_combined_cancer_types <-
       ) +
       ggtitle(main) +
       ylab(ylab) +
-      scale_y_continuous(labels = scale_fn)
-    
+      scale_y_continuous(labels = scale_fn) + coord_cartesian(ylim = c(0, NA))
+    # browser()
     return(plot_object)
   }
 
