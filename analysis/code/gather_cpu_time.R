@@ -22,14 +22,16 @@ gather_cpu_info = function(mutation_type) {
     )
   }
   
-  # Get the tool order
-  output_dir_syn <- file.path("analysis/summary", mutation_type, "syn")
-  summary_stats <-
-    read.csv(file = file.path(output_dir_syn, "all_summary_stats.csv"))
-  summary_stats2 <- dplyr::arrange(summary_stats, desc(med.Combined))
-  tool_order <- summary_stats2$Tool
+  output_dir_syn <- file.path("analysis/summary", mutation_type)
   
   if (FALSE) { # Skipping odering rows for now 2024 09 10
+    # Get the tool order
+
+    summary_stats <-
+      read.csv(file = file.path(output_dir_syn, "all_summary_stats.csv"))
+    summary_stats2 <- dplyr::arrange(summary_stats, desc(med.Combined))
+    tool_order <- summary_stats2$Tool
+    
     to2 = 1:length(tool_order)
     
     browser()
@@ -37,7 +39,6 @@ gather_cpu_info = function(mutation_type) {
     names(to2) = tool_order
     df = dplyr::arrange(total_cpu_seconds, to2[tool_name])
   }
-  
 
   write_1_table = function(value, basename) {
     fpath = file.path(output_dir_syn, basename)
@@ -49,8 +50,11 @@ gather_cpu_info = function(mutation_type) {
     )
   }
   
-  write_1_table(total_cpu_seconds, "total_cpu_seconds.csv")
-  write_1_table(cpu_seconds_by_cancer_type, "cpu_seconds_by_cancer_type.csv")
+  write_1_table(total_cpu_seconds, 
+                paste0("total_cpu_seconds_", mutation_type, ".csv"))
+                
+  write_1_table(cpu_seconds_by_cancer_type, 
+                paste0("cpu_seconds_by_cancer_type_", mutation_type, ".csv"))
   
   if (FALSE) {
     elapsed_time2 <- elapsed_time[tool_order]
