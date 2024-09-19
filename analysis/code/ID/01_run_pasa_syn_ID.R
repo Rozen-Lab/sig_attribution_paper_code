@@ -1,19 +1,14 @@
 # Run this script with the top level directory as the working directory
-source("analysis/code/analysis_utils.R")
+stopifnot(basename(getwd()) == "sig_attribution_paper_code")
+rm(list = ls())
+source("analysis/code/pasa_analysis.R")
 
-output_home <- "analysis/raw_output/ID/pasa/syn"
-total_cores <- parallel::detectCores()
+total_cores <- parallel::detectCores() # 256 on the machine we are using
 mc_cores_per_sample <- min(5, total_cores)
-num_parallel_samples <- floor(total_cores / mc_cores_per_sample)
-
-time_used <- system.time({
-  run_pasa_syn(
-    dataset_name = "ID",
-    output_home = output_home,
-    seed_in_use = 145879,
-    num_parallel_samples = num_parallel_samples,
-    mc_cores_per_sample = mc_cores_per_sample
-  )
-})
-
-saveRDS(time_used, file = file.path(output_home, "time_used.Rds"))
+pasa_args = list()
+pasa_args$mc_cores_per_sample  <- mc_cores_per_sample
+pasa_args$num_parallel_samples <- floor(total_cores / mc_cores_per_sample)
+pasa_args$seed_in_use = seed = 145879
+rm(mc_cores_per_sample, total_cores)
+run_pasa(mut_type = "ID",  more_args = pasa_args)
+rm(pasa_args)

@@ -1,6 +1,8 @@
-# Run this script from the top level directory, attribution_paper_code
+# Run this script with the top level directory as the working directory
+stopifnot(basename(getwd()) == "sig_attribution_paper_code")
+rm(list = ls())
 
-source("analysis/code/analysis_utils.R")
+source("common_code/plot_functions.R")
 
 sbs_cpu_seconds_file <-
   "analysis/summary/SBS/syn/total_cpu_seconds.csv"
@@ -20,6 +22,7 @@ dbs_cpu_plot_object <-
 
 id_cpu_seconds_file <-
   "analysis/summary/ID/syn/total_cpu_seconds.csv"
+# browser()
 id_cpu_plot_object <-
   cpu_barplot(id_cpu_seconds_file,
               main = "Synthetic ID",
@@ -34,10 +37,7 @@ ggplot_to_pdf(
     list(dbs_cpu_plot_object),
     list(id_cpu_plot_object)
   ),
-  file = file.path(
-    output_home,
-    "figure_6_cpu_time_three_types.pdf"
-  ),
+  file = "figure_6_cpu_time_three_types.pdf",
   nrow = 3, ncol = 3,
   width = 8.2677, height = 11.6929, units = "in"
 )

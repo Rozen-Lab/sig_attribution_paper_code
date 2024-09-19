@@ -1,0 +1,2 @@
+restrict create_comparison_table_syn_ID.R to the "main" tools ; not needed?
+rerun all MSA variants on new data and save per-cancer-type timing

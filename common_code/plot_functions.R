@@ -21,7 +21,7 @@ global_tools_to_plot =
     "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", "MSA_opt")
 
 
-raw_tools_to_plot = 
+global_raw_tools_to_plot = 
   c("PASA", "musical", "fitms_0.010",  
     "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest", 'msa_opt')
 
@@ -225,17 +225,25 @@ boxplots_by_cancer_type <-
 
 cpu_barplot <- function(cpu_seconds_file, main = "", ylim = c(0, 450)) {
   cpu_time <- data.table::fread(cpu_seconds_file)
-  cpu_time$total_cpu_hours <- cpu_time$total_cpu_seconds / 60 / 60
+
+  cpu_time = 
+    dplyr::mutate(cpu_time, total_cpu_hours = (sum_of_cpu_by_cancer_type / 60) / 60)
   colnames(cpu_time)[1] <- "Tool"
   cpu_time <- change_tool_names(cpu_time)
+  cpu_time = dplyr::filter(cpu_time, Tool %in% global_tools_to_plot)
+  if (any(duplicated(cpu_time$Tool))) {
+    browser()
+  }
   cpu_time$Tool <- factor(cpu_time$Tool, levels = cpu_time$Tool)
+
+
   
   if (main == "") {
     title <- "Total CPU Time of Different Tool"
   } else {
     title <- main
   }
-  
+  browser()
   plot_object <-
     ggplot(cpu_time, aes(x = Tool, y = total_cpu_hours, fill = Tool)) +
     geom_bar(stat = "identity") +

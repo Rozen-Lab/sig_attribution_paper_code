@@ -6,7 +6,7 @@ gather_cpu_info = function(mutation_type) {
     
   list1  <-
     get_total_cpu_seconds(
-      ouput_dir = output_home,
+      output_dir = output_home,
       mc_cores = cores_to_use
     )
   
@@ -16,7 +16,7 @@ gather_cpu_info = function(mutation_type) {
   if (FALSE) {
   elapsed_time <-
     get_elapsed_time(
-      ouput_dir = output_home,
+      output_dir = output_home,
       mc_cores = cores_to_use
     )
   }
@@ -66,10 +66,11 @@ gather_cpu_info = function(mutation_type) {
 }
 
 
-get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
+get_total_cpu_seconds <- function(output_dir, mc_cores = 1) {
+  # browser()
   rds_files <-
     list.files(
-      path = ouput_dir,
+      path = output_dir,
       full.names = TRUE, recursive = TRUE,
       pattern = "^time_used.Rds"
     )
@@ -87,7 +88,7 @@ get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
              
   rds_by_cancer_type = 
     list.files(
-      path = ouput_dir,
+      path = output_dir,
       full.names = TRUE, recursive = TRUE,
       pattern = "^time_by_cancer_type.Rds"
     )
@@ -113,7 +114,7 @@ get_total_cpu_seconds <- function(ouput_dir, mc_cores = 1) {
       rbind,
       lapply(rds_by_cancer_type, process_cpu_by_cancer_type))
   
-  top_level_dirs <- list.dirs(path = ouput_dir, recursive = FALSE)
+  top_level_dirs <- list.dirs(path = output_dir, recursive = FALSE)
   msa_dirs <- grep(pattern = "msa", x = top_level_dirs, value = TRUE)
   
   if (length(msa_dirs) > 0) {

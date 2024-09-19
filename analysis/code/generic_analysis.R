@@ -106,10 +106,13 @@ run_generic_syn <- function(dataset_name, output_home,
     } # for (cancer_type in cancer_types...
   }) # outer_time_used
   
+  file = file.path(output_home, "time_used.Rds")
+  message("Saving ", file)
   saveRDS(outer_time_used, file = file.path(output_home, "time_used.Rds"))
   
-  saveRDS(time_by_cancer_type,
-          file.path(output_home, "time_by_cancer_type.Rds"))
+  file = file.path(output_home, "time_by_cancer_type.Rds")
+  message("Saving ", file)
+  saveRDS(time_by_cancer_type, file)
   
   final_exposure <- mSigAct:::MergeListOfExposures(all_retvals)
   
@@ -128,7 +131,9 @@ run_generic_syn <- function(dataset_name, output_home,
     file = file.path(output_home, "inferred_exposures.csv")
   )
   
-  saveRDS(all_retvals, file = file.path(output_home, "all_retvals.Rds"))
+  file = file.path(output_home, "all_retvals.Rds")
+  message("Saving ", file)
+  saveRDS(all_retvals, file = file)
   message("Finished running all the jobs")
 }
 

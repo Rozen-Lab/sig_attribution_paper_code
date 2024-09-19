@@ -36,13 +36,13 @@ COSMIC MATCH
 	cosmic_fit_option: True
 
 -------Analysis Progress------- 
-[2024-09-16 20:31:37] Analysis started: 
+[2024-09-19 07:57:29] Analysis started: 
 
  Assigning COSMIC sigs or Signature Database ...... 
  Finished Cosmic fitting! 
-Execution time:0:00:01.673814
+Execution time:0:00:01.503981
 
-[2024-09-16 20:31:39] Analysis ended: 
+[2024-09-19 07:57:31] Analysis ended: 
 
 -------Job Status------- 
 Assignment of mutational signatures completed successfully! 
