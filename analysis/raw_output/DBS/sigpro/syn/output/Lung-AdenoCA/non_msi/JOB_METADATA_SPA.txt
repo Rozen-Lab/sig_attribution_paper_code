@@ -8,12 +8,12 @@ Release: 4.18.0-553.16.1.el8_10.x86_64
 Version: #1 SMP Thu Aug 8 07:11:46 EDT 2024
 
 -------Python and Package Versions------- 
-Python Version: 3.8.5
+Python Version: 3.11.9
 SigProfilerPlotting Version: 1.3.24
-SigProfilerMatrixGenerator Version: 1.2.17
+SigProfilerMatrixGenerator Version: 1.2.28
 SigProfilerAssignment Version: 0.1.7
 Pandas version: 1.5.3
-Numpy version: 1.24.4
+Numpy version: 1.26.4
 
 --------------EXECUTION PARAMETERS--------------
 INPUT DATA
@@ -36,15 +36,15 @@ COSMIC MATCH
 	cosmic_fit_option: True
 
 -------Analysis Progress------- 
-[2024-09-11 02:48:07] Analysis started: 
+[2024-09-19 11:25:54] Analysis started: 
 
  Assigning COSMIC sigs or Signature Database ...... 
  Finished Cosmic fitting! 
-Execution time:0:00:04.300770
+Execution time:0:00:03.698510
 
-[2024-09-11 02:48:11] Analysis ended: 
+[2024-09-19 11:25:58] Analysis ended: 
 
 -------Job Status------- 
 Assignment of mutational signatures completed successfully! 
-Total execution time: 0:00:04 
+Total execution time: 0:00:03 
 Results can be found in:  analysis/raw_output/DBS/sigpro/syn/output/Lung-AdenoCA/non_msi  folder
