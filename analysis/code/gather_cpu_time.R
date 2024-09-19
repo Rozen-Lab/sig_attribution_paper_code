@@ -1,3 +1,4 @@
+library(dplyr)
 gather_cpu_info = function(mutation_type) {
 
   output_home <- file.path("analysis/raw_output", mutation_type)
@@ -82,7 +83,7 @@ get_total_cpu_seconds <- function(output_dir, mc_cores = 1) {
              tool_name <- basename(sub("/syn.*", "", file))
              timing <- readRDS(file)
              return(
-               tibble(tool_name = tool_name, total_cpu_sec = sum(timing[c(1, 2, 4, 5)])))
+               dplyr::tibble(tool_name = tool_name, total_cpu_sec = sum(timing[c(1, 2, 4, 5)])))
            })
   total_cpu_seconds = do.call(rbind, total_cpu_seconds)    
              
@@ -99,7 +100,7 @@ get_total_cpu_seconds <- function(output_dir, mc_cores = 1) {
     xx = lapply(
       names(by_cancer_type_cpu), 
       function(cancer_type) {
-        return(tibble(
+        return(dplyr::tibble(
           tool_name   = tool_name,
           cancer_type = cancer_type, 
           cpu_seconds = sum((by_cancer_type_cpu[[cancer_type]])[c(1, 2, 4, 5)])))
@@ -113,27 +114,24 @@ get_total_cpu_seconds <- function(output_dir, mc_cores = 1) {
     do.call(
       rbind,
       lapply(rds_by_cancer_type, process_cpu_by_cancer_type))
-  
   top_level_dirs <- list.dirs(path = output_dir, recursive = FALSE)
   msa_dirs <- grep(pattern = "msa", x = top_level_dirs, value = TRUE)
   
   if (length(msa_dirs) > 0) {
-    msa_cpu_hours <- sapply(msa_dirs, FUN = function(msa_dir) {
-      get_msa_total_cpu_hours(
+    msa_cpu_time <- lapply(msa_dirs, FUN = function(msa_dir) {
+      get_msa_cpu_time(
         msa_output_dir = msa_dir,
         mc_cores = mc_cores
       )
     })
-    msa_tool_names <- basename(sub("/syn.*", "", msa_dirs))
-    names(msa_cpu_hours) <- msa_tool_names
-    msa_cpu_seconds <- msa_cpu_hours * 60 * 60
-    # browser()
-    msa_table = tibble(tool_name = names(msa_cpu_seconds),
-                       total_cpu_sec = msa_cpu_hours)
-    total_cpu_seconds <- rbind(total_cpu_seconds, msa_table)
+    msa_total_cpu_sec <- do.call(rbind, lapply(msa_cpu_time, `[[`, 1))
+    msa_cpu_sec_by_type <- do.call(rbind, lapply(msa_cpu_time, `[[`, 2))
+    total_cpu_seconds <- rbind(total_cpu_seconds, msa_total_cpu_sec)
+    cpu_by_cancer_type <- rbind(cpu_by_cancer_type, msa_cpu_sec_by_type)
   } else {
     message("No MSA results")
   }
+  # browser()
   dplyr::group_by(cpu_by_cancer_type, tool_name) %>% 
     dplyr::summarise(sum_of_cpu_by_cancer_type = sum(cpu_seconds)) ->
     sum_cpu_by_cancer_type
@@ -160,6 +158,41 @@ get_msa_cpu_hours <- function(html_file) {
   return(cpu_hours)
 }
 
+get_msa_cpu_time <- function(msa_output_dir, mc_cores) {
+  tool_name <- basename(msa_output_dir)
+  msa_time_files <- list.files(
+    path = msa_output_dir,
+    full.names = TRUE, recursive = TRUE,
+    pattern = "^MSA-nf_report.html"
+  )
+  msa_time_files2 <-
+    grep(
+      pattern = "/raw/", x = msa_time_files, invert = TRUE,
+      value = TRUE
+    )
+  cancer_types <- basename(dirname(dirname(msa_time_files2)))
+  msa_cpu_hours <-
+    parallel::mclapply(msa_time_files2,
+                       FUN = get_msa_cpu_hours,
+                       mc.cores = mc_cores
+    )
+  msa_cpu_hours_raw <- 
+    dplyr::tibble(cpu_hours =  unlist(msa_cpu_hours),
+                  cancer_type = cancer_types)
+  msa_cpu_hours_by_type <- msa_cpu_hours_raw %>%
+    dplyr::group_by(cancer_type) %>%
+    dplyr::summarise(cpu_hours_by_type = sum(cpu_hours))
+  
+  total_cpu_sec <- 
+    dplyr::tibble(tool_name = tool_name, 
+                  total_cpu_sec = sum(unlist(msa_cpu_hours)) * 60 * 60)
+  cpu_sec_by_type <-
+    dplyr::tibble(tool_name = tool_name, 
+                  cancer_type = msa_cpu_hours_by_type$cancer_type,
+                  cpu_seconds = msa_cpu_hours_by_type$cpu_hours_by_type * 60 * 60)
+  return(list(total_cpu_sec = total_cpu_sec,
+              cpu_sec_by_type = cpu_sec_by_type))
+}
 
 get_msa_total_cpu_hours <- function(msa_output_dir, mc_cores) {
   msa_time_files <- list.files(
