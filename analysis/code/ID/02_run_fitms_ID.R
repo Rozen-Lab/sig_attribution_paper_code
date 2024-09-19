@@ -1,6 +1,6 @@
 # Run this script with the top level directory as the working directory
 source("analysis/code/fitms_analysis.R")
 
-for (rare_sig_threshold in c(0.1, 0.2)) { # c(0.05, 0.01, 0.03, 0.06)) {
+for (rare_sig_threshold in global_fitms_rare_sig_thresh) {
   run_fitms("ID", rare_sig_threshold)
 }

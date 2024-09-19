@@ -5,6 +5,8 @@ library(signature.tools.lib)
 
 source("analysis/code/generic_analysis.R")
 
+global_fitms_rare_sig_thresh = c(0.005, 0.001, 0.05, 0.01, 0.03, 0.06, 0.1, 0.2)
+
 call_fitms <- function(spectra, signatures, more_args) {
 
 
