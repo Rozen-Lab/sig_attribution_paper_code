@@ -113,19 +113,22 @@ boxplots_combined_cancer_types <-
 one_boxplot_by_cancer_type <-
   function(measure, df, xlab, legend_position,
            ylab = measure, main = NULL, last_plot = FALSE) {
+    # browser()
     last_plot = TRUE
     measure <- sym(measure)
     xlab <- sym(xlab)
-    # browser()
     plot_object <-
       ggplot(df, aes(x = !!xlab, y = !!measure, fill = Tool)) +
       geom_boxplot(outlier.size = 0.1, outlier.color = "grey") +
       
       
-      stat_summary(
-        fun = mean, geom = "point", shape = 18,
-        size = 2, color = "red", fill = "red"
-      ) +
+      # This puts a red dot in the middle of the plot for each
+      # cancer type, not in the middle of each Tool within
+      # each cancer type
+      # stat_summary(
+      #  fun = mean, geom = "point", shape = 18,
+      #  size = 2, color = "red", fill = "red"
+      # ) +
       
       
       
@@ -345,6 +348,7 @@ plot_by_cancer_type_sup_fig = function(mutation_type, sup_fig_num) {
   indata <- change_tool_names(indata)
   
   plot_some = function(measures, ylabs, basename) {
+    # browser()
     plot_objects1 <-
       boxplots_by_cancer_type(
         assesment_by_sample = indata,
