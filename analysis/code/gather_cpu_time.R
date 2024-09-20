@@ -126,6 +126,9 @@ get_total_cpu_seconds <- function(output_dir, mc_cores = 1) {
   msa_dirs <- grep(pattern = "msa", x = top_level_dirs, value = TRUE)
   
   if (length(msa_dirs) > 0) {
+    msa_dirs <- grep(pattern = "unpruned", x = msa_dirs, 
+                     invert = TRUE, value = TRUE)
+    
     msa_cpu_time <- lapply(msa_dirs, FUN = function(msa_dir) {
       get_msa_cpu_time(
         msa_output_dir = msa_dir,

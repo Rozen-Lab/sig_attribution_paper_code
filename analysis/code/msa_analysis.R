@@ -10,7 +10,7 @@ convert_to_msa_format <- function(matrix, mut_type) {
     msa_row_names <-
       gsub(pattern = ":", replacement = "_", x = old_row_names)
   }
-  
+
   msa_df <- cbind("Mutation type" = msa_row_names, df)
   return(msa_df)
 }
@@ -20,14 +20,14 @@ write_msa_file <-
     if (!dir.exists(output_dir)) {
       dir.create(output_dir, recursive = TRUE)
     }
-    
+
     if (mut_type %in% c("SBS", "SBS96")) {
       catalog_file_name <- paste0("WGS_", data_identifier, ".96.csv")
       ICAMS::WriteCatalog(
         catalog = catalog,
         file = file.path(output_dir, catalog_file_name)
       )
-      
+
       sig_file_name <- paste0(data_identifier, "_SBS_signatures.csv")
       ICAMS::WriteCatalog(
         catalog = sig,
@@ -41,7 +41,7 @@ write_msa_file <-
         x = msa_catalog,
         file = file.path(output_dir, catalog_file_name), row.names = FALSE
       )
-      
+
       msa_sig <-
         convert_to_msa_format(matrix = sig, mut_type = mut_type)
       sig_file_name <- paste0(data_identifier, "_DBS_signatures.csv")
@@ -57,7 +57,7 @@ write_msa_file <-
         x = msa_catalog,
         file = file.path(output_dir, catalog_file_name), row.names = FALSE
       )
-      
+
       msa_sig <-
         convert_to_msa_format(matrix = sig, mut_type = mut_type)
       sig_file_name <- paste0(data_identifier, "_ID_signatures.csv")
@@ -72,7 +72,7 @@ write_msi_sample_sig_for_msa <-
   function(spectra, msi_samples, sig, output_dir, mut_type, data_identifier) {
     output_dir_non_msi <- file.path(output_dir, "non_msi")
     output_dir_msi <- file.path(output_dir, "msi")
-    
+
     if (length(msi_samples) == 0) {
       write_msa_file(
         catalog = spectra, sig = sig,
@@ -87,13 +87,13 @@ write_msi_sample_sig_for_msa <-
         output_dir = file.path(output_dir_msi, data_identifier),
         mut_type = mut_type, data_identifier = data_identifier
       )
-      
+
       non_msi_samples <- setdiff(colnames(spectra), msi_samples)
       spectra_non_msi <- spectra[, non_msi_samples, drop = FALSE]
       msi_sig_names <- get_msi_sig_names()
       non_msi_sig_names <- setdiff(colnames(sig), msi_sig_names)
       sig_non_msi <- sig[, non_msi_sig_names, drop = FALSE]
-      
+
       write_msa_file(
         catalog = spectra_non_msi, sig = sig_non_msi,
         output_dir = file.path(output_dir_non_msi, data_identifier),
@@ -113,17 +113,17 @@ classify_msi_sample_sig_syn_for_msa <-
     all_spectra <- all_inputs$spectra_list
     gt_sig <- all_inputs$ground_truth_sigs
     sig_universe <- all_inputs$signature_universes
-    
+
     if (is.null(cancer_types)) {
       cancer_types <- all_inputs$cancer_types
     }
-    
+
     for (cancer_type in cancer_types) {
       spectra <- all_spectra[[cancer_type]]
       sig_names <- names(sig_universe[[cancer_type]])
       sig <- gt_sig[, sig_names, drop = FALSE]
       output_dir <- file.path(output_home, cancer_type)
-      
+
       # Check whether there are any MSI-H samples in spectra
       msi_samples <- grep(pattern = "MSI", x = colnames(spectra), value = TRUE)
       write_msi_sample_sig_for_msa(
@@ -145,14 +145,14 @@ prepare_msa_bash_script <-
     if (type == "SBS96") {
       type <- "SBS"
     }
-    
+
     if (type == "DBS78") {
       type <- "DBS"
     }
-    
+
     file_name <- file.path(bash_script_dir, paste0(bash_file_name, ".txt"))
     my_file <- file(description = file_name, open = "w")
-    
+
     writeLines("#!/bin/bash", my_file)
     writeLines(paste0("PROJECT_DIR=", project_dir), my_file)
     writeLines(paste0("MSA_NF_FILE=", msa_nextflow_file), my_file)
@@ -181,7 +181,7 @@ prepare_msa_bash_script <-
     writeLines("cp $EXPOSURE_FILE_DIR/$EXPOSURE_FILE_NAME $ABS_OUTPUT_DIR/..", my_file)
     writeLines("cp $EXPOSURE_FILE_DIR/$PRUNED_EXPOSURE_FILE_NAME $ABS_OUTPUT_DIR/..", my_file)
     writeLines("cp $ABS_OUTPUT_DIR/nf-pipeline_info/MSA-nf_report.html $ABS_OUTPUT_DIR/..", my_file)
-    
+
     close(my_file)
     files <- list.files(
       path = bash_script_dir,
@@ -204,16 +204,16 @@ prepare_msa_data_script_syn <-
       data_top_folder_name = data_top_folder_name,
       cancer_types = cancer_types
     )
-    
+
     cancer_types <-
       list.dirs(input_dir, recursive = FALSE, full.names = FALSE)
-    
+
     bash_script_dir <-
       file.path(bash_script_home, "bash", dataset_name, "syn")
-    
+
     for (cancer_type in cancer_types) {
       sub_folders <- list.files(file.path(input_dir, cancer_type))
-      
+
       for (sub_folder in sub_folders) {
         full_input_dir <- file.path(input_dir, cancer_type, sub_folder)
         output_dir <- file.path(output_home, cancer_type, sub_folder, "raw")
@@ -231,13 +231,13 @@ prepare_msa_data_script_syn <-
         )
       }
     }
-    
+
     bash_files <- list.files(path = bash_script_dir, pattern = ".sh")
-    
+
     file_name <-
       file.path(bash_script_home, paste0("run_bash_script_syn_", dataset_name, ".txt"))
     my_file <- file(description = file_name, open = "w")
-    
+
     writeLines("#!/bin/bash", my_file)
     writeLines(paste0("PROJECT_DIR=", project_dir), my_file)
     writeLines(paste0("BASH_SCRIPT_DIR=", bash_script_dir), my_file)
@@ -259,26 +259,61 @@ prepare_msa_data_script_syn <-
 
 
 summarize_msa_results <- function(msa_output_dir, mut_type) {
-  exposure_files <-
+  pruned_exposure_files <-
     list.files(
       path = msa_output_dir, pattern = "pruned_attribution",
       full.names = TRUE, recursive = TRUE
     )
-  
-  exposure_files2 <-
+
+  pruned_exposure_files2 <-
     grep(
-      pattern = "/raw/", x = exposure_files,
+      pattern = "/raw/", x = pruned_exposure_files,
       invert = TRUE, value = TRUE
     )
-  
-  msa_exposures <- lapply(exposure_files2, FUN = function(file) {
-    t(read.table(file, header = TRUE, sep = ",", row.names = 1))
-  })
-  
-  msa_exposure_all <- mSigAct:::MergeListOfExposures(msa_exposures)
-  
+
+  pruned_msa_exposures <-
+    lapply(pruned_exposure_files2, FUN = function(file) {
+      t(read.table(file, header = TRUE, sep = ",", row.names = 1))
+    })
+
+  pruned_msa_exposure_all <-
+    mSigAct:::MergeListOfExposures(pruned_msa_exposures)
+
   mSigTools::write_exposure(
-    exposure = msa_exposure_all,
+    exposure = pruned_msa_exposure_all,
     file = file.path(msa_output_dir, "inferred_exposures.csv")
+  )
+
+  unpruned_out_dir <-
+    file.path(paste0(dirname(dirname(msa_output_dir)), "_unpruned"), "syn")
+
+  if (!dir.exists(unpruned_out_dir)) {
+    dir.create(path = unpruned_out_dir, recursive = TRUE)
+  }
+
+  pattern <- paste0(mut_type, "_mutations_table.csv")
+  unpruned_exposure_files <-
+    list.files(
+      path = msa_output_dir, pattern = pattern,
+      full.names = TRUE, recursive = TRUE
+    )
+
+  unpruned_exposure_files2 <-
+    grep(
+      pattern = "/raw/", x = unpruned_exposure_files,
+      invert = TRUE, value = TRUE
+    )
+
+  unpruned_msa_exposures <-
+    lapply(unpruned_exposure_files2, FUN = function(file) {
+      t(read.table(file, header = TRUE, sep = ",", row.names = 1))
+    })
+
+  unpruned_msa_exposure_all <-
+    mSigAct:::MergeListOfExposures(unpruned_msa_exposures)
+
+  mSigTools::write_exposure(
+    exposure = unpruned_msa_exposure_all,
+    file = file.path(unpruned_out_dir, "inferred_exposures.csv")
   )
 }
