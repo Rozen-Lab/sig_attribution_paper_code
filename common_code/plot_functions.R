@@ -88,18 +88,12 @@ one_boxplot_by_cancer_type <-
     plot_object <-
       ggplot(df, aes(x = !!xlab, y = !!measure, fill = Tool)) +
       geom_boxplot(outlier.size = 0.1, outlier.color = "grey") +
-      
-      
-      # This puts a red dot in the middle of the plot for each
-      # cancer type, not in the middle of each Tool within
+      # This puts a red dot in the middle of each Tool within
       # each cancer type
-      # stat_summary(
-      #  fun = mean, geom = "point", shape = 18,
-      #  size = 2, color = "red", fill = "red"
-      # ) +
-      
-      
-      
+      stat_summary(
+      fun = mean, geom = "point", shape = 18,
+      size = 2, color = "red", position = position_dodge(0.75)
+      ) +
       scale_fill_manual(values = custom_colors) +
       theme_minimal() +
       theme(
