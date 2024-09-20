@@ -21,8 +21,7 @@ gather_stats_any = function(mutation_type) {
     syn_exp_files = syn_exp_files,
     tool_names = tool_names,
     output_dir = output_dir_syn,
-    mc_cores = cores_to_use,
-    mutation_type = mutation_type
+    mc_cores = cores_to_use
   )
   
 }
@@ -31,8 +30,7 @@ compare_syn_results <-
   function(dataset, syn_exp_files, tool_names, output_dir,
            data_top_folder_name = "synthetic_data",
            cancer_types = NULL, 
-           mc_cores = 1,
-           mutation_type) {
+           mc_cores = 1) {
     all_exposures <- lapply(syn_exp_files, FUN = function(file) {
       return(mSigTools::read_exposure(file))
     })
@@ -74,7 +72,7 @@ compare_syn_results <-
       exposure_all = exposure_all,
       output_dir = output_dir,
       mc_cores = mc_cores,
-      mutation_type = mutation_type
+      mutation_type = dataset
     )
   }
 
@@ -97,8 +95,8 @@ compute_and_write_stats <- function(exposure_all, output_dir, mc_cores, mutation
   data.table::fwrite(
     exposure_all,
     file.path(output_dir, 
-              paste0"all_inferred_exposures_", mutation_type, ".csv")
-  )
+              paste0("all_inferred_exposures_", mutation_type, ".csv")))
+  
   stats <- all_stats(exposure_all,
                      mc_cores = mc_cores
   ) # Use mc_cores = 1 for debugging / testing

@@ -1,9 +1,13 @@
 library(dplyr)
-gather_cpu_info = function(mutation_type) {
+library(rvest)
+library(xml2) # read_html for MSA output parsing
 
+gather_cpu_info = function(mutation_type) {
+  # browser()
   output_home <- file.path("analysis/raw_output", mutation_type)
   total_cores <- parallel::detectCores()
   cores_to_use <- total_cores / 2
+  # cores_to_use = 1 # For debugging
     
   list1  <-
     get_total_cpu_seconds(

@@ -4,9 +4,9 @@ rm(list = ls())
 
 source("common_code/plot_functions.R")
 
-data_home <- "analysis/summary/SBS/syn/"
+data_home <- "analysis/summary/SBS/"
 orig_indata <-
-  data.table::fread(file.path(data_home, "assessment_each_sample.csv"))
+  data.table::fread(file.path(data_home, "assessment_each_sample_SBS.csv"))
 # debug(change_tool_names)
 indata <- change_tool_names(orig_indata)
 

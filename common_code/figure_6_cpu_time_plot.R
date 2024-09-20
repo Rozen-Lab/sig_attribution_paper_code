@@ -5,7 +5,7 @@ rm(list = ls())
 source("common_code/plot_functions.R")
 
 sbs_cpu_seconds_file <-
-  "analysis/summary/SBS/syn/total_cpu_seconds.csv"
+  "analysis/summary/SBS/total_cpu_seconds_SBS.csv"
 sbs_cpu_plot_object <-
   cpu_barplot(sbs_cpu_seconds_file,
               main = "Synthetic SBS",
@@ -13,7 +13,7 @@ sbs_cpu_plot_object <-
   )
 
 dbs_cpu_seconds_file <-
-  "analysis/summary/DBS/syn/total_cpu_seconds.csv"
+  "analysis/summary/DBS/total_cpu_seconds_DBS.csv"
 dbs_cpu_plot_object <-
   cpu_barplot(dbs_cpu_seconds_file,
               main = "Synthetic DBS",
@@ -21,7 +21,7 @@ dbs_cpu_plot_object <-
   )
 
 id_cpu_seconds_file <-
-  "analysis/summary/ID/syn/total_cpu_seconds.csv"
+  "analysis/summary/ID/total_cpu_seconds_ID.csv"
 # browser()
 id_cpu_plot_object <-
   cpu_barplot(id_cpu_seconds_file,

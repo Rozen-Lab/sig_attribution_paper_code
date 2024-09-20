@@ -214,7 +214,7 @@ cpu_barplot <- function(cpu_seconds_file, main = "", ylim = c(0, 450)) {
   } else {
     title <- main
   }
-  browser()
+  # browser()
   plot_object <-
     ggplot(cpu_time, aes(x = Tool, y = total_cpu_hours, fill = Tool)) +
     geom_bar(stat = "identity") +
@@ -298,9 +298,12 @@ one_boxplot_combined_cancer_types <-
 plot_by_cancer_type_sup_fig = function(mutation_type, sup_fig_num) {
   
   
-  data_home <- file.path("analysis/summary", mutation_type, "syn/")
+  data_home <- file.path("analysis/summary", mutation_type)
   indata <-
-    data.table::fread(file.path(data_home, "assessment_each_sample.csv"))
+    data.table::fread(
+      file.path(data_home, 
+                paste0("assessment_each_sample_", mutation_type, ".csv")))
+  
   indata <- change_tool_names(indata)
   
   plot_some = function(measures, ylabs, basename) {
