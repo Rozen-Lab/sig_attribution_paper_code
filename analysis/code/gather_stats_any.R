@@ -1,6 +1,7 @@
-# source("analysis/code/analysis_utils.R")
+
 library(parallel)
 library(mSigTools)
+library(philentropy)
 
 gather_stats_any = function(mutation_type) {
   
@@ -11,7 +12,7 @@ gather_stats_any = function(mutation_type) {
   )
   tool_names <- basename(sub("/syn.*", "", syn_exp_files))
   
-  output_dir_syn <- file.path("analysis/summary", mutation_type)
+  output_dir_syn <- file.path("analysis/summary", mutation_type) # Where to put the summary
   
   total_cores <- parallel::detectCores()
   cores_to_use <- total_cores / 2
@@ -21,6 +22,7 @@ gather_stats_any = function(mutation_type) {
     syn_exp_files = syn_exp_files,
     tool_names = tool_names,
     output_dir = output_dir_syn,
+    cancer_types = NULL, # Dead code?
     mc_cores = cores_to_use
   )
   
@@ -31,12 +33,18 @@ compare_syn_results <-
            data_top_folder_name = "synthetic_data",
            cancer_types = NULL, 
            mc_cores = 1) {
+    
     all_exposures <- lapply(syn_exp_files, FUN = function(file) {
       return(mSigTools::read_exposure(file))
     })
-    
     names(all_exposures) <- tool_names
-    
+
+    sig_universe_mask_file = 
+      file.path("synthetic_data",
+                dataset, # {SBS, DBS, ID}
+                "sig_universe_mask.csv")
+    sig_universe_mask = mSigTools::read_exposure(sig_universe_mask_file)
+ 
     exp_gt <- mSigTools::read_exposure(
       file = file.path(
         data_top_folder_name,
@@ -44,39 +52,49 @@ compare_syn_results <-
       )
     )
     
-    exp_gt_df <- get_exposure(
+    exp_gt_df <- add_tool_etc(
       exposure = exp_gt,
       tool = "Ground-Truth"
     )
     
-    exp_tool_dfs <- lapply(names(all_exposures), FUN = function(name) {
-      exp_tool_df <- get_exposure(
-        exposure = all_exposures[[name]],
-        tool = name
-      )
-      return(exp_tool_df)
-    })
+    exp_tool_dfs <-
+      lapply(names(all_exposures), 
+             FUN = function(name) {
+               exp_tool_df <- add_tool_etc(
+                 exposure = all_exposures[[name]],
+                 tool = name
+               )
+               return(exp_tool_df)
+             })
     
     exp_df_all <- c(list(exp_gt_df), exp_tool_dfs)
     exposure_all <- do.call(dplyr::bind_rows, exp_df_all)
     exposure_all[is.na(exposure_all)] <- 0
     
     if (!is.null(cancer_types)) {
+      stop("Dead code?")
       pattern <- paste(cancer_types, collapse = "|")
       indices <-
         grep(pattern = pattern, x = exposure_all$Sample.ID)
       exposure_all <- exposure_all[indices, ]
     }
     
+    all_inferred_exp_path =
+      file.path(output_dir, 
+                paste0("all_inferred_exposures_", dataset, ".csv"))
+    message("writing ", all_inferred_exp_path)
+    data.table::fwrite(exposure_all, all_inferred_exp_path)
+
     compute_and_write_stats(
       exposure_all = exposure_all,
+      sig_universe_mask = sig_universe_mask,
       output_dir = output_dir,
       mc_cores = mc_cores,
       mutation_type = dataset
     )
   }
 
-get_exposure <- function(exposure, tool) {
+add_tool_etc <- function(exposure, tool) {
   tmp <- t(exposure)
   df1 <- data.frame(
     Sample.ID = rownames(tmp),
@@ -87,24 +105,23 @@ get_exposure <- function(exposure, tool) {
   return(df2)
 }
 
-compute_and_write_stats <- function(exposure_all, output_dir, mc_cores, mutation_type) {
+compute_and_write_stats <- 
+  function(exposure_all, sig_universe_mask,
+           output_dir, mc_cores, mutation_type) {
   if (!dir.exists(output_dir)) {
     dir.create(output_dir, recursive = TRUE)
   }
   message("writing statistics from compute_and_write_stats to ", output_dir)
-  data.table::fwrite(
-    exposure_all,
-    file.path(output_dir, 
-              paste0("all_inferred_exposures_", mutation_type, ".csv")))
-  
-  stats <- all_stats(exposure_all,
-                     mc_cores = mc_cores
+
+  stats <- all_measures(exposure_all, 
+                        sig_universe_mask,
+                        mc_cores = mc_cores
   ) # Use mc_cores = 1 for debugging / testing
   
   s2 <- t(matrix(unlist(stats), nrow = length(stats[[1]]), byrow = FALSE))
   colnames(s2) <- c(
     "Sample.ID", "Tool", "MD", "SMD",
-    "sens", "prec", "F1", "Combined"
+    "sens", "prec", "F1", "Combined", "spec", "scaled_L2", "KL"
   )
   
   as_tibble(s2) %>%
@@ -186,15 +203,22 @@ compute_and_write_stats <- function(exposure_all, output_dir, mc_cores, mutation
 }
 
 
-all_stats <- function(xx, mc_cores) {
-  mc_cores <- mSigAct:::Adj.mc.cores(mc_cores)
-  
+# Compute all measures for each row (sample) in table xx,
+# which contains 1 exposure vector per row (sample).
+all_measures <- 
+  function(xx, # A data.frame containing expsures. 
+               #Samples are in rows and signatures are in columns
+          sig_universe_mask,
+          mc_cores) { # Number of cores to use
+  # mc_cores <- mSigAct:::Adj.mc.cores(mc_cores)
+  # mc_cores = 1 # debugging
+
   one.row <- function(ii) {
     # ii is a row index in xx
-    
+
     if (ii == 8101) {
-      browser()
-      message("row 8101")
+      # browser()
+      # message("row 8101")
     }
     rr <- xx[ii, ]
     # rr is a 1-row tibble
@@ -204,23 +228,43 @@ all_stats <- function(xx, mc_cores) {
     if (tool == "Ground-Truth") {
       return(list(
         Sample.ID = sid, Tool = tool,
-        MD = NA, SMD = NA, sens = NA, prec = NA, F1 = NA, Combined = NA
+        MD = NA, SMD = NA, sens = NA, prec = NA, F1 = NA, Combined = NA,
+        spec = NA, scaled_L2 = NA, KL = NA # Added for revision of paper
       ))
     } else {
+      # browser()
       gt <- dplyr::filter(  # Get the ground truth exposures for one sample
         xx, Sample.ID == sid,
         Tool == "Ground-Truth"
       )
+      one_sig_universe_mask = t(sig_universe_mask[, sid, drop = FALSE] == 1)
       gt <- dplyr::mutate(gt, Sample.ID = NULL, Tool = NULL)
       me <- dplyr::mutate(rr, Sample.ID = NULL, Tool = NULL)
       stopifnot(colnames(gt) == colnames(me))
+      stopifnot(colnames(gt) == colnames(one_sig_universe_mask))
       if (!all(dim(gt) == dim(me))) {
         print(dim(gt))
         print(dim(me))
         
         browser()
       }
-      md <- sum(abs(gt - me))
+      
+      # Only look at signatures that were offered in the universe of signatures
+      # for this sample.
+      gt = gt[ , one_sig_universe_mask]
+      me = me[ , one_sig_universe_mask]
+      me = unlist(me)
+      gt = unlist(gt)
+      # browser()
+      KL = philentropy::kullback_leibler_distance(
+        P = gt / sum(gt), # The actual distribtion
+        Q = me / sum(me), # Our estimate
+        testNA = FALSE, unit = "log2", epsilon = 0.001)
+      
+      L2 <- philentropy::distance(
+        rbind(gt, me), method = "euclidean", mute.message = TRUE)
+      
+      manhattan <- sum(abs(gt - me))
       
       called.pos <- which(me > 0)
       real.pos <- which(gt > 0)
@@ -237,11 +281,8 @@ all_stats <- function(xx, mc_cores) {
       TN <- length(intersect(called.neg, real.neg))
       N <- length(real.neg)
       
-      # spec <- TN / N
-      # spec is not correct because the number of called.neg and the number of
-      # real.neg are inflated by signatures not in the signature universe for a
-      # given cancer type.
-      
+      spec <- TN / N
+
       FP <- length(setdiff(called.pos, real.pos))
       
       FN <- length(setdiff(called.neg, real.neg))
@@ -261,12 +302,16 @@ all_stats <- function(xx, mc_cores) {
       if (sumgt < 1) {
         browser()
       }
-      scaled.manhattan <- md / sumgt
+      scaled.manhattan <- manhattan / sumgt
       return(list(
         Sample.ID = sid, Tool = tool,
-        MD = md, SMD = scaled.manhattan,
+        MD = manhattan,
+        SMD = scaled.manhattan,
         sens = sens, prec = prec, F1 = F1,
-        Combined = 1 - scaled.manhattan + prec + sens
+        Combined = 1 - scaled.manhattan + prec + sens,
+        spec = spec,
+        scaled_L2 = L2 / sumgt,
+        KL = KL
       ))
     }
   }
