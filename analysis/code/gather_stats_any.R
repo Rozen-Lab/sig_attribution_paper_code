@@ -117,7 +117,7 @@ compute_and_write_stats <-
                         sig_universe_mask,
                         mc_cores = mc_cores
   ) # Use mc_cores = 1 for debugging / testing
-  
+
   s2 <- t(matrix(unlist(stats), nrow = length(stats[[1]]), byrow = FALSE))
   colnames(s2) <- c(
     "Sample.ID", "Tool", "MD", "SMD",
@@ -132,9 +132,12 @@ compute_and_write_stats <-
       prec = as.numeric(prec),
       F1 = as.numeric(F1),
       Combined = as.numeric(Combined),
+      spec = as.numeric(spec),
+      scaled_L2 = as.numeric(scaled_L2),
+      KL        = as.numeric(KL),
       cancer.type = sub("::.*", "", Sample.ID)
     ) -> assessment_each_sample
-  
+
   assessment_each_sample %>%
     group_by(Tool) %>%
     summarize(
@@ -153,7 +156,11 @@ compute_and_write_stats <-
       m.prec       = mean(prec),
       med.prec     = median(prec),
       sd.prec      = sd(prec),
-      m.F1         = mean(F1)
+      m.F1         = mean(F1),
+      m.sens       = mean(sens),
+      m.scaled_L2  = mean(scaled_L2),
+      m.KL         = mean(KL),
+      med.KL       = median(KL)
     ) ->
     summary.stats
   
@@ -182,7 +189,11 @@ compute_and_write_stats <-
       m.prec       = mean(prec),
       med.prec     = median(prec),
       sd.prec      = sd(prec),
-      m.F1         = mean(F1)
+      m.F1         = mean(F1),
+      m.sens       = mean(sens),
+      m.scaled_L2  = mean(scaled_L2),
+      m.KL         = mean(KL),
+      med.KL       = median(KL)
     ) ->
     summary.stats.by.cancer.type
   
@@ -281,7 +292,11 @@ all_measures <-
       TN <- length(intersect(called.neg, real.neg))
       N <- length(real.neg)
       
-      spec <- TN / N
+      if (N == 0) {
+        spec = 1
+      } else {
+        spec = TN / N
+      }
 
       FP <- length(setdiff(called.pos, real.pos))
       
