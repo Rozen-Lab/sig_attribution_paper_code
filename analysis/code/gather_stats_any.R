@@ -222,48 +222,54 @@ all_measures <-
           sig_universe_mask,
           mc_cores) { # Number of cores to use
   # mc_cores <- mSigAct:::Adj.mc.cores(mc_cores)
-  # mc_cores = 1 # debugging
+  mc_cores = 1 # debugging
 
   one.row <- function(ii) {
     # ii is a row index in xx
-
-    if (ii == 8101) {
-      # browser()
-      # message("row 8101")
-    }
     rr <- xx[ii, ]
     # rr is a 1-row tibble
     sid <- dplyr::pull(rr, Sample.ID)
     tool <- dplyr::pull(rr, Tool)
     
     if (tool == "Ground-Truth") {
+      if (TRUE) { # We need this here if xx has ground truth; we get rid of these rows later; maybe best if we never added them
       return(list(
         Sample.ID = sid, Tool = tool,
         MD = NA, SMD = NA, sens = NA, prec = NA, F1 = NA, Combined = NA,
         spec = NA, scaled_L2 = NA, KL = NA # Added for revision of paper
       ))
+      }
     } else {
       # browser()
-      gt <- dplyr::filter(  # Get the ground truth exposures for one sample
+      gt0 <- dplyr::filter(  # Get the ground truth exposures for one sample
         xx, Sample.ID == sid,
         Tool == "Ground-Truth"
       )
       one_sig_universe_mask = t(sig_universe_mask[, sid, drop = FALSE] == 1)
-      gt <- dplyr::mutate(gt, Sample.ID = NULL, Tool = NULL)
-      me <- dplyr::mutate(rr, Sample.ID = NULL, Tool = NULL)
-      stopifnot(colnames(gt) == colnames(me))
-      stopifnot(colnames(gt) == colnames(one_sig_universe_mask))
-      if (!all(dim(gt) == dim(me))) {
-        print(dim(gt))
-        print(dim(me))
-        
-        browser()
-      }
-      
+      gt0 <- dplyr::mutate(gt0, Sample.ID = NULL, Tool = NULL)
+      me0 <- dplyr::mutate(rr, Sample.ID = NULL, Tool = NULL)
+      stopifnot(colnames(gt0) == colnames(me0))
+      stopifnot(sort(colnames(gt0)) == sort(colnames(one_sig_universe_mask)))
+      one_sig_universe_mask = one_sig_universe_mask[, colnames(gt0)]
+      stopifnot(dim(gt0) == dim(me0))
+
       # Only look at signatures that were offered in the universe of signatures
       # for this sample.
-      gt = gt[ , one_sig_universe_mask]
-      me = me[ , one_sig_universe_mask]
+
+      gt = gt0[ , one_sig_universe_mask]
+      me = me0[ , one_sig_universe_mask]
+      
+      # Sanity check
+      anti_gt = gt0[ , !one_sig_universe_mask]
+      if(sum(anti_gt) != 0) {
+        if (!(sid %in% c("Liver-HCC::S.36", "Liver-HCC::S.51"))) {
+        message("Ground truth has signature not in the sig universe mask")
+        message("Sample = ", sid)
+        print(one_sig_universe_mask)
+        print(gt0)
+        }
+      }
+      
       me = unlist(me)
       gt = unlist(gt)
       # browser()
