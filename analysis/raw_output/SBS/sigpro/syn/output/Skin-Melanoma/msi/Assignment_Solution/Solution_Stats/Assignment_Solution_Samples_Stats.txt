@@ -1,0 +1,2 @@
+Sample Names	Total Mutations	Cosine Similarity	L1 Norm	L1_Norm_%	L2 Norm	L2_Norm_%	KL Divergence	Correlation
+Skin-Melanoma::MSI-H.S.1	594322	0.977	146234.322	24.605%	52296.975	21.961%	0.05922	0.975
