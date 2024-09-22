@@ -2,24 +2,30 @@
 library(parallel)
 library(mSigTools)
 library(philentropy)
+source("analysis/code/get_all_input.R")
 
 gather_stats_any = function(mutation_type) {
   
-  syn_exp_files <- list.files(
+  inferred_exp_output_files <- list.files(
     path = file.path("analysis/raw_output", mutation_type),
     full.names = TRUE, recursive = TRUE,
     pattern = "^inferred_exposures.csv"
   )
-  tool_names <- basename(sub("/syn.*", "", syn_exp_files))
+  tool_names <- basename(sub("/syn.*", "", inferred_exp_output_files))
+  
+  all_input = get_all_input(mutation_type)
+  ground_truth_exposure = get_ground_truth_exposure(mutation_type)
   
   output_dir_syn <- file.path("analysis/summary", mutation_type) # Where to put the summary
   
   total_cores <- parallel::detectCores()
   cores_to_use <- total_cores / 2
   
+  stop("TO DO, provide info to compute log likehood, e.g. info from all_input annd ground_truth_exposure; to the
+       multiplication here to get expected spectra")
   compare_syn_results(
     dataset = mutation_type,
-    syn_exp_files = syn_exp_files,
+    inferred_exp_output_files = inferred_exp_output_files,
     tool_names = tool_names,
     output_dir = output_dir_syn,
     cancer_types = NULL, # Dead code?
@@ -29,12 +35,12 @@ gather_stats_any = function(mutation_type) {
 }
 
 compare_syn_results <-
-  function(dataset, syn_exp_files, tool_names, output_dir,
+  function(dataset, inferred_exp_output_files, tool_names, output_dir,
            data_top_folder_name = "synthetic_data",
            cancer_types = NULL, 
            mc_cores = 1) {
     
-    all_exposures <- lapply(syn_exp_files, FUN = function(file) {
+    all_exposures <- lapply(inferred_exp_output_files, FUN = function(file) {
       return(mSigTools::read_exposure(file))
     })
     names(all_exposures) <- tool_names
@@ -133,8 +139,8 @@ compute_and_write_stats <-
       F1 = as.numeric(F1),
       Combined = as.numeric(Combined),
       spec = as.numeric(spec),
-      scaled_L2 = as.numeric(scaled_L2),
-      KL        = as.numeric(KL),
+      scaled_L2 = 1 - as.numeric(scaled_L2),
+      KL        = log2(as.numeric(KL) + 1),
       cancer.type = sub("::.*", "", Sample.ID)
     ) -> assessment_each_sample
 
@@ -222,7 +228,7 @@ all_measures <-
           sig_universe_mask,
           mc_cores) { # Number of cores to use
   # mc_cores <- mSigAct:::Adj.mc.cores(mc_cores)
-  mc_cores = 1 # debugging
+  # mc_cores = 1 # debugging
 
   one.row <- function(ii) {
     # ii is a row index in xx
@@ -277,6 +283,8 @@ all_measures <-
         P = gt / sum(gt), # The actual distribtion
         Q = me / sum(me), # Our estimate
         testNA = FALSE, unit = "log2", epsilon = 0.001)
+      
+      muliLLH = mSigAct:::LLHSpectrumMultinom()
       
       L2 <- philentropy::distance(
         rbind(gt, me), method = "euclidean", mute.message = TRUE)
