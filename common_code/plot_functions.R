@@ -55,11 +55,11 @@ boxplots_combined_cancer_types <-
       ))
     
     df$Tool <- factor(df$Tool, levels = tool_order)
-    
-    measures <- c("Combined", "one_minus_smd", "prec", "sens")
+    # browser()
+    measures <- c("Combined", "one_minus_smd", "prec", "sens", "spec", "scaled_L2", "KL")
     ylabs <- c(
       "Combined", "1 - scaled Manhattan distance",
-      "Precision", "Recall"
+      "Precision", "Recall", "Specificity", "1 - scaled L2", "log2(KL divergence + 1)"
     )
     
     my_plots <- 
@@ -284,8 +284,14 @@ one_boxplot_combined_cancer_types <-
       ) +
       ggtitle(main) +
       ylab(ylab) +
-      scale_y_continuous(labels = scale_fn) + coord_cartesian(ylim = c(0, NA))
-    # browser()
+      scale_y_continuous(labels = scale_fn)
+    
+    if (measure == "KL") {
+      plot_object = plot_object+ scale_y_reverse()
+    } else {
+      plot_object = plot_object  + coord_cartesian(ylim = c(0, NA))
+    }
+
     return(plot_object)
   }
 
