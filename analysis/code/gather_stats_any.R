@@ -174,7 +174,7 @@ all_measures <- function(xx, # A data.frame containing expsures.
   
   # Number of cores to use
 
-  # mc_cores = 1 # debugging
+  mc_cores = 1 # debugging
   
   # browser()
   sig_universe_mask_file = 
@@ -196,10 +196,18 @@ all_measures <- function(xx, # A data.frame containing expsures.
     # ii is a row index in xx
     rr <- xx[ii, ]
     # rr is a 1-row tibble
-    sid <- dplyr::pull(rr, Sample.ID)
-    tool <- dplyr::pull(rr, Tool)
+    sid <- rr$Sample.ID
+    tool <- rr$Tool
+    stopifnot(!is.null(sid))
+    stopifnot(!is.null(tool))
     
-    # browser()
+    if (!(sid %in% colnames(ground_truth_exposures))) {
+      sid = gsub("..", "::", sid, fixed = TRUE)
+      # browser()
+    }
+    if (!(sid %in% colnames(ground_truth_exposures))) {
+      browser()
+    }
     gt0 <- ground_truth_exposures[ , sid]
     
     one_sig_universe_mask = t(sig_universe_mask[, sid, drop = FALSE] == 1)

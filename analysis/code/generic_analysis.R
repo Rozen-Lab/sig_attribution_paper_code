@@ -6,7 +6,6 @@ source("analysis/code/get_all_input.R")
 run_non_msi_and_msi <-
   function(spectra, sig, cancer_type, more_args, attribute_function) {
     all_retvals <- list()
-    all_in_universe = list()
     msi_sig_names <- get_msi_sig_names()
     
     # Check whether there are any MSI-H samples in spectra
@@ -16,7 +15,6 @@ run_non_msi_and_msi <-
       spectra_msi <- spectra[, msi_samples, drop = FALSE]
 
       non_msi_samples <- setdiff(colnames(spectra), msi_samples)
-      spectra_non_msi <- spectra[, non_msi_samples, drop = FALSE]
       non_msi_sig_names <- setdiff(colnames(sig), msi_sig_names)
       
       more_args$is_msi <- TRUE
@@ -82,7 +80,6 @@ run_generic_syn <- function(dataset_name, # One of SBS, DBS, I
   }
   
   all_exposures <- list()
-  all_sig_universes = list()
   time_by_cancer_type <- list()
   # browser()
   outer_time_used = system.time({
