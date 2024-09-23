@@ -47,7 +47,7 @@ get_all_input <- function(dataset_name,
 get_ground_truth_exposure = function(mutation_type,
                                      data_top_folder_name = "synthetic_data") {
   mSigTools::read_exposure(
-    file_path(data_top_folder_name, 
+    file.path(data_top_folder_name, 
               mutation_type, 
               "ground.truth.syn.exposures.csv"))
 }
