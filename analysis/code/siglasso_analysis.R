@@ -12,6 +12,7 @@ call_siglasso <- function(spectra, signatures, more_args) {
   if (more_args$use_prior) {
     message("prior")
     prior = 1 - more_args$sig_props
+    prior = prior[colnames(signatures)] # Not all used because of msi/non-msi
     exposure_matrix <- 
       siglasso::siglasso(
         sample_spectrum = new_spectra,

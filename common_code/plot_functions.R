@@ -25,7 +25,7 @@ old_custom_colors <-
 custom_colors =
   rev(RColorBrewer::brewer.pal(10, "Set3"))
 canonical_tool_order =
-  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP", "MSA_opt")
+  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP", "MSA_opt", "siglasso" "siglasso_wprior")
 names(custom_colors) = canonical_tool_order
 
 

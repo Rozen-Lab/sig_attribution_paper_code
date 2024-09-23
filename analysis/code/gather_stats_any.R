@@ -202,6 +202,8 @@ all_measures <- function(xx, # A data.frame containing expsures.
     stopifnot(!is.null(tool))
     
     if (!(sid %in% colnames(ground_truth_exposures))) {
+      sid = gsub("MSI.H", "MSI-H", sid, fixed = TRUE)
+      sid = sub(".", "-", sid, fixed = TRUE)
       sid = gsub("..", "::", sid, fixed = TRUE)
       # browser()
     }
