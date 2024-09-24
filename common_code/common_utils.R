@@ -19,12 +19,12 @@ all_tools =
 # These need to be the display tool names
 global_tools_to_plot =
   c("PASA", "MuSiCal", "FitMS_01",  
-    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", "MSA_opt")
+    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", "MSA_opt", "sigLASSO", "sigLASSO w prior")
 
 
 global_raw_tools_to_plot = 
   c("PASA", "musical", "fitms_0.010",  
-    "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest", 'msa_opt')
+    "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest", 'msa_opt', "siglasso", "siglasso_wprior")
 
 change_tool_names <- function(dt) {
   dt[Tool == "pasa", Tool := "PASA"]
@@ -37,7 +37,9 @@ change_tool_names <- function(dt) {
   dt[Tool == "deconstruct_0.03", Tool := "DeconSig_03"]
   dt[Tool == "mutsig", Tool := "mutSig"]
   dt[Tool == "sigest", Tool := "SigEstQP"]
-  dt[Tool == "musical", Tool := "MuSiCal"]  
+  dt[Tool == "musical", Tool := "MuSiCal"]
+  dt[Tool == "siglasso", Tool := "sigLASSO"]
+  dt[Tool == "siglasso_wprior", Tool := "sigLASSO w prior"]
   return(dt)
 }
 

@@ -174,7 +174,7 @@ all_measures <- function(xx, # A data.frame containing expsures.
   
   # Number of cores to use
 
-  mc_cores = 1 # debugging
+  # mc_cores = 1 # debugging
   
   # browser()
   sig_universe_mask_file = 

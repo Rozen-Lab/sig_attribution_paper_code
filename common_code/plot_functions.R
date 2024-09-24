@@ -23,14 +23,44 @@ old_custom_colors <-
   )
 
 custom_colors =
-  rev(RColorBrewer::brewer.pal(10, "Set3"))
+  rev(RColorBrewer::brewer.pal(12, "Set3"))
 canonical_tool_order =
-  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP", "MSA_opt", "siglasso" "siglasso_wprior")
+  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", 
+    "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP", "MSA_opt",
+    "siglasso", "siglasso_wprior")
 names(custom_colors) = canonical_tool_order
 
 
+plot_all_cancer_types_merged = function(mut_type, fig_num) {
+  
+  data_home <- file.path("analysis/summary", mut_type)
+  orig_indata <-
+    data.table::fread(
+      file.path(data_home, 
+                paste0("assessment_each_sample_", mut_type, ".csv")))
+  indata <- change_tool_names(orig_indata)
+  
+  plot_objects <-
+    boxplots_combined_cancer_types(
+      assesment_by_sample = indata,
+      tools_to_plot = global_tools_to_plot,
+      mut_type = mut_type
+    )
+  
+  ggplot_to_pdf(
+    plot_objects = plot_objects,
+    file = paste0("figure_", fig_num, "_", mut_type, "_all_cancer_types.pdf"),
+    nrow = 4, ncol = 2,
+    width = 8.2677, height = 11.6929, units = "in"
+  )
+}
+
+
+
 boxplots_combined_cancer_types <-
-  function(assesment_by_sample, main = "", tools_to_plot = NULL) {
+  function(assesment_by_sample, main = "", 
+           tools_to_plot = NULL,
+           mut_type) {
     # assesment_by_sample is a big data.table
     # with one row for each run of one tool on 
     # one input spectrum and the columns being
@@ -71,7 +101,8 @@ boxplots_combined_cancer_types <-
                  df = df,
                  xlab = "Tool", 
                  legend_position = "none",
-                 ylab = ylabs[index], main = main
+                 ylab = ylabs[index], main = main,
+                 mut_type = mut_type
                )
              })
     
@@ -256,7 +287,7 @@ scale_fn <- function(x) {
 
 one_boxplot_combined_cancer_types <-
   function(measure, df, xlab, legend_position,
-           ylab = measure, main = NULL) {
+           ylab = measure, main = NULL, mut_type) {
     # browser()
     measure <- sym(measure)
     xlab <- sym(xlab)
@@ -290,7 +321,15 @@ one_boxplot_combined_cancer_types <-
       return(plot_object+ scale_y_reverse())
     } 
     if (measure == "multiLLH") {
-      return(plot_object + coord_cartesian(ylim = c(-1500, -200)))
+      if (mut_type == "SBS") {
+        return(plot_object + coord_cartesian(ylim = c(-1500, -200)))
+      } else if (mut_type == "DBS") {
+        return(plot_object + coord_cartesian(ylim = c(-500, 0)))
+      } else if (mut_type == "ID") {
+        return(plot_object + coord_cartesian(ylim = c(-750, 0)))
+      } else {
+        stop("Unknown mutation type: ", mut_type)
+      }
     } 
     return(plot_object  + coord_cartesian(ylim = c(0, NA)))
     
