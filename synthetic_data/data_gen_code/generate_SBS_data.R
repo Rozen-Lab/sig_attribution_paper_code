@@ -236,6 +236,8 @@ synthetic_tumors_sbs96_no_msi_pole <-
 unlink(output_dir_sbs96_no_msi_pole, recursive = TRUE)
 syn_exposures_sbs96_no_msi_pole <-
   synthetic_tumors_sbs96_no_msi_pole$ground.truth.exposures
+syn_exposures_sbs96_no_msi_pole <-
+  check_syn_exposures(syn_exposures_sbs96_no_msi_pole)
 
 # Generate MSI-H synthetic tumors
 synthetic_tumors_sbs96_msi <-

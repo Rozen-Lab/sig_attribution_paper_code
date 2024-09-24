@@ -1266,3 +1266,17 @@ get_pcawg_sbs192_exposure <- function() {
 
   return(sbs192_exposure)
 }
+
+check_syn_exposures <- function(exposure) {
+  msi_sig_names <-
+    c("SBS6", "SBS14", "SBS15", "SBS20", "SBS21", "SBS26", "SBS44")
+  tmp <- 
+    exposure[rownames(exposure) %in% msi_sig_names, , drop = FALSE]
+  tmp2 <- tmp[, colSums(tmp) > 0, drop = FALSE]
+  names_to_change <- colnames(tmp2)
+  indices <- which(colnames(exposure) %in% names_to_change)
+  colnames(exposure)[indices] <-
+    gsub(pattern = "S.", replacement = "MSI-H.S.", 
+         x = colnames(exposure)[indices])
+  return(exposure)
+}
