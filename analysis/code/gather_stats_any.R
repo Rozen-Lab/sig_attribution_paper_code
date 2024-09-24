@@ -28,7 +28,7 @@ gather_stats_any = function(mutation_type) {
              )
              return(exp_tool_df)
            })
-  
+  # browser()
   # exp_df_all <- c(list(exp_gt_df), exp_tool_dfs)
   # exposure_all <- do.call(dplyr::bind_rows, exp_df_all)
   exposure_all <- do.call(dplyr::bind_rows, exp_tool_dfs)
@@ -202,14 +202,16 @@ all_measures <- function(xx, # A data.frame containing expsures.
     stopifnot(!is.null(tool))
     
     if (!(sid %in% colnames(ground_truth_exposures))) {
-      sid = gsub("MSI.H", "MSI-H", sid, fixed = TRUE)
-      sid = sub(".", "-", sid, fixed = TRUE)
-      sid = gsub("..", "::", sid, fixed = TRUE)
-      # browser()
+      sid2 = gsub("MSI.H", "MSI-H", sid, fixed = TRUE)
+      sid3 = sub(".", "-", sid2, fixed = TRUE)
+      sid4 = sub("..", "::", sid3, fixed = TRUE)
+      if (!(sid4 %in% colnames(ground_truth_exposures))) {
+        browser()
+      } else {
+        sid = sid4
+      }
     }
-    if (!(sid %in% colnames(ground_truth_exposures))) {
-      browser()
-    }
+    
     gt0 <- ground_truth_exposures[ , sid]
     
     one_sig_universe_mask = t(sig_universe_mask[, sid, drop = FALSE] == 1)
