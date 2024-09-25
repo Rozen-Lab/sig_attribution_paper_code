@@ -93,7 +93,7 @@ inferred_exp_files <-
 tools <- basename(sub("/syn.*", "", inferred_exp_files))
 
 assesment_by_sample_file <-
-  "analysis/summary/SBS/syn/assessment_each_sample.csv"
+  "analysis/summary/SBS/assessment_each_sample_SBS.csv"
 assesment_by_sample <- data.table::fread(assesment_by_sample_file)
 tool_order <- get_tool_order(assesment_by_sample)
 index_order <- match(tool_order, tools)
