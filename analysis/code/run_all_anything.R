@@ -89,18 +89,18 @@ run_mutsig(Sys.getenv("mut_type"))
 
 #######
 
-if (Sys.genetnv("mut_type") == "SBS") {
+if (Sys.getenv("mut_type") == "SBS") {
   rm(list = ls())
   source("analysis/code/siglasso_analysis.R")
-  run_siglasso(Sys.genetnv("mut_type"), list(use_prior = FALSE))
+  run_siglasso(Sys.getenv("mut_type"), list(use_prior = FALSE))
 }
 
 #######
 
-if (Sys.genetnv("mut_type") == "SBS") {
+if (Sys.getenv("mut_type") == "SBS") {
   rm(list = ls())
   source("analysis/code/siglasso_analysis.R")
-  run_siglasso(Sys.genetnv("mut_type"), more_args = list(use_prior = TRUE))
+  run_siglasso(Sys.getenv("mut_type"), more_args = list(use_prior = TRUE))
 }
 
 
