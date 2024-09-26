@@ -1,3 +1,4 @@
+global_random_seed = 145879
 
 get_tool_order <- function(assesment_by_sample, measure = mean) {
   measure_combined <-

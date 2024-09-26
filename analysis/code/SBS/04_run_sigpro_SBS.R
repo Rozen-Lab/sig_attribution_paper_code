@@ -5,6 +5,6 @@ source("analysis/code/sigpro_analysis.R")
 
 sigpro_args = list()
 sigpro_args$context_type = "96"
-sigpro_args$seed_in_use = 145879
+sigpro_args$seed_in_use = global_random_seed
 sigpro_args$python_bin = "/home/e0012078/software/miniconda3/bin/python"
 run_sigpro("SBS", sigpro_args)

@@ -1,14 +1,12 @@
-
+# Source this from <mut_type>/run_all_<mut_type>.R 
 
 stopifnot(Sys.getenv("mut_type") != "")
 stopifnot(Sys.getenv("sigpro_context_type") != "")
-
 
 ######
 
 rm(list = ls())
 source("analysis/code/pasa_analysis.R")
-
 total_cores <- parallel::detectCores() # 256 on the machine we are using
 mc_cores_per_sample <- min(5, total_cores)
 pasa_args = list()
@@ -39,7 +37,7 @@ rm(list = ls())
 source("analysis/code/sigpro_analysis.R")
 sigpro_args = list()
 sigpro_args$context_type = Sys.getenv("sigpro_context_type")
-sigpro_args$seed_in_use = 145879
+sigpro_args$seed_in_use = global_randoom_seed
 sigpro_args$python_bin = path.expand("~/miniconda3/envs/sigpro/bin/python")
 # sigpro_args$python_bin = "/home/e0012078/software/miniconda3/bin/python"
 run_sigpro(Sys.getenv("mut_type"), sigpro_args)
@@ -88,3 +86,21 @@ run_musical(Sys.getenv("mut_type"), list())
 rm(list = ls())
 source("analysis/code/mutsig_analysis.R")
 run_mutsig(Sys.getenv("mut_type"))
+
+#######
+
+if (Sys.genetnv("mut_type") == "SBS") {
+  rm(list = ls())
+  source("analysis/code/siglasso_analysis.R")
+  run_siglasso(Sys.genetnv("mut_type"), list(use_prior = FALSE))
+}
+
+#######
+
+if (Sys.genetnv("mut_type") == "SBS") {
+  rm(list = ls())
+  source("analysis/code/siglasso_analysis.R")
+  run_siglasso(Sys.genetnv("mut_type"), more_args = list(use_prior = TRUE))
+}
+
+
