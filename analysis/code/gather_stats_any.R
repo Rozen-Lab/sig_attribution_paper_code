@@ -64,7 +64,7 @@ compute_and_write_stats <-
   s2 <- t(matrix(unlist(stats), nrow = length(stats[[1]]), byrow = FALSE))
   colnames(s2) <- c(
     "Sample.ID", "Tool", "MD", "SMD",
-    "sens", "prec", "F1", "Combined", "spec", "scaled_L2", "KL", "multiLLH"
+    "sens", "prec", "F1", "Combined", "spec", "scaled_L2", "KL" # , "multiLLH" don't need LLH
   )
   
   as_tibble(s2) %>%
@@ -78,7 +78,7 @@ compute_and_write_stats <-
       spec = as.numeric(spec),
       scaled_L2 = 1 - as.numeric(scaled_L2),
       KL        = log2(as.numeric(KL) + 1),
-      multiLLH  = as.numeric(multiLLH),
+      # multiLLH  = as.numeric(multiLLH), don't need LLH
       cancer.type = sub("::.*", "", Sample.ID)
     ) -> assessment_each_sample
 
@@ -105,9 +105,9 @@ compute_and_write_stats <-
       m.sens       = mean(sens),
       m.scaled_L2  = mean(scaled_L2),
       m.KL          = mean(KL),
-      med.KL        = median(KL),
-      mean.multiLLH = mean(multiLLH),
-      med.multiLLH  = median(multiLLH)
+      med.KL        = median(KL) # ,
+      # mean.multiLLH = mean(multiLLH), don't need LLH
+      # med.multiLLH  = median(multiLLH)
     ) ->
     summary.stats
   
@@ -140,9 +140,9 @@ compute_and_write_stats <-
       m.sens        = mean(sens),
       m.scaled_L2   = mean(scaled_L2),
       m.KL          = mean(KL),
-      med.KL        = median(KL),
-      mean.multiLLH = mean(multiLLH),
-      med.multiLLH  = median(multiLLH)
+      med.KL        = median(KL) #,
+      # mean.multiLLH = mean(multiLLH),
+      # med.multiLLH  = median(multiLLH) We already have enough measures
     ) ->
     summary.stats.by.cancer.type
   
@@ -261,10 +261,12 @@ all_measures <- function(xx, # A data.frame containing expsures.
       exp           = as.matrix(me),
       use.sig.names = TRUE
     )
-    multiLLH = mSigAct:::LLHSpectrumMultinom(
-      spectrum = inferred_spectrum,
-      expected.counts = expected_spectra[ , sid]
-    )
+    
+    # Don't need LLH
+    # multiLLH = mSigAct:::LLHSpectrumMultinom(
+    #  spectrum = inferred_spectrum,
+    #  expected.counts = expected_spectra[ , sid]
+    # )
     
     L2 <- philentropy::distance(
       rbind(gt, me), method = "euclidean", mute.message = TRUE)
@@ -323,8 +325,8 @@ all_measures <- function(xx, # A data.frame containing expsures.
       Combined   = 1 - scaled.manhattan + prec + sens,
       spec       = spec,
       scaled_L2 = L2 / sumgt,
-      KL        = KL,
-      multiLLH  = multiLLH
+      KL        = KL #,
+      # multiLLH  = multiLLH don't need LLH
     ))
   }
   # browser()
