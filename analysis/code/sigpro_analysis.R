@@ -1,4 +1,5 @@
 source("analysis/code/generic_analysis.R")
+source("analysis/code/common_utils.R")
 
 call_sigpro <- function (spectra, 
                          signatures, 
