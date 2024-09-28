@@ -3,6 +3,7 @@ library(parallel)
 library(mSigTools)
 library(philentropy)
 library(ggforce)
+library(tidyverse)
 source("analysis/code/get_all_input.R")
 
 gather_stats_any = function(mutation_type) {
@@ -64,11 +65,11 @@ compute_and_write_stats <-
   s2 <- t(matrix(unlist(stats), nrow = length(stats[[1]]), byrow = FALSE))
   colnames(s2) <- c(
     "Sample.ID", "Tool", "MD", "SMD",
-    "sens", "prec", "F1", "Combined", "spec", "scaled_L2", "KL" # , "multiLLH" don't need LLH
-  )
+    "sens", "prec", "F1", "Combined", "spec", 
+    "scaled_L2", "KL", "multiLLH")
   
   as_tibble(s2) %>%
-    filter(Tool != "Ground-Truth") %>%
+    # filter(Tool != "Ground-Truth") %>%
     mutate(
       SMD = as.numeric(SMD),
       sens = as.numeric(sens),
@@ -78,9 +79,12 @@ compute_and_write_stats <-
       spec = as.numeric(spec),
       scaled_L2 = 1 - as.numeric(scaled_L2),
       KL        = log2(as.numeric(KL) + 1),
-      # multiLLH  = as.numeric(multiLLH), don't need LLH
       cancer.type = sub("::.*", "", Sample.ID)
-    ) -> assessment_each_sample
+    ) -> aes
+  if (TRUE) {
+    assessment_each_sample = 
+      mutate(aes, multiLLH  = as.numeric(multiLLH))
+  }
 
   # Can factor out the summrize call  
   assessment_each_sample %>%
@@ -105,9 +109,9 @@ compute_and_write_stats <-
       m.sens       = mean(sens),
       m.scaled_L2  = mean(scaled_L2),
       m.KL          = mean(KL),
-      med.KL        = median(KL) # ,
-      # mean.multiLLH = mean(multiLLH), don't need LLH
-      # med.multiLLH  = median(multiLLH)
+      med.KL        = median(KL), ,
+      mean.multiLLH = mean(multiLLH),
+      med.multiLLH  = median(multiLLH)
     ) ->
     summary.stats
   
@@ -140,9 +144,9 @@ compute_and_write_stats <-
       m.sens        = mean(sens),
       m.scaled_L2   = mean(scaled_L2),
       m.KL          = mean(KL),
-      med.KL        = median(KL) #,
-      # mean.multiLLH = mean(multiLLH),
-      # med.multiLLH  = median(multiLLH) We already have enough measures
+      med.KL        = median(KL),
+      mean.multiLLH = mean(multiLLH),
+      med.multiLLH  = median(multiLLH)
     ) ->
     summary.stats.by.cancer.type
   
@@ -262,11 +266,11 @@ all_measures <- function(xx, # A data.frame containing expsures.
       use.sig.names = TRUE
     )
     
-    # Don't need LLH
-    # multiLLH = mSigAct:::LLHSpectrumMultinom(
-    #  spectrum = inferred_spectrum,
-    #  expected.counts = expected_spectra[ , sid]
-    # )
+    # maybe delete later
+    multiLLH = mSigAct:::LLHSpectrumMultinom(
+      spectrum = inferred_spectrum,
+      expected.counts = expected_spectra[ , sid]
+    )
     
     L2 <- philentropy::distance(
       rbind(gt, me), method = "euclidean", mute.message = TRUE)
@@ -325,8 +329,8 @@ all_measures <- function(xx, # A data.frame containing expsures.
       Combined   = 1 - scaled.manhattan + prec + sens,
       spec       = spec,
       scaled_L2 = L2 / sumgt,
-      KL        = KL #,
-      # multiLLH  = multiLLH don't need LLH
+      KL        = KL,
+      multiLLH  = multiLLH
     ))
   }
   # browser()
