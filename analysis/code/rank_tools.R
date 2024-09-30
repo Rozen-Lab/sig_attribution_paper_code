@@ -1,7 +1,3 @@
-# Run this script with the top level directory as the working directory
-stopifnot(basename(getwd()) == "sig_attribution_paper_code")
-rm(list = ls())
-
 library(tidyverse)
 
 rank_tools = function(mut_type)  {
@@ -65,5 +61,5 @@ rank_tools = function(mut_type)  {
 
 # rank_tools("DBS")
 
-rank_tools("SBS")
+# rank_tools("SBS")
 
