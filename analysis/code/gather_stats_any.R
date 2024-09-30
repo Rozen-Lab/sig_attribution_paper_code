@@ -175,6 +175,7 @@ all_measures <- function(xx, # A data.frame containing expsures.
   
   total_cores <- parallel::detectCores()
   mc_cores <- total_cores / 2
+  if (Sys.info()["sysname"] == "Windows") mc_cores = 1
   
   # Number of cores to use
 

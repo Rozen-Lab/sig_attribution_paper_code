@@ -7,6 +7,7 @@ gather_cpu_info = function(mutation_type) {
   output_home <- file.path("analysis/raw_output", mutation_type)
   total_cores <- parallel::detectCores()
   cores_to_use <- total_cores / 2
+  if (Sys.info()["sysname"] == "Windows") mc_cores = 1
   # cores_to_use = 1 # For debugging
     
   list1  <-

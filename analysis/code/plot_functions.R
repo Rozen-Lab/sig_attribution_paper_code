@@ -21,12 +21,17 @@ old_custom_colors <-
     "MP" = "#0072B2", "MSA" = "#CC79A7", "MSA_opt" = "#56B4E9"
   )
 
-custom_colors =
-  rev(RColorBrewer::brewer.pal(length(global_raw_tools_to_plot), "Set3"))
-canonical_tool_order =
-  c("PASA", "MuSiCal", "FitMS_01", "SigPro", "MutPat", 
-    "YAPSA_03", "DeconSig_03", "mutSig", "SigEstQP", "MSA_opt",
-    "siglasso", "siglasso_wprior")
+
+if (length(global_raw_tools_to_plot) > 12) {
+  extra = length(global_raw_tools_to_plot) - 12
+  custom_colors1 = 
+    rev(RColorBrewer::brewer.pal(12, "Set3"))
+  custom_colors = c(custom_colors1, custom_colors1[1:extra])
+} else {
+  custom_colors =
+    rev(RColorBrewer::brewer.pal(length(global_raw_tools_to_plot), "Set3"))
+}
+
 names(custom_colors) = global_raw_tools_to_plot
 
 ggplot_to_pdf <-
@@ -61,12 +66,7 @@ plot_all_cancer_types_merged = function(mut_type, fig_num) {
   indata <- orig_indata # change_tool_names(orig_indata)
   
   tools_to_plot = global_raw_tools_to_plot
-  # browser()
-  if (mut_type != "DBS") {
-    # browser()
-    tools_to_plot = tools_to_plot[-global_msa_index]
-  }
-  
+
   plot_objects <-
     boxplots_combined_cancer_types(
       assessment_by_sample = indata,
@@ -92,9 +92,7 @@ boxplots_combined_cancer_types <-
     # one input spectrum and the columns being
     # various measures such MD (Manbhattan distance),
     # sens, prec, Combined, etc.
-    # browser()
 
-    
     if (!is_null(tools_to_plot)) {
       assessment_by_sample = 
         dplyr::filter(assessment_by_sample, Tool %in% tools_to_plot)
@@ -393,7 +391,7 @@ cpu_barplot <- function(cpu_seconds_file, main = "", ylim = c(0, 450)) {
   } else {
     title <- main
   }
-  # browser()
+
   plot_object <-
     ggplot(cpu_time, aes(x = Tool, y = total_cpu_hours, fill = Tool)) +
     geom_bar(stat = "identity") +

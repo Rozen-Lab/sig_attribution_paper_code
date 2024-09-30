@@ -1,6 +1,7 @@
 global_random_seed = 145879
 
 get_tool_order <- function(assesment_by_sample, measure = mean) {
+  # browser()
   measure_combined <-
     aggregate(assesment_by_sample$Combined,
               list(assesment_by_sample$Tool),
@@ -25,12 +26,18 @@ all_tools =
 
 global_tools_to_plot =
   c("PASA", "MuSiCal", "FitMS_01",  
-    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", "MSA_best", "sigLASSO", "sigLASSO w prior")
+    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", 
+    "MSA_best", "sigLASSO",  "sigfit", "SigsPack" )
+# Skipping "sigLASSO w prior",
 
 
+# The fitms, yapsa, deconstruct, and msa depend SBS, DBS, ID
 global_raw_tools_to_plot = 
   c("pasa", "musical", "fitms_0.010",  
-    "sigpro", "mp", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest", 'msa_thresholdx100', "siglasso")
+    "sigpro", "mp", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest",
+    'msa_thresholdx100', "siglasso", "sigfit", "sigspack")
+# Skipping siglasso_wprior
+
 
 global_msa_index = which(global_raw_tools_to_plot == "msa_thresholdx100")
 stopifnot(length(global_msa_index) == 1)

@@ -1,5 +1,8 @@
 source("analysis/code/generic_analysis.R")
 
+# Only designed to work on SBS
+# On data for this project generates error and stops
+
 if (FALSE) {
   # How to install
   devtools::install_github("evenrus/mmsig")
