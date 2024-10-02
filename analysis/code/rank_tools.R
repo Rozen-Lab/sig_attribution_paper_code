@@ -58,8 +58,3 @@ rank_tools = function(mut_type)  {
   f1(best_tool_each_cancer_type)
   f1(pasa_rank_each_cancer_type)
 }
-
-# rank_tools("DBS")
-
-# rank_tools("SBS")
-

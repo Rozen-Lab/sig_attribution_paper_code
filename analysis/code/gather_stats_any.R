@@ -5,6 +5,7 @@ library(philentropy)
 library(ggforce)
 library(tidyverse)
 source("analysis/code/get_all_input.R")
+source("analysis/rank_tools.R")
 
 gather_stats_any = function(mutation_type) {
   
@@ -47,6 +48,8 @@ gather_stats_any = function(mutation_type) {
     output_dir = output_dir,
     mutation_type = mutation_type
   )
+  
+  rank_tools(mutation_type)
 }
 
 compute_and_write_stats <- 
