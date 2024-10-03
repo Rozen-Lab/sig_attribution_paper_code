@@ -1,6 +1,6 @@
 library(tidyverse)
 
-rank_tools = function(mut_type)  {
+rank_tools = function(mut_type, view = FALSE)  {
   # browser()
   df = data.table::fread(
     file.path("analysis/summary/",
@@ -44,7 +44,9 @@ rank_tools = function(mut_type)  {
   
   f1 = function(var) {
     origname = deparse(substitute(var))
-    View(var, paste0(mut_type, "_", origname))
+    if (view) {
+      View(var, paste0(mut_type, "_", origname))
+    }
     print(origname)
     outfile = file = file.path(
       "analysis/summary", mut_type, 

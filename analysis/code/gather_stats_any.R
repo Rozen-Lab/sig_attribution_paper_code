@@ -5,7 +5,7 @@ library(philentropy)
 library(ggforce)
 library(tidyverse)
 source("analysis/code/get_all_input.R")
-source("analysis/rank_tools.R")
+source("analysis/code/rank_tools.R")
 
 gather_stats_any = function(mutation_type) {
   

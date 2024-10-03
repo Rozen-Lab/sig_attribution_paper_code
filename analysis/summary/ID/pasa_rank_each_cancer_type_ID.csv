@@ -1,0 +1,10 @@
+cancer.type,Tool,rank_in_cancer_type,m.Combined
+Breast-AdenoCA,pasa,1,2.77825468067632
+ColoRect-AdenoCA,pasa,2,2.91418530001204
+Eso-AdenoCA,pasa,1,2.91879502448554
+Kidney-RCC,pasa,1,2.70576900746776
+Liver-HCC,pasa,1,2.81455031417699
+Lung-AdenoCA,pasa,1,2.77137733761134
+Ovary-AdenoCA,pasa,1,2.77524873193273
+Skin-Melanoma,pasa,1,2.78672943688718
+Stomach-AdenoCA,pasa,1,2.86983917390609

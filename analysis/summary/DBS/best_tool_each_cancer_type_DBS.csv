@@ -1,7 +1,7 @@
 cancer.type,Tool,rank_in_cancer_type,m.Combined
-Breast-AdenoCA,fitms_0.010,1,2.67542696768055
+Breast-AdenoCA,sigfit,1,2.67756007138744
 ColoRect-AdenoCA,pasa,1,2.60696156863908
-Eso-AdenoCA,fitms_0.010,1,2.51532509389912
+Eso-AdenoCA,fitms_0.010,1,2.51532509387147
 Kidney-RCC,pasa,1,2.87082197761104
 Liver-HCC,pasa,1,2.95351714466303
 Lung-AdenoCA,pasa,1,2.84697797132982
