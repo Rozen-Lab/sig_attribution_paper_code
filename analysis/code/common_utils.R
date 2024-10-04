@@ -22,30 +22,24 @@ all_tools =
 }
 
 
-# These need to be the display tool names
 
-global_tools_to_plot =
-  c("PASA", "MuSiCal", "FitMS_01",  
-    "SigPro", "MutPat", "YAPSA_03", "DeconSig_03",  "mutSig", "SigEstQP", 
-    "MSA_best", "sigLASSO",  "sigfit", "SigsPack" )
-# Skipping "sigLASSO w prior",
+pretty_tool_names <- function(tool_names) {
+  
+  # These are the display tool names
+  my_tools_to_plot =
+    c("PASA", "MuSiCal", "FitMS_01",  
+      "SigPro", "MutPat", "YAPSA_03", "YAPSA_06", 
+      "DeconSig_03",  "mutSig", "SigEstQP", 
+      "MSA_best", "sigLASSO",  "sigfit", "SigsPack" )
+  my_raw_tools_to_plot = 
+    c("pasa", "musical", "fitms_0.010",  
+      "sigpro", "mp", "yapsa_0.03", "yapsa_0.06", 
+      "deconstruct_0.03",  "mutsig", "sigest",
+      'msa_thresholdx100', "siglasso", "sigfit", "sigspack")
+  names(my_tools_to_plot) = my_raw_tools_to_plot
 
-
-# The fitms, yapsa, deconstruct, and msa depend SBS, DBS, ID
-global_raw_tools_to_plot = 
-  c("pasa", "musical", "fitms_0.010",  
-    "sigpro", "mp", "yapsa_0.03", "deconstruct_0.03",  "mutsig", "sigest",
-    'msa_thresholdx100', "siglasso", "sigfit", "sigspack")
-# Skipping siglasso_wprior
-
-
-global_msa_index = which(global_raw_tools_to_plot == "msa_thresholdx100")
-stopifnot(length(global_msa_index) == 1)
-
-names(global_tools_to_plot) = global_raw_tools_to_plot
-
-new_change_tool_names <- function(dt) {
-  dt[Tool = global_tools_to_plot[Tool]]
+  retval = my_tools_to_plot[tool_names]
+  return(retval)
 }
 
 change_tool_names <- function(dt) {
@@ -65,6 +59,61 @@ change_tool_names <- function(dt) {
   dt[Tool == "msa_default_unpruned", Tool := "MSA"]
   return(dt)
 }
+
+raw_tools_to_plot = function(mutation_type) {
+  if (mutation_type == "SBS") {
+    return(
+      c("pasa",
+        "musical",
+        "fitms_0.010",  
+        "sigpro",
+        "mp",
+        "yapsa_0.03", 
+        "deconstruct_0.03",
+        "mutsig",
+        "sigest",
+        'msa_thresholdx100',
+        "siglasso", 
+        "sigfit",
+        "sigspack"))
+  } else if (mutation_type == "DBS") {
+    return(
+      c("pasa",
+        "fitms_0.010",
+        "musical",
+        "mp",
+        "msa_thresholdx100",
+        "yapsa_0.06", # Different from SBS
+        "deconstruct_0.03",
+        "mutsig",
+        "sigpro",
+        "sigfit",
+        "sigspack",
+        "sigest"
+      )
+    )
+  } else if (mutation_type == "ID") {
+    return(
+      c("pasa",
+        "fitms_0.010",
+        "musical",
+        "mp",
+        "msa_thresholdx100",
+        "yapsa_0.06", # Same as DBS, different from SBS
+        "deconstruct_0.03",
+        "mutsig",
+        "sigpro",
+        "sigfit",
+        "sigspack",
+        "sigest"
+      )
+    )
+  } else {
+    stop("Unkown mutation_type: ", mutation_type)
+  }
+  
+}
+
 
 plot_output_directory <- "output_for_paper/"
 global_output_for_paper <- "output_for_paper/"

@@ -21,18 +21,22 @@ old_custom_colors <-
     "MP" = "#0072B2", "MSA" = "#CC79A7", "MSA_opt" = "#56B4E9"
   )
 
-
-if (length(global_raw_tools_to_plot) > 12) {
-  extra = length(global_raw_tools_to_plot) - 12
-  custom_colors1 = 
-    rev(RColorBrewer::brewer.pal(12, "Set3"))
-  custom_colors = c(custom_colors1, custom_colors1[1:extra])
-} else {
-  custom_colors =
-    rev(RColorBrewer::brewer.pal(length(global_raw_tools_to_plot), "Set3"))
+get_colors = function(mutation_type) {
+  tools = raw_tools_to_plot(mutation_type)
+  if (length(tools) > 12) {
+    extra = length(tools) - 12
+    custom_colors1 = 
+      rev(RColorBrewer::brewer.pal(12, "Set3"))
+    custom_colors = c(custom_colors1, custom_colors1[1:extra])
+  } else {
+    custom_colors =
+      rev(RColorBrewer::brewer.pal(length(tools), "Set3"))
+  }
+  
+  names(custom_colors) = tools
+  return(custom_colors)
 }
 
-names(custom_colors) = global_raw_tools_to_plot
 
 ggplot_to_pdf <-
   function(plot_objects, file, nrow, ncol, width, height, units, out_directory = plot_output_directory) {
@@ -56,27 +60,27 @@ scale_fn <- function(x) {
 
 ## PLOTS WITH ALL CANCER TYPES COMBINED #####################
 
-plot_all_cancer_types_merged = function(mut_type, fig_num) {
+plot_all_cancer_types_merged = function(mutation_type, fig_num) {
   
-  data_home <- file.path("analysis/summary", mut_type)
+  data_home <- file.path("analysis/summary", mutation_type)
   orig_indata <-
     data.table::fread(
       file.path(data_home, 
-                paste0("assessment_each_sample_", mut_type, ".csv")))
+                paste0("assessment_each_sample_", mutation_type, ".csv")))
   indata <- orig_indata # change_tool_names(orig_indata)
   
-  tools_to_plot = global_raw_tools_to_plot
+  tools_to_plot = raw_tools_to_plot(mutation_type)
 
   plot_objects <-
     boxplots_combined_cancer_types(
       assessment_by_sample = indata,
       tools_to_plot = tools_to_plot,
-      mut_type = mut_type
+      mutation_type = mutation_type
     )
   
   ggplot_to_pdf(
     plot_objects = plot_objects,
-    file = paste0("figure_", fig_num, "_", mut_type, "_all_cancer_types.pdf"),
+    file = paste0("figure_", fig_num, "_", mutation_type, "_all_cancer_types.pdf"),
     nrow = 4, ncol = 2,
     width = 8.2677, height = 11.6929, units = "in"
   )
@@ -86,7 +90,7 @@ plot_all_cancer_types_merged = function(mut_type, fig_num) {
 boxplots_combined_cancer_types <-
   function(assessment_by_sample, main = "", 
            tools_to_plot = NULL,
-           mut_type) {
+           mutation_type) {
     # assessment_by_sample is a big data.table
     # with one row for each run of one tool on 
     # one input spectrum and the columns being
@@ -123,7 +127,7 @@ boxplots_combined_cancer_types <-
                  xlab = "Tool", 
                  legend_position = "none",
                  ylab = ylabs[index], main = main,
-                 mut_type = mut_type
+                 mutation_type = mutation_type
                )
              })
     
@@ -133,12 +137,12 @@ boxplots_combined_cancer_types <-
 
 one_boxplot_combined_cancer_types <-
   function(measure, df, xlab, legend_position,
-           ylab = measure, main = NULL, mut_type) {
+           ylab = measure, main = NULL, mutation_type) {
     # browser()
     measure <- sym(measure)
     xlab <- sym(xlab)
     if (is.null(main)) {
-      main = mut_type
+      main = mutation_type
     }
     plot_object <-
       ggplot(df, aes(x = !!xlab, y = !!measure, fill = Tool)) +
@@ -147,8 +151,15 @@ one_boxplot_combined_cancer_types <-
         fun = mean, geom = "point", shape = 18,
         size = 2, color = "red", fill = "red"
       ) +
-      scale_fill_manual(values = custom_colors) +
-      scale_x_discrete(labels = function(x) sapply(x, function(toolname) (global_tools_to_plot[toolname]))) +
+      scale_fill_manual(values = get_colors(mutation_type)) +
+      scale_x_discrete(
+        labels = function(x)  { 
+          sapply(x,
+                 function(toolname) { 
+                   return(pretty_tool_names(toolname))
+                 })
+          }
+        ) +
       theme_minimal() +
       theme(
         plot.title = element_text(size = 11),
@@ -162,7 +173,7 @@ one_boxplot_combined_cancer_types <-
           l = 30
         )
       ) + 
-      ggtitle(mut_type) +
+      ggtitle(mutation_type) +
       ylab(ylab)
     # message("main is ", main)
     
@@ -170,14 +181,14 @@ one_boxplot_combined_cancer_types <-
       return(plot_object+ scale_y_reverse())
     } 
     if (measure == "multiLLH") {
-      if (mut_type == "SBS") {
+      if (mutation_type == "SBS") {
         return(plot_object + coord_cartesian(ylim = c(-1500, -200)))
-      } else if (mut_type == "DBS") {
+      } else if (mutation_type == "DBS") {
         return(plot_object + coord_cartesian(ylim = c(-500, 0)))
-      } else if (mut_type == "ID") {
+      } else if (mutation_type == "ID") {
         return(plot_object + coord_cartesian(ylim = c(-750, 0)))
       } else {
-        stop("Unknown mutation type: ", mut_type)
+        stop("Unknown mutation type: ", mutation_type)
       }
     } 
     return(plot_object  + coord_cartesian(ylim = c(0, NA)))
@@ -193,7 +204,7 @@ boxplots_by_cancer_type <-
            tools_to_plot = NULL,
            measures =
              c("Combined", "one_minus_smd", "prec", "sens"),
-           mut_type
+           mutation_type
   ) {
     # Boxplots of many measures by individual cancer type
     
@@ -234,7 +245,7 @@ boxplots_by_cancer_type <-
           xlab = "cancer.type", legend_position = "none",
           ylab = ylabs[index], main = main,
           last_plot = (index == length(measures)),
-          mutation_type = mut_type
+          mutation_type = mutation_type
         )
       by_type_plots <- c(by_type_plots, list(retval))
     }
@@ -265,7 +276,7 @@ plot_by_cancer_type_sup_fig = function(mutation_type, sup_fig_num) {
         assessment_by_sample = indata,
         tools_to_plot = tools_to_plot,
         measures = measures,
-        mut_type = mutation_type
+        mutation_type = mutation_type
       )
     
     ggplot_to_pdf(
@@ -314,7 +325,7 @@ one_boxplot_by_cancer_type <-
         fun = mean, geom = "point", shape = 18,
         size = 2, color = "red", position = position_dodge(0.75)
       ) +
-      scale_fill_manual(values = custom_colors) +
+      scale_fill_manual(values = get_colors(mutation_type)) +
       theme_minimal() +
       theme(
         plot.title = element_text(size = 11),
@@ -361,7 +372,7 @@ one_boxplot_by_cancer_type <-
       } else if (mutation_type == "ID") {
         return(plot_object + coord_cartesian(ylim = c(-750, 0)))
       } else {
-        stop("Unknown mutation type: ", mut_type)
+        stop("Unknown mutation type: ", mutation_type)
       }
     } 
     return(plot_object  + coord_cartesian(ylim = c(0, NA)))
@@ -371,14 +382,19 @@ one_boxplot_by_cancer_type <-
 
 ## CPU PLOT #####################
 
-cpu_barplot <- function(cpu_seconds_file, main = "", ylim = c(0, 450)) {
+cpu_barplot <- function(cpu_seconds_file, main = "",
+                        ylim = c(0, 450),
+                        mutation_type) { # Temporarily broken
   cpu_time <- data.table::fread(cpu_seconds_file)
   
   cpu_time = 
     dplyr::mutate(cpu_time, total_cpu_hours = (sum_of_cpu_by_cancer_type / 60) / 60)
   colnames(cpu_time)[1] <- "Tool"
+
+  cpu_time = dplyr::filter(cpu_time, Tool %in% raw_tools_to_plot(mutation_type)) # Need to deal with changed tools names
+
   cpu_time <- change_tool_names(cpu_time)
-  cpu_time = dplyr::filter(cpu_time, Tool %in% global_tools_to_plot)
+  
   if (any(duplicated(cpu_time$Tool))) {
     browser()
   }
@@ -395,7 +411,7 @@ cpu_barplot <- function(cpu_seconds_file, main = "", ylim = c(0, 450)) {
   plot_object <-
     ggplot(cpu_time, aes(x = Tool, y = total_cpu_hours, fill = Tool)) +
     geom_bar(stat = "identity") +
-    scale_fill_manual(values = custom_colors) +
+    scale_fill_manual(values = get_colors(mutation_type)) +
     labs(
       title = title,
       x = "Tool",
