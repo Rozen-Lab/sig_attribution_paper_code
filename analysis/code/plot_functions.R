@@ -264,11 +264,8 @@ plot_by_cancer_type_sup_fig = function(mutation_type, sup_fig_num) {
   
   # indata <- change_tool_names(indata)
   # browser()
-  tools_to_plot = global_raw_tools_to_plot
-  if (mutation_type != "DBS") {
-    tools_to_plot = tools_to_plot[-global_msa_index]
-  }
-  
+  tools_to_plot = raw_tools_to_plot(mutation_type)
+
   plot_some = function(measures, basename) {
     # browser()
     plot_objects1 <-
@@ -362,6 +359,17 @@ one_boxplot_by_cancer_type <-
     }
     
     if (measure == "KL") { 
+      if (mutation_type %in% c("SBS", "DBS")) {
+        return(
+          plot_object = plot_object + coord_cartesian(ylim = c(3, 0)) +
+            scale_y_reverse()
+          )
+      } else {
+        return(
+          plot_object + coord_cartesian(ylim = c(2.5, 0)) +
+            scale_y_reverse()
+        )
+      }
       return(plot_object+ scale_y_reverse())
     } 
     if (measure == "multiLLH") {
@@ -375,5 +383,12 @@ one_boxplot_by_cancer_type <-
         stop("Unknown mutation type: ", mutation_type)
       }
     } 
+    if (measure == "Combined") {
+      if (mutation_type %in% c("SBS", "ID")) {
+        return(plot_object + coord_cartesian(ylim = c(1, 3)))
+      } else {
+        return(plot_object + coord_cartesian(ylim = c(0.5, 3)))
+      }
+    }
     return(plot_object  + coord_cartesian(ylim = c(0, NA)))
   }
