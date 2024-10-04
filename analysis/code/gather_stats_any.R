@@ -36,7 +36,7 @@ gather_stats_any = function(mutation_type) {
   exposure_all <- do.call(dplyr::bind_rows, exp_tool_dfs)
   exposure_all[is.na(exposure_all)] <- 0
   # browser()
-  output_dir <- file.path("analysis/summary", mutation_type) # Where to put the summary
+  output_dir <- file.path("output_for_paper", mutation_type) # Where to put the summary
   all_inferred_exp_path =
     file.path(output_dir, 
               paste0("all_inferred_exposures_", mutation_type, ".csv"))
