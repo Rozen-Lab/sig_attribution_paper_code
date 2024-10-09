@@ -12,16 +12,6 @@ get_tool_order <- function(assesment_by_sample, measure = mean) {
   return(tool_order)
 }
 
-# Not sure if this is used
-if (FALSE) {
-all_tools = 
-  c("PASA", "musical", "fitms_0.010", "fitms_0.030", "fitms_0.060",  "fitms_0.005", 
-    "SigPro", "MP", "yapsa_0.03", "deconstruct_0.03",  "yapsa_0.01", "deconstruct_0.06",
-    "yapsa_0.06", "mutsig", "yapsa_0.00",  "deconstruct_0.10", "deconstruct_0.00", "yapsa_0.10",
-    "QP_null",  "sigest", "msa", "msa_unpruned_default")
-}
-
-
 
 pretty_tool_names <- function(tool_names) {
   
