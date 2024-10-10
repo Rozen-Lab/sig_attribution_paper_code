@@ -36,6 +36,9 @@ wilcox.test(x = sbs_dt[Tool == "pasa",]$Combined,
 wilcox.test(x = sbs_dt[Tool == "pasa",]$Combined, 
             y = sbs_dt[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
 
+wilcox.test(x = sbs_dt[Tool == "musical",]$Combined, 
+            y = sbs_dt[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
 ```
 
 ## Results, DBS subsection
