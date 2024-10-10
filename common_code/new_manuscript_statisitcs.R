@@ -3,7 +3,6 @@ stopifnot(basename(getwd()) == "sig_attribution_paper_code")
 rm(list = ls())
 library(data.table)
 library(tidyverse)
-source("analysis/code/common_utils.R")
 output_for_paper_dir = "output_for_paper"
 
 ## Results section for SBS
@@ -46,11 +45,21 @@ dbs_test2 <-
               y = dbs_dt[Tool == "musical",]$Combined)
 dbs_p_value2 <- dbs_test2$p.value
 
-id_file <- "analysis/summary/ID/syn/assessment_each_sample.csv"
-id_dt <- data.table::fread(id_file)
-id_tool_order <- get_tool_order(id_dt)
-id_test1 <- 
-  wilcox.test(x = id_dt[Tool == "pasa",]$Combined, 
-              y = id_dt[Tool == "fitms",]$Combined)
-id_p_value1 <- id_test1$p.value
+## Manuscript Results section for ID
 
+id_summary = fread(
+  file.path(output_for_paper_dir,
+            "ID/all_summary_stats_ID.csv")) %>%
+  arrange(desc(m.Combined)) %>% head(20) %>% 
+  select(Tool, m.Combined) %>% print()
+
+
+id_file <- file.path(output_for_paper_dir, 
+                     "ID/assessment_each_sample_ID.csv")
+id_dt <- data.table::fread(id_file)
+
+wilcox.test(x = id_dt[Tool == "pasa",]$Combined, 
+            y = id_dt[Tool == "fitms_0.060",]$Combined) %>% `$`(p.value)
+
+wilcox.test(x = id_dt[Tool == "fitms_0.060",]$Combined, 
+            y = id_dt[Tool == "musical",]$Combined) %>% `$`(p.value)

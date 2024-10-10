@@ -1,0 +1,82 @@
+---
+title: "Statistics for the manuscript"
+format: html
+editor: visual
+---
+
+## Libraries
+
+```{r}
+#| warning: false
+library(data.table)
+library(tidyverse)
+output_for_paper_dir = "../../output_for_paper"
+```
+
+## Results, SBS subsection
+
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "SBS/all_summary_stats_SBS.csv")) %>%
+  arrange(desc(m.Combined)) %>% 
+  head(10) %>% select(Tool, m.Combined)
+
+sbs_file <- file.path(output_for_paper_dir, 
+                      "SBS/assessment_each_sample_SBS.csv")
+
+sbs_dt <- data.table::fread(sbs_file)
+
+wilcox.test(x = sbs_dt[Tool == "pasa",]$Combined, 
+              y = sbs_dt[Tool == "musical",]$Combined) %>% `$`(p.value)
+```
+
+```{r}
+wilcox.test(x = sbs_dt[Tool == "pasa",]$Combined, 
+            y = sbs_dt[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+```
+
+## Results, DBS subsection
+
+```{r}
+dbs_summary = fread(
+  file.path(output_for_paper_dir,
+            "DBS/all_summary_stats_DBS.csv"))
+arrange(dbs_summary, desc(m.Combined)) %>% head() %>% select(Tool, m.Combined)
+
+dbs_file <- file.path(output_for_paper_dir, 
+                      "DBS/assessment_each_sample_DBS.csv")
+dbs_dt <- fread(dbs_file)
+
+wilcox.test(x = dbs_dt[Tool == "pasa",]$Combined, 
+            y = dbs_dt[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+
+wilcox.test(x = dbs_dt[Tool == "fitms_0.010",]$Combined, 
+            y = dbs_dt[Tool == "musical",]$Combined) %>% `$`(p.value)
+
+
+```
+
+## Results, ID subsection
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "ID/all_summary_stats_ID.csv")) %>%
+  arrange(desc(m.Combined)) %>% head(20) %>% 
+  select(Tool, m.Combined)
+
+id_file <- file.path(output_for_paper_dir, 
+                     "ID/assessment_each_sample_ID.csv")
+id_dt <- data.table::fread(id_file)
+
+wilcox.test(x = id_dt[Tool == "pasa",]$Combined, 
+            y = id_dt[Tool == "fitms_0.060",]$Combined) %>% `$`(p.value)
+
+wilcox.test(x = id_dt[Tool == "fitms_0.060",]$Combined, 
+            y = id_dt[Tool == "musical",]$Combined) %>% `$`(p.value)
+```
+
