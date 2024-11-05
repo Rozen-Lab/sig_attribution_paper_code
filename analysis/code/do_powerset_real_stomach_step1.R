@@ -8,7 +8,6 @@ source("analysis/code/powerset_analysis.R")
 enumeration_of_attributions <- # Used for PCAWG stomach tumors
   function(spectra, 
            selected_sig_names,
-           dir_name, # This where many PDFs are printed
            cosine_threshold
   ) {
     
@@ -22,7 +21,8 @@ enumeration_of_attributions <- # Used for PCAWG stomach tumors
             all_sig_names = selected_sig_names,
             cosine_threshold = cosine_threshold,
             xlabels = FALSE,
-            dir_name = dir_name
+            dir_name = ".", # Not used if !plot_pdf
+            plot_pdf = FALSE # Too many big files
           )
         },
         # mc.cores = 1) 
@@ -43,14 +43,18 @@ selected_sig_names = names(all_stomach)
 
 all_stomach_spectra <- pcawg_stomach_spectra()
 
-bigfile = "~/bigdata/powerset_real_spectra.rdata" # PCAWG stomach spectra
+# If there is no github large file system:
+# bigfile = "~/bigdata/powerset_real_spectra.rdata" # PCAWG stomach spectra
+
+# If there *is* github large files system:
+bigfile = "output_for_paper/powerset_real_spectra.rdata" # PCAWG stomach spectra
 message("Starting to analyze all spectra")
-dir_for_pdfs_name <- "/bigdata/figure2pdfs"
 powerset_real_spectra <-
   enumeration_of_attributions(
     spectra = all_stomach_spectra, # [ , 1:10], # for testing
     selected_sig_names = selected_sig_names,
-    dir_name = dir_for_pdfs_name, 
-    cosine_threshold = 0.969
+
+    cosine_threshold = 0.969,
+    
   )
 save(powerset_real_spectra, file = bigfile)

@@ -358,7 +358,7 @@ figure_2_and_sup_table_s2 <- function(sample_name, selected_sig_names, dir_name)
   )
 }
 
-enumeration_of_attributions <- function(spectra, selected_sig_names, dir_name) {
+Do_NOT_USE_enumeration_of_attributions <- function(spectra, selected_sig_names, dir_name) {
   retval <- lapply(
     1:ncol(spectra),
     function(x) {

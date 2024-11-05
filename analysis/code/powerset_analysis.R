@@ -182,7 +182,7 @@ explore_powerset_and_print <- function(test_spectrum,
                              xlabels,
                              dir_name,
                              plot_pdf = TRUE) {
-  if (!dir.exists(dir_name)) {
+  if (plot_pdf && !dir.exists(dir_name)) {
     dir.create(path = dir_name, recursive = FALSE)
   }
   # browser()

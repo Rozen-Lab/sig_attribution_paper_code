@@ -11,8 +11,7 @@ library(openxlsx)
 all_stomach_spectra <- pcawg_stomach_spectra()
 
 # bigfile = "~/bigdata/powerset_real_spectra.rdata"
-bigfile = "c:/users/steve rozen/Documents/bigdata/powerset_real_spectra.rdata"
-file.exists(bigfile)
+bigfile = "output_for_paper/powerset_real_spectra.rdata"
 message("Loading existing file ", bigfile)
 load(bigfile)
 stopifnot(length(powerset_real_spectra) == 75)
