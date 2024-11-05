@@ -10,14 +10,15 @@ library(openxlsx)
 
 ## OLD all_stomach_spectra <- pcawg_stomach_spectra()
 
-# bigfile = "~/bigdata/powerset_real_spectra.rdata"
-bigfile = "c:/users/steve rozen/Documents/bigdata/syn_stomach_powerset.rdata"
+# if no git LSF
+# bigfile = "c:/users/steve rozen/Documents/bigdata/syn_stomach_powerset.rdata"
+# if git LSF 
+bigfile = "output_for_paper/syn_stomach_powerset.rdata"
+
 stopifnot(file.exists(bigfile))
 message("Loading existing file ", bigfile)
 load(bigfile)
 stopifnot(length(syn_stomach_powerset) == 100)
-
-load("output_for_paper/syn_all_reoptimized.rdata")
 
 # Compare ground truth attribution to attributions in the power set
 # Used for checking how many attributions have higher cosine

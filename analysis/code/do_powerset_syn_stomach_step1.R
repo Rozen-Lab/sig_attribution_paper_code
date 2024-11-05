@@ -41,17 +41,17 @@ sigs_to_use = rownames(syn_stomach_exposures)[rowSums(syn_stomach_exposures) > 0
 
 sample_names = colnames(syn_stomach_spectra) # for testing
 
-if (file.exists("~/bigdata/syn_stomach_powerset.Rdata")) {
-  load("~/bigdata/syn_stomach_powerset.Rdata")
-} else {
-  system.time({
-    syn_stomach_powerset <-
-      get_alternative_attribution(
-        sample_names = sample_names,
-        spectra = syn_stomach_spectra,
-        selected_sig_names = sigs_to_use
-      )
-  })
-  save(syn_stomach_powerset,
-       file = "~/bigdata/syn_stomach_powerset.Rdata")
-}
+syn_stomach_powerset <-
+  get_alternative_attribution(
+    sample_names = sample_names,
+    spectra = syn_stomach_spectra,
+    selected_sig_names = sigs_to_use
+  )
+
+save(syn_stomach_powerset, 
+     # If no git LFS
+     # file = "~/bigdata/syn_stomach_powerset.rdata"
+     # If yes git LFS
+     file = "output_for_paper/syn_stomach_powerset.rdata"
+)
+
