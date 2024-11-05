@@ -1,0 +1,121 @@
+"tool_name","cancer_type","cpu_seconds"
+"deconstruct","Breast-AdenoCA",7.95300000000002
+"deconstruct","ColoRect-AdenoCA",2.21699999999979
+"deconstruct","Eso-AdenoCA",5.2529999999997
+"deconstruct","Kidney-RCC",7.48500000000001
+"deconstruct","Liver-HCC",10.1529999999997
+"deconstruct","Lung-AdenoCA",4.21499999999969
+"deconstruct","Ovary-AdenoCA",6.70099999999992
+"deconstruct","Skin-Melanoma",8.90200000000025
+"deconstruct","Stomach-AdenoCA",4.68500000000014
+"deconstruct","Total all cancer types",57.5639999999992
+"fitms_0.010","Breast-AdenoCA",5.37000000000003
+"fitms_0.010","ColoRect-AdenoCA",0.977000000000032
+"fitms_0.010","Eso-AdenoCA",2.37599999999998
+"fitms_0.010","Kidney-RCC",2.30899999999997
+"fitms_0.010","Liver-HCC",2.00299999999999
+"fitms_0.010","Lung-AdenoCA",1.72499999999997
+"fitms_0.010","Ovary-AdenoCA",1.56899999999996
+"fitms_0.010","Skin-Melanoma",1.65000000000003
+"fitms_0.010","Stomach-AdenoCA",2.16699999999998
+"fitms_0.010","Total all cancer types",20.1459999999999
+"mp","Breast-AdenoCA",1.797
+"mp","ColoRect-AdenoCA",1.28400000000012
+"mp","Eso-AdenoCA",1.8790000000001
+"mp","Kidney-RCC",1.86399999999981
+"mp","Liver-HCC",1.75200000000012
+"mp","Lung-AdenoCA",1.60000000000014
+"mp","Ovary-AdenoCA",1.55100000000016
+"mp","Skin-Melanoma",1.623
+"mp","Stomach-AdenoCA",1.73099999999999
+"mp","Total all cancer types",15.0810000000004
+"msa_default","Breast-AdenoCA",64800
+"msa_default","ColoRect-AdenoCA",43920
+"msa_default","Eso-AdenoCA",81000
+"msa_default","Kidney-RCC",87120
+"msa_default","Liver-HCC",79920
+"msa_default","Lung-AdenoCA",61920
+"msa_default","Ovary-AdenoCA",67320
+"msa_default","Skin-Melanoma",66600
+"msa_default","Stomach-AdenoCA",78840
+"msa_default","Total all cancer types",631440
+"musical","Breast-AdenoCA",46.9120000000032
+"musical","ColoRect-AdenoCA",94.8819999999967
+"musical","Eso-AdenoCA",49.6060000000007
+"musical","Kidney-RCC",98.349000000005
+"musical","Liver-HCC",93.3579999999966
+"musical","Lung-AdenoCA",48.880999999999
+"musical","Ovary-AdenoCA",94.8170000000023
+"musical","Skin-Melanoma",95.415999999997
+"musical","Stomach-AdenoCA",95.7119999999991
+"musical","Total all cancer types",717.933
+"mutsig","Breast-AdenoCA",0.82299999999988
+"mutsig","ColoRect-AdenoCA",0.553000000000218
+"mutsig","Eso-AdenoCA",0.781000000000326
+"mutsig","Kidney-RCC",0.77499999999992
+"mutsig","Liver-HCC",1.85000000000004
+"mutsig","Lung-AdenoCA",0.721000000000288
+"mutsig","Ovary-AdenoCA",0.714999999999613
+"mutsig","Skin-Melanoma",0.729999999999741
+"mutsig","Stomach-AdenoCA",0.703999999999738
+"mutsig","Total all cancer types",7.65199999999976
+"pasa","Breast-AdenoCA",5332.737
+"pasa","ColoRect-AdenoCA",2710.499
+"pasa","Eso-AdenoCA",5222.79
+"pasa","Kidney-RCC",6316.309
+"pasa","Liver-HCC",5764.487
+"pasa","Lung-AdenoCA",4319.985
+"pasa","Ovary-AdenoCA",4864.05
+"pasa","Skin-Melanoma",4859.414
+"pasa","Stomach-AdenoCA",3992.159
+"pasa","Total all cancer types",43382.43
+"sigest","Breast-AdenoCA",0.111999999999995
+"sigest","ColoRect-AdenoCA",0.0249999999999986
+"sigest","Eso-AdenoCA",0.0219999999999985
+"sigest","Kidney-RCC",0.0210000000000008
+"sigest","Liver-HCC",0.0209999999999937
+"sigest","Lung-AdenoCA",0.019999999999996
+"sigest","Ovary-AdenoCA",0.019999999999996
+"sigest","Skin-Melanoma",0.0210000000000008
+"sigest","Stomach-AdenoCA",0.126999999999994
+"sigest","Total all cancer types",0.388999999999973
+"sigfit","Breast-AdenoCA",544.735
+"sigfit","ColoRect-AdenoCA",472.819
+"sigfit","Eso-AdenoCA",609.43
+"sigfit","Kidney-RCC",578.229
+"sigfit","Liver-HCC",515.942
+"sigfit","Lung-AdenoCA",539.747999999999
+"sigfit","Ovary-AdenoCA",521.908999999999
+"sigfit","Skin-Melanoma",540.986000000001
+"sigfit","Stomach-AdenoCA",552.537
+"sigfit","Total all cancer types",4876.335
+"sigpro","Breast-AdenoCA",30.0059999999978
+"sigpro","ColoRect-AdenoCA",51.9159999999986
+"sigpro","Eso-AdenoCA",30.2630000000038
+"sigpro","Kidney-RCC",56.6429999999964
+"sigpro","Liver-HCC",56.0350000000035
+"sigpro","Lung-AdenoCA",28.9430000000005
+"sigpro","Ovary-AdenoCA",54.8499999999988
+"sigpro","Skin-Melanoma",54.881999999998
+"sigpro","Stomach-AdenoCA",55.4470000000003
+"sigpro","Total all cancer types",418.984999999998
+"sigspack","Breast-AdenoCA",0.0300000000000011
+"sigspack","ColoRect-AdenoCA",0.0200000000000031
+"sigspack","Eso-AdenoCA",0.00999999999999801
+"sigspack","Kidney-RCC",0.00999999999999801
+"sigspack","Liver-HCC",0.0200000000000031
+"sigspack","Lung-AdenoCA",0.00999999999999801
+"sigspack","Ovary-AdenoCA",0
+"sigspack","Skin-Melanoma",0.0200000000000031
+"sigspack","Stomach-AdenoCA",0
+"sigspack","Total all cancer types",0.120000000000005
+"yapsa","Breast-AdenoCA",0.0259999999998399
+"yapsa","ColoRect-AdenoCA",0.0249999999998636
+"yapsa","Eso-AdenoCA",0.0249999999998636
+"yapsa","Kidney-RCC",0.0259999999998399
+"yapsa","Liver-HCC",0.0260000000000673
+"yapsa","Lung-AdenoCA",0.0249999999998636
+"yapsa","Ovary-AdenoCA",0.0260000000000673
+"yapsa","Skin-Melanoma",0.0259999999998399
+"yapsa","Stomach-AdenoCA",0.0249999999998636
+"yapsa","Total all cancer types",0.229999999999109

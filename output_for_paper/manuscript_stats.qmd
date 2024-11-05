@@ -1,0 +1,206 @@
+---
+title: "Statistics for the manuscript"
+format: html
+editor: visual
+---
+
+## Libraries
+
+```{r}
+#| warning: false
+#| message: false
+library(data.table)
+library(tidyverse)
+library(huxtable)
+source("../analysis/code/common_utils.R")
+output_for_paper_dir = "."
+```
+
+## Results, SBS subsection
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "all_summary_stats_SBS.csv")) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  arrange(desc(m.Combined)) %>% 
+  head() %>% select(Tool, m.Combined)
+
+sbs_file <- file.path(output_for_paper_dir, 
+                      "assessment_each_sample_SBS.csv")
+
+sbs_assessment <- data.table::fread(sbs_file)
+
+wilcox.test(x = sbs_assessment[Tool == "pasa",]$Combined, 
+              y = sbs_assessment[Tool == "musical",]$Combined) %>% `$`(p.value)
+```
+
+```{r}
+wilcox.test(x = sbs_assessment[Tool == "pasa",]$Combined, 
+            y = sbs_assessment[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+wilcox.test(x = sbs_assessment[Tool == "musical",]$Combined, 
+            y = sbs_assessment[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+```
+
+### MutationalPatterns SBS ranks
+
+```{r}
+sbs_tool_rank = 
+fread("tools_ranked_in_each_cancer_type_SBS.csv")
+filter(sbs_tool_rank, Tool == "MutPat") %>%
+  select(cancer.type, Tool, rank_in_cancer_type, `mean(Combined_Score)`)
+sbs_tool_rank %>%
+  group_by(Tool) %>%
+ summarize(
+    min_rank = min(rank_in_cancer_type),
+    max_rank = max(rank_in_cancer_type),
+    difference = max_rank - min_rank
+  )
+
+
+```
+
+### SBS: Worst cancer type for each tool
+
+```{r}
+
+fread(
+  file.path(
+    output_for_paper_dir,
+    "summary_stats_by_cancer_type_SBS.csv")) %>%
+  select(Tool, cancer.type, m.Combined) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  group_by(Tool) %>% 
+  mutate(rank_in_tool = min_rank(m.Combined)) %>%
+  arrange(m.Combined, .by_group = TRUE) %>%
+  dplyr::slice(1:2) %>% 
+  filter(cancer.type == "Skin-Melanoma") %>%
+  data.frame()
+
+```
+
+## Results, DBS subsection
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "all_summary_stats_DBS.csv")) %>%
+  arrange(desc(m.Combined)) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  head() %>% select(Tool, m.Combined)
+
+dbs_file <- file.path(output_for_paper_dir, 
+                      "assessment_each_sample_DBS.csv")
+dbs_assessment <- fread(dbs_file)
+
+wilcox.test(
+  x = dbs_assessment[Tool == "pasa",]$Combined, 
+  y = dbs_assessment[Tool == "fitms_0.010",]$Combined) %>%
+  `$`(p.value)
+
+
+wilcox.test(
+  x = dbs_assessment[Tool == "fitms_0.010",]$Combined, 
+  y = dbs_assessment[Tool == "musical",]$Combined) %>%
+  `$`(p.value)
+
+
+```
+
+```{r}
+dbs_tool_rank = 
+fread("tools_ranked_in_each_cancer_type_DBS.csv")
+dbs_tool_rank %>%
+  group_by(Tool) %>%
+ summarize(
+    min_rank = min(rank_in_cancer_type),
+    max_rank = max(rank_in_cancer_type),
+    difference = max_rank - min_rank
+  )
+
+```
+```{r}
+dbs_tool_rank %>% 
+  filter(Tool %in% c("DeconSig", "SigPro"), rank_in_cancer_type %in% c(1,12))
+```
+
+
+### DBS: comparison for recall for each tool versus SBS
+
+```{r}
+getwd()
+sbss = select(sbs_assessment, Tool, Sample.ID, cancer.type, sens)
+dbss = select(dbs_assessment, Tool, Sample.ID, cancer.type, sens)
+inner_join(sbss, dbss, 
+           by = join_by(Tool == Tool, 
+                        cancer.type == cancer.type, 
+                        Sample.ID == Sample.ID)) %>%
+  mutate(SBS.recall = sens.x, DBS.recall = sens.y,
+         .keep = "unused") %>%
+  filter(Tool %in% tools_to_plot_and_order("DBS")) %>%
+  group_by(Tool) %>%
+  summarize(
+    median_dif = median(DBS.recall - SBS.recall),
+    mean_dif = mean(DBS.recall - SBS.recall),
+    wilcox.test = list(
+      broom::tidy(
+        wilcox.test(jitter(SBS.recall),
+                    DBS.recall, paired = TRUE)
+      )
+    )
+  ) %>%
+  unnest(cols = c(wilcox.test)) %>%
+  mutate(method = NULL, 
+         statistic = NULL, 
+         alternative = NULL,
+         FDR = p.adjust(p.value)) %>%
+  filter(FDR < 0.1) ->foo
+
+nrow(filter(foo, mean_dif < 0))
+nrow(filter(foo, mean_dif > 0))
+ 
+```
+
+## Results, ID subsection
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "all_summary_stats_ID.csv")) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  arrange(desc(m.Combined)) %>%
+  head() %>% 
+  select(Tool, m.Combined)
+
+id_file <- file.path(output_for_paper_dir, 
+                     "assessment_each_sample_ID.csv")
+id_dt <- data.table::fread(id_file)
+
+wilcox.test(x = id_dt[Tool == "pasa",]$Combined, 
+            y = id_dt[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+wilcox.test(x = id_dt[Tool == "fitms_0.010",]$Combined, 
+            y = id_dt[Tool == "musical",]$Combined) %>% `$`(p.value)
+```
+
+```{r}
+id_tool_rank = 
+fread("tools_ranked_in_each_cancer_type_ID.csv")
+id_tool_rank %>%
+  group_by(Tool) %>%
+ summarize(
+    min_rank = min(rank_in_cancer_type),
+    max_rank = max(rank_in_cancer_type),
+    difference = max_rank - min_rank
+  ) %>% as_huxtable() %>% huxtable::set_caption("ID: difference between min and max ranks")
+
+
+```
+
+```{r}
+id_tool_rank %>% filter(Tool == "SigPro")
+```
+
+

@@ -1,0 +1,11 @@
+name: msa
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas=1.5.0
+  - numpy=1.23.3
+  - scipy=1.9.1
+  - seaborn=0.12.0
+  - matplotlib=3.6.0
+  - statsmodels=0.13.2

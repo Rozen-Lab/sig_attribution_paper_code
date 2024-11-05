@@ -1,0 +1,122 @@
+************************ Stepwise Description of Signature Assignment to Samples ************************
+
+
+
+
+                    ################ Sample 1 #################
+############################# Initial Composition ####################################
+   SBS1    SBS5   SBS14  SBS17a  SBS17b  SBS26  SBS30  SBS35
+0  85.0  4701.0  1477.0    44.0    32.0  342.0  226.0   87.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          SBS5        SBS14
+0  5517.827932  1476.172068
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['SBS1', 'SBS5', 'SBS14']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['SBS1', 'SBS5', 'SBS14']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['SBS1', 'SBS5', 'SBS14']
+L2 Error % 0.27
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+   SBS1    SBS5   SBS14
+0  68.0  5457.0  1469.0
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 2 #################
+############################# Initial Composition ####################################
+    SBS4    SBS5   SBS6  SBS9   SBS12  ...  SBS22a  SBS24  SBS29  SBS30  SBS40
+0  291.0  6747.0  115.0  76.0  1382.0  ...    21.0  485.0  342.0  186.0  283.0
+
+[1 rows x 13 columns]
+L2 Error %: 0.22
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+           SBS5        SBS14
+0  10379.935622  1078.064378
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['SBS5', 'SBS14']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['SBS5', 'SBS14']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['SBS5', 'SBS14']
+L2 Error % 0.28
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+      SBS5   SBS14
+0  10380.0  1078.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 3 #################
+############################# Initial Composition ####################################
+     SBS1    SBS5     SBS6   SBS14  SBS16  SBS24   SBS26   SBS30
+0  1782.0  9298.0  10579.0  2441.0  950.0  441.0  8184.0  1611.0
+L2 Error %: 0.22
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          SBS5          SBS6        SBS26
+0  14495.74458  13154.004777  7636.250643
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['SBS1', 'SBS5', 'SBS6', 'SBS26']
+L2 Error % 0.26
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['SBS1', 'SBS5', 'SBS6', 'SBS26']
+L2 Error % 0.26
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['SBS1', 'SBS5', 'SBS6', 'SBS26']
+L2 Error % 0.26
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+     SBS1     SBS5     SBS6   SBS26
+0  1761.0  15970.0  10594.0  6961.0
+L2 Error %: 0.26
+Cosine Similarity: 0.96

@@ -1,0 +1,4000 @@
+************************ Stepwise Description of Signature Assignment to Samples ************************
+
+
+
+
+                    ################ Sample 1 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3    ID5  ID6  ID8   ID9
+0  57.0  1.0  212.0  138.0  3.0  1.0  58.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+         ID1         ID3         ID5
+0  55.087957  239.194942  175.717101
+L2 Error %: 0.3
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.3
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.3
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.3
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+    ID1    ID3    ID5
+0  55.0  239.0  176.0
+L2 Error %: 0.3
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 2 #################
+############################# Initial Composition ####################################
+     ID1   ID3   ID8
+0  185.0  29.0  44.0
+L2 Error %: 0.07
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+         ID1       ID8
+0  206.29641  51.70359
+L2 Error %: 0.09
+Cosine Similarity: 1.0
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID8']
+L2 Error % 0.09
+Cosine Similarity 1.0
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID8']
+L2 Error % 0.09
+Cosine Similarity 1.0
+
+#################### Final Composition #################################
+['ID1', 'ID8']
+L2 Error % 0.09
+Cosine Similarity 1.0
+####################################### Composition After Add-Remove #######################################
+     ID1   ID8
+0  206.0  52.0
+L2 Error %: 0.09
+Cosine Similarity: 1.0
+
+
+
+
+
+                    ################ Sample 3 #################
+############################# Initial Composition ####################################
+     ID1     ID3    ID5
+0  220.0  2041.0  154.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID1          ID3
+0  230.052677  2184.947323
+L2 Error %: 0.21
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.21
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.21
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.21
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3
+0  230.0  2185.0
+L2 Error %: 0.21
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 4 #################
+############################# Initial Composition ####################################
+     ID3
+0  125.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+     ID3
+0  125.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.36
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+     ID3
+0  125.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 5 #################
+############################# Initial Composition ####################################
+     ID1  ID2     ID3  ID6    ID9
+0  107.0  4.0  1980.0  6.0  886.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+           ID3         ID9
+0  2078.481286  904.518714
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.32
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+      ID3    ID9
+0  2078.0  905.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 6 #################
+############################# Initial Composition ####################################
+    ID1    ID2   ID3    ID5   ID6    ID8   ID9
+0  92.0  158.0  20.0  295.0  48.0  138.0  98.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+         ID1         ID2         ID5         ID8         ID9
+0  96.383431  164.348113  310.009246  165.910354  112.348856
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID5', 'ID8', 'ID9']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID5', 'ID8', 'ID9']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID5', 'ID8', 'ID9']
+L2 Error % 0.23
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+    ID1    ID2    ID5    ID8    ID9
+0  96.0  164.0  311.0  166.0  112.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 7 #################
+############################# Initial Composition ####################################
+   ID2    ID3    ID5   ID8   ID9
+0  3.0  106.0  299.0  42.0  13.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID3         ID5
+0  122.541476  340.458524
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID3', 'ID5']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID3    ID5
+0  123.0  340.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 8 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3    ID5
+0  131.0  25.0  3555.0  214.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+      ID3
+0  3925.0
+L2 Error %: 0.22
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.22
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.22
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.22
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  3925.0
+L2 Error %: 0.22
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 9 #################
+############################# Initial Composition ####################################
+    ID2    ID3   ID5  ID8   ID9
+0  15.0  706.0  35.0  3.0  22.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+     ID3
+0  781.0
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.27
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+     ID3
+0  781.0
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 10 #################
+############################# Initial Composition ####################################
+   ID1  ID2   ID5   ID8
+0  1.0  1.0  97.0  57.0
+L2 Error %: 0.49
+Cosine Similarity: 0.87
+############################## Composition After Initial Remove ###############################
+         ID5        ID8
+0  98.871078  57.128922
+L2 Error %: 0.49
+Cosine Similarity: 0.87
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5', 'ID8']
+L2 Error % 0.49
+Cosine Similarity 0.87
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5', 'ID8']
+L2 Error % 0.49
+Cosine Similarity 0.87
+
+#################### Final Composition #################################
+['ID5', 'ID8']
+L2 Error % 0.49
+Cosine Similarity 0.87
+####################################### Composition After Add-Remove #######################################
+    ID5   ID8
+0  99.0  57.0
+L2 Error %: 0.49
+Cosine Similarity: 0.87
+
+
+
+
+
+                    ################ Sample 11 #################
+############################# Initial Composition ####################################
+     ID3    ID5   ID8
+0  125.0  230.0  13.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+          ID3         ID5
+0  128.490743  239.509257
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['ID3', 'ID5']
+L2 Error % 0.36
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+     ID3    ID5
+0  128.0  240.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 12 #################
+############################# Initial Composition ####################################
+     ID1    ID3    ID5  ID6   ID9
+0  104.0  172.0  148.0  3.0  10.0
+L2 Error %: 0.21
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID1         ID3         ID5
+0  103.760044  176.981886  156.258071
+L2 Error %: 0.21
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.21
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.21
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.21
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3    ID5
+0  104.0  177.0  156.0
+L2 Error %: 0.21
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 13 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3  ID6
+0  215.0  35.0  1709.0  2.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+         ID1         ID3
+0  219.02533  1741.97467
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.34
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3
+0  219.0  1742.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 14 #################
+############################# Initial Composition ####################################
+    ID1   ID2    ID3    ID5  ID6   ID8    ID9
+0  95.0  24.0  877.0  335.0  5.0  21.0  374.0
+L2 Error %: 0.51
+Cosine Similarity: 0.86
+############################## Composition After Initial Remove ###############################
+          ID3        ID9
+0  1153.24658  577.75342
+L2 Error %: 0.55
+Cosine Similarity: 0.83
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.55
+Cosine Similarity 0.83
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.55
+Cosine Similarity 0.83
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.55
+Cosine Similarity 0.83
+####################################### Composition After Add-Remove #######################################
+      ID3    ID9
+0  1153.0  578.0
+L2 Error %: 0.55
+Cosine Similarity: 0.83
+
+
+
+
+
+                    ################ Sample 15 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID5    ID8    ID9
+0  21.0  4.0  212.0  145.0  333.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID5         ID8         ID9
+0  220.751922  151.817976  342.430102
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5', 'ID8', 'ID9']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5', 'ID8', 'ID9']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID5', 'ID8', 'ID9']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID5    ID8    ID9
+0  221.0  152.0  342.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 16 #################
+############################# Initial Composition ####################################
+     ID1   ID2   ID8
+0  150.0  47.0  59.0
+L2 Error %: 0.06
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+     ID1   ID2   ID8
+0  150.0  47.0  59.0
+L2 Error %: 0.06
+Cosine Similarity: 1.0
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID8']
+L2 Error % 0.06
+Cosine Similarity 1.0
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID8']
+L2 Error % 0.06
+Cosine Similarity 1.0
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID8']
+L2 Error % 0.06
+Cosine Similarity 1.0
+####################################### Composition After Add-Remove #######################################
+     ID1   ID2   ID8
+0  150.0  47.0  59.0
+L2 Error %: 0.06
+Cosine Similarity: 1.0
+
+
+
+
+
+                    ################ Sample 17 #################
+############################# Initial Composition ####################################
+    ID1    ID2     ID3    ID5   ID8    ID9
+0  71.0  115.0  2251.0  495.0  50.0  598.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+           ID3         ID9
+0  2709.552409  870.447591
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+      ID3    ID9
+0  2710.0  870.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 18 #################
+############################# Initial Composition ####################################
+     ID1    ID2    ID3    ID5
+0  114.0  132.0  402.0  304.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+     ID1    ID2    ID3    ID5
+0  114.0  132.0  402.0  304.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.23
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1    ID2    ID3    ID5
+0  114.0  132.0  402.0  304.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 19 #################
+############################# Initial Composition ####################################
+     ID1  ID2   ID3    ID5   ID8
+0  168.0  1.0  63.0  152.0  75.0
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1         ID5        ID8
+0  181.027755  195.839333  82.132912
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID8']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID8']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID5', 'ID8']
+L2 Error % 0.18
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID5   ID8
+0  181.0  196.0  82.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 20 #################
+############################# Initial Composition ####################################
+     ID1  ID6   ID8    ID9
+0  140.0  2.0  36.0  126.0
+L2 Error %: 0.15
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1         ID9
+0  157.001915  146.998085
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID9']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID9']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID9']
+L2 Error % 0.18
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID9
+0  157.0  147.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 21 #################
+############################# Initial Composition ####################################
+    ID1   ID5    ID8
+0  63.0  58.0  126.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+         ID1         ID8
+0  80.104398  166.895602
+L2 Error %: 0.38
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID8']
+L2 Error % 0.38
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID8']
+L2 Error % 0.38
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['ID1', 'ID8']
+L2 Error % 0.38
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+    ID1    ID8
+0  80.0  167.0
+L2 Error %: 0.38
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 22 #################
+############################# Initial Composition ####################################
+     ID1    ID5  ID8
+0  176.0  291.0  4.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID1         ID5
+0  176.990573  294.009427
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5']
+L2 Error % 0.2
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5']
+L2 Error % 0.2
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID5']
+L2 Error % 0.2
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID5
+0  177.0  294.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 23 #################
+############################# Initial Composition ####################################
+     ID1     ID3    ID5
+0  139.0  2450.0  155.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+      ID3
+0  2744.0
+L2 Error %: 0.29
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.29
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.29
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.29
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  2744.0
+L2 Error %: 0.29
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 24 #################
+############################# Initial Composition ####################################
+    ID1  ID2     ID3   ID5   ID8    ID9
+0  55.0  5.0  2839.0  87.0  28.0  678.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+      ID3
+0  3692.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.44
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  3692.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 25 #################
+############################# Initial Composition ####################################
+     ID3    ID5   ID8
+0  483.0  338.0  41.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID3         ID5
+0  500.079632  361.920368
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3', 'ID5']
+L2 Error % 0.33
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID3    ID5
+0  500.0  362.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 26 #################
+############################# Initial Composition ####################################
+     ID1  ID2    ID3  ID5   ID6   ID8
+0  118.0  3.0  390.0  9.0  23.0  42.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID1         ID3
+0  134.698822  450.301178
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.32
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  135.0  450.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 27 #################
+############################# Initial Composition ####################################
+    ID1   ID2     ID3   ID8
+0  15.0  74.0  1455.0  90.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+      ID3
+0  1634.0
+L2 Error %: 0.25
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.25
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.25
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.25
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  1634.0
+L2 Error %: 0.25
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 28 #################
+############################# Initial Composition ####################################
+     ID1  ID2    ID3   ID5
+0  144.0  2.0  159.0  50.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+          ID1         ID3
+0  161.954527  193.045473
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  162.0  193.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 29 #################
+############################# Initial Composition ####################################
+    ID1   ID2   ID6  ID8
+0  35.0  12.0  59.0  5.0
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+         ID1        ID2        ID6
+0  35.734985  12.352916  62.912099
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID6']
+L2 Error % 0.14
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID6']
+L2 Error % 0.14
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID6']
+L2 Error % 0.14
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+    ID1   ID2   ID6
+0  36.0  12.0  63.0
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 30 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3   ID6    ID9
+0  141.0  33.0  3695.0  16.0  212.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+      ID3
+0  4097.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.32
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  4097.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 31 #################
+############################# Initial Composition ####################################
+     ID1     ID3    ID5   ID6   ID8
+0  143.0  1174.0  574.0  31.0  37.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID1          ID3         ID5
+0  147.351899  1205.513881  606.134221
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3    ID5
+0  147.0  1206.0  606.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 32 #################
+############################# Initial Composition ####################################
+     ID1    ID3   ID6   ID8    ID9
+0  173.0  695.0  13.0  62.0  448.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+          ID1         ID3         ID9
+0  182.224108  731.918438  476.857453
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID9']
+L2 Error % 0.4
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID9']
+L2 Error % 0.4
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID9']
+L2 Error % 0.4
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3    ID9
+0  182.0  732.0  477.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 33 #################
+############################# Initial Composition ####################################
+     ID1  ID2    ID3    ID5   ID9
+0  320.0  4.0  991.0  191.0  20.0
+L2 Error %: 0.15
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1          ID3
+0  353.888226  1172.111774
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.18
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3
+0  354.0  1172.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 34 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3   ID8
+0  273.0  73.0  1307.0  46.0
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1          ID3
+0  291.779823  1407.220177
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.19
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.19
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.19
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3
+0  292.0  1407.0
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 35 #################
+############################# Initial Composition ####################################
+    ID1     ID3  ID5    ID6   ID8
+0  51.0  1066.0  5.0  164.0  55.0
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+############################## Composition After Initial Remove ###############################
+      ID3
+0  1341.0
+L2 Error %: 0.5
+Cosine Similarity: 0.86
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.5
+Cosine Similarity 0.86
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.5
+Cosine Similarity 0.86
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.5
+Cosine Similarity 0.86
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  1341.0
+L2 Error %: 0.5
+Cosine Similarity: 0.86
+
+
+
+
+
+                    ################ Sample 36 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3    ID5    ID6   ID8    ID9
+0  132.0  14.0  1422.0  117.0  749.0  28.0  302.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+           ID3         ID6
+0  1877.586751  886.413249
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID6']
+L2 Error % 0.45
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID6']
+L2 Error % 0.45
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['ID3', 'ID6']
+L2 Error % 0.45
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+      ID3    ID6
+0  1878.0  886.0
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 37 #################
+############################# Initial Composition ####################################
+     ID1  ID2     ID3    ID5
+0  380.0  3.0  1319.0  245.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID1          ID3
+0  417.900279  1529.099721
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.33
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3
+0  418.0  1529.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 38 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3  ID5    ID8    ID9
+0  20.0  9.0  894.0  3.0  135.0  342.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+          ID3        ID9
+0  1008.62481  394.37519
+L2 Error %: 0.38
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.38
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.38
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.38
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+      ID3    ID9
+0  1009.0  394.0
+L2 Error %: 0.38
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 39 #################
+############################# Initial Composition ####################################
+     ID1  ID2   ID3   ID5  ID6  ID8
+0  252.0  8.0  78.0  39.0  5.0  6.0
+L2 Error %: 0.09
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+          ID1         ID3
+0  285.708329  102.291671
+L2 Error %: 0.11
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.11
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.11
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.11
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  286.0  102.0
+L2 Error %: 0.11
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 40 #################
+############################# Initial Composition ####################################
+    ID2   ID3    ID5    ID8
+0  30.0  30.0  228.0  159.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+         ID2         ID5    ID8
+0  30.883381  250.216619  165.9
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID5', 'ID8']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID5', 'ID8']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['ID2', 'ID5', 'ID8']
+L2 Error % 0.43
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+    ID2    ID5    ID8
+0  31.0  250.0  166.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 41 #################
+############################# Initial Composition ####################################
+    ID1   ID2   ID3    ID5  ID6   ID8
+0  63.0  39.0  73.0  164.0  4.0  71.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+         ID1        ID2        ID3         ID5        ID8
+0  63.546201  39.407982  73.686624  164.198679  73.160514
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5', 'ID8']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5', 'ID8']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID3', 'ID5', 'ID8']
+L2 Error % 0.28
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+    ID1   ID2   ID3    ID5   ID8
+0  64.0  39.0  74.0  164.0  73.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 42 #################
+############################# Initial Composition ####################################
+     ID1   ID2    ID3    ID5   ID6    ID8
+0  436.0  27.0  306.0  298.0  14.0  100.0
+L2 Error %: 0.12
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+         ID1        ID3        ID5
+0  472.23494  334.38493  374.38013
+L2 Error %: 0.16
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.16
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.16
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.16
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3    ID5
+0  473.0  334.0  374.0
+L2 Error %: 0.16
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 43 #################
+############################# Initial Composition ####################################
+    ID1    ID3    ID5   ID8    ID9
+0  56.0  744.0  138.0  16.0  254.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+          ID3         ID9
+0  877.280137  330.719863
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.39
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+     ID3    ID9
+0  877.0  331.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 44 #################
+############################# Initial Composition ####################################
+     ID1   ID2   ID3    ID5    ID9
+0  331.0  37.0  12.0  275.0  189.0
+L2 Error %: 0.1
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+          ID1         ID5        ID9
+0  339.337425  311.325415  193.33716
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID9']
+L2 Error % 0.13
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID9']
+L2 Error % 0.13
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID5', 'ID9']
+L2 Error % 0.13
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+     ID1    ID5    ID9
+0  340.0  311.0  193.0
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 45 #################
+############################# Initial Composition ####################################
+     ID1    ID2   ID3    ID5  ID9
+0  123.0  134.0  61.0  206.0  9.0
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1         ID2         ID5
+0  132.339807  140.632841  260.027353
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID5']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID5']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID5']
+L2 Error % 0.18
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID2    ID5
+0  132.0  141.0  260.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 46 #################
+############################# Initial Composition ####################################
+     ID1   ID3    ID5    ID6    ID8
+0  115.0  10.0  124.0  685.0  149.0
+L2 Error %: 0.43
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+          ID1         ID6
+0  143.909733  939.090267
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['ID1', 'ID6']
+L2 Error % 0.46
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+     ID1    ID6
+0  144.0  939.0
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 47 #################
+############################# Initial Composition ####################################
+     ID1     ID3    ID5
+0  122.0  2955.0  237.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+      ID3
+0  3314.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.26
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.26
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.26
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  3314.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 48 #################
+############################# Initial Composition ####################################
+    ID1     ID3    ID5
+0  77.0  2348.0  186.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+      ID3
+0  2611.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  2611.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 49 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3    ID5
+0  193.0  84.0  4042.0  439.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+      ID3
+0  4758.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.44
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  4758.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 50 #################
+############################# Initial Composition ####################################
+    ID1   ID2     ID3   ID5  ID6   ID8    ID9
+0  17.0  17.0  1868.0  26.0  5.0  12.0  340.0
+L2 Error %: 0.17
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID3        ID9
+0  1927.61793  357.38207
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.18
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.18
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+      ID3    ID9
+0  1928.0  357.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 51 #################
+############################# Initial Composition ####################################
+     ID1     ID3  ID8
+0  145.0  1243.0  8.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID1          ID3
+0  146.372828  1249.627172
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.23
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1     ID3
+0  146.0  1250.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 52 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3    ID5   ID8
+0  69.0  4.0  982.0  204.0  24.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+      ID3
+0  1283.0
+L2 Error %: 0.38
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.38
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.38
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.38
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  1283.0
+L2 Error %: 0.38
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 53 #################
+############################# Initial Composition ####################################
+     ID1   ID3    ID5     ID6   ID8   ID9
+0  173.0  74.0  180.0  1134.0  90.0  32.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID1          ID6
+0  216.585688  1466.414312
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID1', 'ID6']
+L2 Error % 0.34
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID1     ID6
+0  217.0  1466.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 54 #################
+############################# Initial Composition ####################################
+    ID1    ID3    ID5  ID6
+0  54.0  121.0  329.0  8.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+         ID1         ID3         ID5
+0  54.355518  123.055188  334.589294
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.42
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+    ID1    ID3    ID5
+0  54.0  123.0  335.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 55 #################
+############################# Initial Composition ####################################
+    ID1   ID2    ID3    ID5   ID8
+0  78.0  71.0  128.0  143.0  32.0
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+         ID1        ID2         ID3         ID5
+0  82.634535  74.354396  135.774804  159.236265
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.22
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+    ID1   ID2    ID3    ID5
+0  83.0  74.0  136.0  159.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 56 #################
+############################# Initial Composition ####################################
+    ID2    ID3    ID5  ID8
+0  12.0  157.0  292.0  9.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+          ID3         ID5
+0  160.342557  309.657443
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.41
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.41
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['ID3', 'ID5']
+L2 Error % 0.41
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+     ID3    ID5
+0  160.0  310.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 57 #################
+############################# Initial Composition ####################################
+    ID2  ID6   ID8
+0  22.0  6.0  75.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+         ID2        ID8
+0  22.916737  80.083263
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID8']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID8']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID2', 'ID8']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+    ID2   ID8
+0  23.0  80.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 58 #################
+############################# Initial Composition ####################################
+     ID1    ID3    ID5   ID9
+0  109.0  227.0  353.0  35.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID1         ID3         ID5
+0  107.345811  243.432782  373.221407
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3    ID5
+0  107.0  243.0  374.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 59 #################
+############################# Initial Composition ####################################
+     ID1   ID2   ID3    ID5   ID8   ID9
+0  113.0  63.0  57.0  212.0  61.0  14.0
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID1        ID2         ID5        ID8
+0  120.323315  64.926205  267.928922  66.821558
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID5', 'ID8']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID5', 'ID8']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID5', 'ID8']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1   ID2    ID5   ID8
+0  120.0  65.0  268.0  67.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 60 #################
+############################# Initial Composition ####################################
+     ID3   ID5   ID9
+0  230.0  37.0  22.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+     ID3
+0  289.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+     ID3
+0  289.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 61 #################
+############################# Initial Composition ####################################
+   ID1   ID2    ID3   ID9
+0  3.0  42.0  106.0  53.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+         ID2         ID3        ID9
+0  42.147027  108.880104  52.972869
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID2', 'ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+    ID2    ID3   ID9
+0  42.0  109.0  53.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 62 #################
+############################# Initial Composition ####################################
+     ID1    ID2    ID3    ID5
+0  121.0  220.0  500.0  434.0
+L2 Error %: 0.26
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+     ID1    ID2    ID3    ID5
+0  121.0  220.0  500.0  434.0
+L2 Error %: 0.26
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.26
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.26
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID3', 'ID5']
+L2 Error % 0.26
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+     ID1    ID2    ID3    ID5
+0  121.0  220.0  500.0  434.0
+L2 Error %: 0.26
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 63 #################
+############################# Initial Composition ####################################
+    ID1    ID2    ID3    ID5  ID6   ID9
+0  15.0  112.0  100.0  856.0  2.0  43.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID2          ID5
+0  116.443147  1011.556853
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID5']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID5']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID2', 'ID5']
+L2 Error % 0.34
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID2     ID5
+0  116.0  1012.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 64 #################
+############################# Initial Composition ####################################
+    ID1     ID3    ID5   ID8
+0  89.0  3274.0  731.0  75.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+      ID3
+0  4169.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  4169.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 65 #################
+############################# Initial Composition ####################################
+     ID1    ID3  ID8
+0  107.0  465.0  1.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID1         ID3
+0  106.848466  466.151534
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.22
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  107.0  466.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 66 #################
+############################# Initial Composition ####################################
+    ID1    ID3    ID5  ID6
+0  77.0  367.0  385.0  9.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+         ID1         ID3         ID5
+0  77.877068  370.519169  389.603763
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.2
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.2
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.2
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+    ID1    ID3    ID5
+0  78.0  371.0  389.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 67 #################
+############################# Initial Composition ####################################
+     ID1   ID2    ID5  ID6   ID8    ID9
+0  283.0  21.0  155.0  2.0  54.0  331.0
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1         ID9
+0  357.107398  488.892602
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID9']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID9']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID9']
+L2 Error % 0.22
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID9
+0  357.0  489.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 68 #################
+############################# Initial Composition ####################################
+     ID5  ID9
+0  108.0  2.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+############################## Composition After Initial Remove ###############################
+     ID5
+0  110.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['ID5']
+L2 Error % 0.6
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+     ID5
+0  110.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 69 #################
+############################# Initial Composition ####################################
+     ID1    ID3   ID9
+0  128.0  200.0  26.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+        ID1       ID3
+0  130.9785  223.0215
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  131.0  223.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 70 #################
+############################# Initial Composition ####################################
+    ID1   ID2    ID3  ID6  ID9
+0  16.0  28.0  697.0  2.0  9.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+     ID3
+0  752.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.33
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+     ID3
+0  752.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 71 #################
+############################# Initial Composition ####################################
+     ID1   ID3    ID5  ID6   ID8   ID9
+0  120.0  78.0  165.0  2.0  48.0  31.0
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1        ID3         ID5        ID8
+0  118.098657  93.910821  182.781046  49.209476
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5', 'ID8']
+L2 Error % 0.14
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5', 'ID8']
+L2 Error % 0.14
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5', 'ID8']
+L2 Error % 0.14
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+     ID1   ID3    ID5   ID8
+0  118.0  94.0  183.0  49.0
+L2 Error %: 0.14
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 72 #################
+############################# Initial Composition ####################################
+     ID2    ID3   ID5   ID8
+0  322.0  200.0  32.0  49.0
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID2         ID3
+0  362.600254  240.399746
+L2 Error %: 0.15
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3']
+L2 Error % 0.15
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3']
+L2 Error % 0.15
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID2', 'ID3']
+L2 Error % 0.15
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+     ID2    ID3
+0  363.0  240.0
+L2 Error %: 0.15
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 73 #################
+############################# Initial Composition ####################################
+    ID1    ID2   ID5   ID8   ID9
+0  49.0  321.0  86.0  11.0  83.0
+L2 Error %: 0.12
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+         ID1         ID2         ID9
+0  55.266804  369.126799  125.606397
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID9']
+L2 Error % 0.13
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2', 'ID9']
+L2 Error % 0.13
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID2', 'ID9']
+L2 Error % 0.13
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+    ID1    ID2    ID9
+0  55.0  369.0  126.0
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 74 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3
+0  97.0  3.0  247.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+############################## Composition After Initial Remove ###############################
+         ID1         ID3
+0  97.932297  249.067703
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.43
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+    ID1    ID3
+0  98.0  249.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 75 #################
+############################# Initial Composition ####################################
+     ID1  ID2  ID3   ID5    ID6  ID9
+0  110.0  2.0  4.0  88.0  780.0  5.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+         ID1        ID6
+0  121.14099  867.85901
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID6']
+L2 Error % 0.23
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1    ID6
+0  121.0  868.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 76 #################
+############################# Initial Composition ####################################
+    ID1   ID2    ID3    ID5    ID6   ID8    ID9
+0  21.0  11.0  666.0  116.0  100.0  60.0  243.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID3         ID9
+0  854.547319  362.452681
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID3    ID9
+0  855.0  362.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 77 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3   ID6   ID8    ID9
+0  98.0  5.0  144.0  25.0  85.0  573.0
+L2 Error %: 0.25
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID1         ID9
+0  127.393193  802.606807
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID1', 'ID9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID1    ID9
+0  127.0  803.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 78 #################
+############################# Initial Composition ####################################
+     ID1  ID2   ID3    ID5  ID6   ID8  ID9
+0  203.0  6.0  41.0  110.0  3.0  45.0  9.0
+L2 Error %: 0.11
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+          ID1         ID5
+0  235.416241  181.583759
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5']
+L2 Error % 0.17
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5']
+L2 Error % 0.17
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID1', 'ID5']
+L2 Error % 0.17
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+     ID1    ID5
+0  235.0  182.0
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 79 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3  ID5   ID6   ID8   ID9
+0  43.0  6.0  233.0  4.0  20.0  57.0  44.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+         ID1         ID3        ID8
+0  45.123474  285.954935  75.921591
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID8']
+L2 Error % 0.45
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID8']
+L2 Error % 0.45
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID8']
+L2 Error % 0.45
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+    ID1    ID3   ID8
+0  45.0  286.0  76.0
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 80 #################
+############################# Initial Composition ####################################
+     ID1   ID3    ID5  ID9
+0  111.0  14.0  220.0  1.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID1         ID5
+0  113.709738  232.290262
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5']
+L2 Error % 0.19
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5']
+L2 Error % 0.19
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID1', 'ID5']
+L2 Error % 0.19
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID1    ID5
+0  114.0  232.0
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 81 #################
+############################# Initial Composition ####################################
+   ID1   ID3    ID5
+0  6.0  15.0  319.0
+L2 Error %: 0.29
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+     ID5
+0  340.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5']
+L2 Error % 0.3
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID5']
+L2 Error % 0.3
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID5']
+L2 Error % 0.3
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID5
+0  340.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 82 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3    ID5    ID6
+0  53.0  7.0  113.0  361.0  292.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+         ID1         ID5         ID6
+0  59.994586  450.679475  315.325939
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID6']
+L2 Error % 0.4
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID6']
+L2 Error % 0.4
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['ID1', 'ID5', 'ID6']
+L2 Error % 0.4
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+    ID1    ID5    ID6
+0  60.0  451.0  315.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 83 #################
+############################# Initial Composition ####################################
+    ID1     ID3   ID5
+0  37.0  2362.0  66.0
+L2 Error %: 0.25
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+      ID3
+0  2465.0
+L2 Error %: 0.25
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.25
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.25
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.25
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  2465.0
+L2 Error %: 0.25
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 84 #################
+############################# Initial Composition ####################################
+   ID1    ID2    ID3    ID5   ID8    ID9
+0  8.0  105.0  237.0  275.0  53.0  369.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+          ID2         ID3         ID5         ID9
+0  108.966112  251.932686  301.289985  384.811216
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3', 'ID5', 'ID9']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3', 'ID5', 'ID9']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['ID2', 'ID3', 'ID5', 'ID9']
+L2 Error % 0.22
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+     ID2    ID3    ID5    ID9
+0  109.0  252.0  301.0  385.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 85 #################
+############################# Initial Composition ####################################
+     ID1  ID2    ID3   ID5   ID6   ID8
+0  193.0  7.0  925.0  12.0  11.0  21.0
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+          ID1         ID3
+0  200.543367  968.456633
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  201.0  968.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 86 #################
+############################# Initial Composition ####################################
+    ID1  ID2    ID3    ID5
+0  37.0  4.0  594.0  324.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID3         ID5
+0  624.826247  334.173753
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID3', 'ID5']
+L2 Error % 0.27
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+     ID3    ID5
+0  625.0  334.0
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 87 #################
+############################# Initial Composition ####################################
+    ID1   ID2     ID3   ID8    ID9
+0  29.0  70.0  2112.0  44.0  969.0
+L2 Error %: 0.15
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+           ID3          ID9
+0  2212.771843  1011.228157
+L2 Error %: 0.16
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.16
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.16
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.16
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+      ID3     ID9
+0  2213.0  1011.0
+L2 Error %: 0.16
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 88 #################
+############################# Initial Composition ####################################
+    ID1    ID3    ID5  ID6   ID8
+0  31.0  153.0  425.0  8.0  59.0
+L2 Error %: 0.33
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+          ID3         ID5
+0  184.091074  491.908926
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID5']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['ID3', 'ID5']
+L2 Error % 0.42
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+     ID3    ID5
+0  184.0  492.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 89 #################
+############################# Initial Composition ####################################
+      ID3   ID5
+0  1057.0  90.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+      ID3
+0  1147.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  1147.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 90 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3   ID8     ID9
+0  108.0  17.0  1469.0  48.0  1099.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+           ID3          ID9
+0  1588.262595  1152.737405
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3', 'ID9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3', 'ID9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+      ID3     ID9
+0  1588.0  1153.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 91 #################
+############################# Initial Composition ####################################
+    ID1   ID2    ID3    ID5  ID6  ID8    ID9
+0  23.0  81.0  104.0  128.0  8.0  6.0  168.0
+L2 Error %: 0.29
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+          ID2         ID3         ID9
+0  109.625861  150.860435  257.513704
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3', 'ID9']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID2', 'ID3', 'ID9']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['ID2', 'ID3', 'ID9']
+L2 Error % 0.37
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+     ID2    ID3    ID9
+0  110.0  151.0  257.0
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 92 #################
+############################# Initial Composition ####################################
+     ID1   ID2     ID3    ID5  ID6   ID8
+0  101.0  56.0  2077.0  365.0  3.0  19.0
+L2 Error %: 0.29
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+      ID3
+0  2621.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.34
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.34
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  2621.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 93 #################
+############################# Initial Composition ####################################
+    ID1   ID2     ID3
+0  53.0  18.0  1730.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+      ID3
+0  1801.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.42
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  1801.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 94 #################
+############################# Initial Composition ####################################
+     ID1    ID3    ID5  ID9
+0  121.0  931.0  281.0  7.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+          ID1         ID3         ID5
+0  120.582696  934.408382  285.008922
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3', 'ID5']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID3', 'ID5']
+L2 Error % 0.23
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3    ID5
+0  121.0  934.0  285.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 95 #################
+############################# Initial Composition ####################################
+     ID1     ID3   ID8
+0  123.0  2259.0  43.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+      ID3
+0  2425.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.28
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  2425.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 96 #################
+############################# Initial Composition ####################################
+     ID1   ID2   ID3   ID5    ID6   ID8   ID9
+0  106.0  17.0  34.0  20.0  444.0  47.0  10.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+         ID1        ID6
+0  125.36468  552.63532
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.26
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID6']
+L2 Error % 0.26
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID1', 'ID6']
+L2 Error % 0.26
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+     ID1    ID6
+0  125.0  553.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 97 #################
+############################# Initial Composition ####################################
+    ID1  ID2   ID3    ID5    ID8
+0  36.0  1.0  10.0  317.0  123.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+         ID1         ID5         ID8
+0  36.489181  326.153325  124.357494
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID8']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID5', 'ID8']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['ID1', 'ID5', 'ID8']
+L2 Error % 0.39
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+    ID1    ID5    ID8
+0  36.0  327.0  124.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 98 #################
+############################# Initial Composition ####################################
+     ID1   ID2    ID3    ID5  ID6
+0  319.0  12.0  710.0  131.0  3.0
+L2 Error %: 0.29
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+          ID1         ID3
+0  351.733239  823.266761
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID3']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['ID1', 'ID3']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+     ID1    ID3
+0  352.0  823.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 99 #################
+############################# Initial Composition ####################################
+    ID2     ID3    ID5   ID9
+0  10.0  1177.0  248.0  34.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+      ID3
+0  1469.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  1469.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 100 #################
+############################# Initial Composition ####################################
+    ID1     ID3    ID5    ID8    ID9
+0  71.0  2019.0  165.0  114.0  381.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+      ID3
+0  2750.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['ID3']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+      ID3
+0  2750.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94

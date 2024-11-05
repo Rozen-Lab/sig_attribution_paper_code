@@ -1,0 +1,3962 @@
+************************ Stepwise Description of Signature Assignment to Samples ************************
+
+
+
+
+                    ################ Sample 1 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  30.0  71.0   4.0  42.0    3.0
+L2 Error %: 0.66
+Cosine Similarity: 0.75
+############################## Composition After Initial Remove ###############################
+       DBS2       DBS4
+0  43.90412  106.09588
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.68
+Cosine Similarity 0.73
+####################################### Composition After Add-Remove #######################################
+   DBS2   DBS4
+0  44.0  106.0
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+
+
+
+
+                    ################ Sample 2 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS11
+0   1.0  33.0  40.0   11.0
+L2 Error %: 0.47
+Cosine Similarity: 0.88
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6
+0  37.688005  47.311995
+L2 Error %: 0.49
+Cosine Similarity: 0.87
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.49
+Cosine Similarity 0.87
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.49
+Cosine Similarity 0.87
+
+#################### Final Composition #################################
+['DBS4', 'DBS6']
+L2 Error % 0.49
+Cosine Similarity 0.87
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6
+0  38.0  47.0
+L2 Error %: 0.49
+Cosine Similarity: 0.87
+
+
+
+
+
+                    ################ Sample 3 #################
+############################# Initial Composition ####################################
+    DBS2  DBS4  DBS6  DBS9  DBS11
+0  107.0  25.0  26.0  45.0    6.0
+L2 Error %: 0.2
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+         DBS2       DBS4
+0  164.904373  44.095627
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.27
+Cosine Similarity 0.96
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.27
+Cosine Similarity 0.96
+####################################### Composition After Add-Remove #######################################
+    DBS2  DBS4
+0  165.0  44.0
+L2 Error %: 0.27
+Cosine Similarity: 0.96
+
+
+
+
+
+                    ################ Sample 4 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  28.0  44.0  23.0  28.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6
+0  35.992895  56.553376  30.453729
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.45
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.45
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.45
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6
+0  36.0  57.0  30.0
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 5 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  22.0  33.0  37.0  53.0
+L2 Error %: 0.48
+Cosine Similarity: 0.88
+############################## Composition After Initial Remove ###############################
+   DBS2  DBS4  DBS6  DBS9
+0  22.0  33.0  37.0  53.0
+L2 Error %: 0.48
+Cosine Similarity: 0.88
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.48
+Cosine Similarity 0.88
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.48
+Cosine Similarity 0.88
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.48
+Cosine Similarity 0.88
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6  DBS9
+0  22.0  33.0  37.0  53.0
+L2 Error %: 0.48
+Cosine Similarity: 0.88
+
+
+
+
+
+                    ################ Sample 6 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  15.0  65.0  18.0  23.0   10.0
+L2 Error %: 0.58
+Cosine Similarity: 0.81
+############################## Composition After Initial Remove ###############################
+    DBS4
+0  131.0
+L2 Error %: 0.67
+Cosine Similarity: 0.74
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.67
+Cosine Similarity 0.74
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.67
+Cosine Similarity 0.74
+
+#################### Final Composition #################################
+['DBS4']
+L2 Error % 0.67
+Cosine Similarity 0.74
+####################################### Composition After Add-Remove #######################################
+    DBS4
+0  131.0
+L2 Error %: 0.67
+Cosine Similarity: 0.74
+
+
+
+
+
+                    ################ Sample 7 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  32.0  45.0  18.0   4.0
+L2 Error %: 0.38
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  41.146338  57.853662
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.42
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  41.0  58.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 8 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0   5.0  11.0  23.0  57.0
+L2 Error %: 0.7
+Cosine Similarity: 0.72
+############################## Composition After Initial Remove ###############################
+        DBS6       DBS9
+0  27.987883  68.012117
+L2 Error %: 0.75
+Cosine Similarity: 0.66
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.75
+Cosine Similarity 0.66
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.75
+Cosine Similarity 0.66
+
+#################### Final Composition #################################
+['DBS6', 'DBS9']
+L2 Error % 0.75
+Cosine Similarity 0.66
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS9
+0  28.0  68.0
+L2 Error %: 0.75
+Cosine Similarity: 0.66
+
+
+
+
+
+                    ################ Sample 9 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  11.0  49.0  16.0  51.0    3.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  13.032888  56.894459  60.072653
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  13.0  57.0  60.0
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 10 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  53.0  14.0  27.0  63.0   14.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6       DBS9
+0  59.192936  32.980713  78.826351
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.44
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6  DBS9
+0  59.0  33.0  79.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 11 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  15.0  65.0   7.0  41.0   18.0
+L2 Error %: 0.48
+Cosine Similarity: 0.87
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4      DBS9
+0  17.311499  74.938071  53.75043
+L2 Error %: 0.51
+Cosine Similarity: 0.86
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.51
+Cosine Similarity 0.86
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.51
+Cosine Similarity 0.86
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.51
+Cosine Similarity 0.86
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  17.0  75.0  54.0
+L2 Error %: 0.51
+Cosine Similarity: 0.86
+
+
+
+
+
+                    ################ Sample 12 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   1.0  14.0  27.0  47.0   40.0
+L2 Error %: 0.56
+Cosine Similarity: 0.83
+############################## Composition After Initial Remove ###############################
+        DBS6       DBS9      DBS11
+0  31.645263  53.956028  43.398709
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.61
+Cosine Similarity 0.79
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.61
+Cosine Similarity 0.79
+
+#################### Final Composition #################################
+['DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.61
+Cosine Similarity 0.79
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS9  DBS11
+0  32.0  54.0   43.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+
+
+
+
+
+                    ################ Sample 13 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  54.0  15.0  42.0  49.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6       DBS9
+0  58.412122  46.489037  55.098841
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.37
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6  DBS9
+0  59.0  46.0  55.0
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 14 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  12.0  11.0   9.0  31.0   57.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+       DBS2       DBS9      DBS11
+0  14.10357  39.487818  66.408612
+L2 Error %: 0.47
+Cosine Similarity: 0.88
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.47
+Cosine Similarity 0.88
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.47
+Cosine Similarity 0.88
+
+#################### Final Composition #################################
+['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.47
+Cosine Similarity 0.88
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9  DBS11
+0  14.0  39.0   67.0
+L2 Error %: 0.47
+Cosine Similarity: 0.88
+
+
+
+
+
+                    ################ Sample 15 #################
+############################# Initial Composition ####################################
+   DBS2   DBS4  DBS6  DBS9  DBS11
+0  23.0  112.0  37.0  26.0   10.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+############################## Composition After Initial Remove ###############################
+    DBS4
+0  208.0
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+#################### Final Composition #################################
+['DBS4']
+L2 Error % 0.68
+Cosine Similarity 0.73
+####################################### Composition After Add-Remove #######################################
+    DBS4
+0  208.0
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+
+
+
+
+                    ################ Sample 16 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  17.0   4.0  57.0  17.0
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6
+0  21.883135  73.116865
+L2 Error %: 0.48
+Cosine Similarity: 0.88
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.48
+Cosine Similarity 0.88
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.48
+Cosine Similarity 0.88
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.48
+Cosine Similarity 0.88
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6
+0  22.0  73.0
+L2 Error %: 0.48
+Cosine Similarity: 0.88
+
+
+
+
+
+                    ################ Sample 17 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  56.0  26.0  27.0  26.0
+L2 Error %: 0.18
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6
+0  68.304476  32.432662  34.262861
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.22
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.22
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6
+0  69.0  32.0  34.0
+L2 Error %: 0.22
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 18 #################
+############################# Initial Composition ####################################
+    DBS2  DBS4  DBS6  DBS11
+0  138.0   4.0  50.0   16.0
+L2 Error %: 0.12
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+         DBS2       DBS6
+0  151.037117  56.962883
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.13
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.13
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.13
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+    DBS2  DBS6
+0  151.0  57.0
+L2 Error %: 0.13
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 19 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  26.0  26.0   3.0   4.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  29.244027  29.755973
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.32
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.32
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  29.0  30.0
+L2 Error %: 0.32
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 20 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS9
+0  43.0  12.0  50.0
+L2 Error %: 0.3
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS9
+0  46.896722  58.103278
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['DBS2', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9
+0  47.0  58.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 21 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   6.0  35.0  50.0  50.0   16.0
+L2 Error %: 0.57
+Cosine Similarity: 0.82
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6       DBS9
+0  38.947084  57.102436  60.950481
+L2 Error %: 0.59
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.59
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.59
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.59
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS9
+0  39.0  57.0  61.0
+L2 Error %: 0.59
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 22 #################
+############################# Initial Composition ####################################
+   DBS2  DBS6   DBS9
+0   7.0  16.0  102.0
+L2 Error %: 0.55
+Cosine Similarity: 0.83
+############################## Composition After Initial Remove ###############################
+    DBS9
+0  125.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.79
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.79
+
+#################### Final Composition #################################
+['DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.79
+####################################### Composition After Add-Remove #######################################
+    DBS9
+0  125.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+
+
+
+
+
+                    ################ Sample 23 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  28.0  37.0  50.0  54.0    7.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6       DBS9
+0  28.672849  37.492831  51.944081  57.890239
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.43
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6  DBS9
+0  29.0  37.0  52.0  58.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 24 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  18.0   9.0  38.0  45.0
+L2 Error %: 0.51
+Cosine Similarity: 0.86
+############################## Composition After Initial Remove ###############################
+       DBS2       DBS6       DBS9
+0  19.09246  41.292089  49.615451
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.54
+Cosine Similarity 0.84
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.54
+Cosine Similarity 0.84
+
+#################### Final Composition #################################
+['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.54
+Cosine Similarity 0.84
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6  DBS9
+0  19.0  41.0  50.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+
+
+
+
+
+                    ################ Sample 25 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  31.0  24.0   4.0  77.0    3.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+############################## Composition After Initial Remove ###############################
+       DBS2      DBS4       DBS9
+0  32.14739  25.37201  81.480599
+L2 Error %: 0.61
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  32.0  25.0  82.0
+L2 Error %: 0.61
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 26 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   2.0  72.0  16.0  39.0    2.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+############################## Composition After Initial Remove ###############################
+    DBS4
+0  131.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+#################### Final Composition #################################
+['DBS4']
+L2 Error % 0.64
+Cosine Similarity 0.77
+####################################### Composition After Add-Remove #######################################
+    DBS4
+0  131.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+
+
+
+
+                    ################ Sample 27 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  16.0  41.0  11.0  20.0   11.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  27.557689  71.442311
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.59
+Cosine Similarity 0.81
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  28.0  71.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+
+
+
+
+                    ################ Sample 28 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  10.0  45.0  18.0  47.0    6.0
+L2 Error %: 0.64
+Cosine Similarity: 0.76
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS9
+0  58.374879  67.625121
+L2 Error %: 0.7
+Cosine Similarity: 0.72
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.7
+Cosine Similarity 0.72
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.7
+Cosine Similarity 0.72
+
+#################### Final Composition #################################
+['DBS4', 'DBS9']
+L2 Error % 0.7
+Cosine Similarity 0.72
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS9
+0  58.0  68.0
+L2 Error %: 0.7
+Cosine Similarity: 0.72
+
+
+
+
+
+                    ################ Sample 29 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6   DBS9
+0  35.0   7.0   3.0  101.0
+L2 Error %: 0.45
+Cosine Similarity: 0.89
+############################## Composition After Initial Remove ###############################
+        DBS2        DBS9
+0  37.108996  108.891004
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['DBS2', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+   DBS2   DBS9
+0  37.0  109.0
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 30 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  19.0   8.0   8.0  40.0    7.0
+L2 Error %: 0.63
+Cosine Similarity: 0.78
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS9
+0  23.723608  58.276392
+L2 Error %: 0.67
+Cosine Similarity: 0.74
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.67
+Cosine Similarity 0.74
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.67
+Cosine Similarity 0.74
+
+#################### Final Composition #################################
+['DBS2', 'DBS9']
+L2 Error % 0.67
+Cosine Similarity 0.74
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9
+0  24.0  58.0
+L2 Error %: 0.67
+Cosine Similarity: 0.74
+
+
+
+
+
+                    ################ Sample 31 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS11
+0   5.0  41.0   5.0  129.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS11
+0  44.046866  135.953134
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS11']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS11']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['DBS4', 'DBS11']
+L2 Error % 0.36
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS11
+0  44.0  136.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 32 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS9  DBS11
+0  22.0   2.0  14.0   46.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+        DBS2      DBS11
+0  26.390847  57.609153
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS11']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS11']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['DBS2', 'DBS11']
+L2 Error % 0.37
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS11
+0  26.0   58.0
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 33 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  15.0  19.0  19.0  17.0
+L2 Error %: 0.66
+Cosine Similarity: 0.75
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6
+0  19.545479  25.435753  25.018768
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.68
+Cosine Similarity 0.73
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6
+0  20.0  25.0  25.0
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+
+
+
+
+                    ################ Sample 34 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  80.0  53.0  12.0  40.0    3.0
+L2 Error %: 0.21
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+        DBS2      DBS4
+0  111.64176  76.35824
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.26
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.26
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.26
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+    DBS2  DBS4
+0  112.0  76.0
+L2 Error %: 0.26
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 35 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   2.0  36.0  23.0  58.0   15.0
+L2 Error %: 0.66
+Cosine Similarity: 0.75
+############################## Composition After Initial Remove ###############################
+       DBS4      DBS9
+0  48.14606  85.85394
+L2 Error %: 0.72
+Cosine Similarity: 0.69
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.72
+Cosine Similarity 0.69
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.72
+Cosine Similarity 0.69
+
+#################### Final Composition #################################
+['DBS4', 'DBS9']
+L2 Error % 0.72
+Cosine Similarity 0.69
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS9
+0  48.0  86.0
+L2 Error %: 0.72
+Cosine Similarity: 0.69
+
+
+
+
+
+                    ################ Sample 36 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  45.0  45.0  35.0  78.0   45.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  45.0  45.0  35.0  78.0   45.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+                    ################ Sample 37 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  38.0  34.0  25.0  52.0   10.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6       DBS9
+0  40.090817  35.526745  26.245067  57.137371
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6  DBS9
+0  40.0  36.0  26.0  57.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 38 #################
+############################# Initial Composition ####################################
+    DBS2  DBS4  DBS6
+0  112.0  12.0  28.0
+L2 Error %: 0.19
+Cosine Similarity: 0.98
+############################## Composition After Initial Remove ###############################
+    DBS2
+0  152.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2']
+L2 Error % 0.24
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['DBS2']
+L2 Error % 0.24
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+    DBS2
+0  152.0
+L2 Error %: 0.24
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 39 #################
+############################# Initial Composition ####################################
+    DBS2  DBS4
+0  195.0   7.0
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+    DBS2
+0  202.0
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2']
+L2 Error % 0.17
+Cosine Similarity 0.99
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2']
+L2 Error % 0.17
+Cosine Similarity 0.99
+
+#################### Final Composition #################################
+['DBS2']
+L2 Error % 0.17
+Cosine Similarity 0.99
+####################################### Composition After Add-Remove #######################################
+    DBS2
+0  202.0
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+
+
+
+
+
+                    ################ Sample 40 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0   3.0  38.0  21.0   5.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6
+0  43.147829  23.852171
+L2 Error %: 0.62
+Cosine Similarity: 0.78
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.62
+Cosine Similarity 0.78
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.62
+Cosine Similarity 0.78
+
+#################### Final Composition #################################
+['DBS4', 'DBS6']
+L2 Error % 0.62
+Cosine Similarity 0.78
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6
+0  43.0  24.0
+L2 Error %: 0.62
+Cosine Similarity: 0.78
+
+
+
+
+
+                    ################ Sample 41 #################
+############################# Initial Composition ####################################
+   DBS2  DBS9  DBS11
+0  12.0  31.0   12.0
+L2 Error %: 0.58
+Cosine Similarity: 0.81
+############################## Composition After Initial Remove ###############################
+   DBS2  DBS9  DBS11
+0  12.0  31.0   12.0
+L2 Error %: 0.58
+Cosine Similarity: 0.81
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.58
+Cosine Similarity 0.81
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.58
+Cosine Similarity 0.81
+
+#################### Final Composition #################################
+['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.58
+Cosine Similarity 0.81
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9  DBS11
+0  12.0  31.0   12.0
+L2 Error %: 0.58
+Cosine Similarity: 0.81
+
+
+
+
+
+                    ################ Sample 42 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4   DBS6  DBS9
+0  10.0  45.0  104.0  29.0
+L2 Error %: 0.58
+Cosine Similarity: 0.82
+############################## Composition After Initial Remove ###############################
+        DBS4        DBS6
+0  57.459669  130.540331
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS4', 'DBS6']
+L2 Error % 0.6
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS4   DBS6
+0  57.0  131.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 43 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  37.0  13.0   7.0  32.0    4.0
+L2 Error %: 0.4
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS9
+0  46.722156  46.277844
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['DBS2', 'DBS9']
+L2 Error % 0.46
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9
+0  47.0  46.0
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 44 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   4.0  12.0  18.0  17.0   41.0
+L2 Error %: 0.51
+Cosine Similarity: 0.86
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6      DBS11
+0  15.661647  23.707738  52.630616
+L2 Error %: 0.55
+Cosine Similarity: 0.83
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.55
+Cosine Similarity 0.83
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.55
+Cosine Similarity 0.83
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.55
+Cosine Similarity 0.83
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS11
+0  16.0  24.0   52.0
+L2 Error %: 0.55
+Cosine Similarity: 0.83
+
+
+
+
+
+                    ################ Sample 45 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  22.0  39.0  31.0   6.0   82.0
+L2 Error %: 0.55
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4      DBS11
+0  27.247722  50.875568  101.87671
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS11']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS11']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS11']
+L2 Error % 0.59
+Cosine Similarity 0.81
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS11
+0  27.0  51.0  102.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+
+
+
+
+                    ################ Sample 46 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   4.0  11.0  44.0  32.0   12.0
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+############################## Composition After Initial Remove ###############################
+        DBS6       DBS9
+0  56.409737  46.590263
+L2 Error %: 0.73
+Cosine Similarity: 0.68
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.73
+Cosine Similarity 0.68
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.73
+Cosine Similarity 0.68
+
+#################### Final Composition #################################
+['DBS6', 'DBS9']
+L2 Error % 0.73
+Cosine Similarity 0.68
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS9
+0  56.0  47.0
+L2 Error %: 0.73
+Cosine Similarity: 0.68
+
+
+
+
+
+                    ################ Sample 47 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  13.0  37.0   7.0  16.0
+L2 Error %: 0.55
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  18.641569  54.358431
+L2 Error %: 0.57
+Cosine Similarity: 0.82
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.57
+Cosine Similarity 0.82
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.57
+Cosine Similarity 0.82
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.57
+Cosine Similarity 0.82
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  19.0  54.0
+L2 Error %: 0.57
+Cosine Similarity: 0.82
+
+
+
+
+
+                    ################ Sample 48 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   5.0  74.0  25.0  11.0   40.0
+L2 Error %: 0.67
+Cosine Similarity: 0.74
+############################## Composition After Initial Remove ###############################
+       DBS4     DBS11
+0  98.42499  56.57501
+L2 Error %: 0.69
+Cosine Similarity: 0.72
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS11']
+L2 Error % 0.69
+Cosine Similarity 0.72
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS11']
+L2 Error % 0.69
+Cosine Similarity 0.72
+
+#################### Final Composition #################################
+['DBS4', 'DBS11']
+L2 Error % 0.69
+Cosine Similarity 0.72
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS11
+0  98.0   57.0
+L2 Error %: 0.69
+Cosine Similarity: 0.72
+
+
+
+
+
+                    ################ Sample 49 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  46.0  50.0   3.0  37.0   16.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  50.648293  54.565519  46.786188
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.31
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  51.0  54.0  47.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 50 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  10.0  24.0   8.0  58.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  10.481203  26.746425  62.772372
+L2 Error %: 0.64
+Cosine Similarity: 0.76
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.64
+Cosine Similarity 0.76
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.64
+Cosine Similarity 0.76
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.64
+Cosine Similarity 0.76
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  10.0  27.0  63.0
+L2 Error %: 0.64
+Cosine Similarity: 0.76
+
+
+
+
+
+                    ################ Sample 51 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   5.0  10.0  83.0   3.0   15.0
+L2 Error %: 0.55
+Cosine Similarity: 0.83
+############################## Composition After Initial Remove ###############################
+    DBS6
+0  116.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+#################### Final Composition #################################
+['DBS6']
+L2 Error % 0.59
+Cosine Similarity 0.81
+####################################### Composition After Add-Remove #######################################
+    DBS6
+0  116.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+
+
+
+
+                    ################ Sample 52 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  30.0  39.0  10.0  35.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  31.818474  42.669811  39.511715
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.4
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.4
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.4
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  32.0  42.0  40.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 53 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  21.0  21.0   8.0  60.0   10.0
+L2 Error %: 0.52
+Cosine Similarity: 0.85
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  23.501466  24.357928  72.140606
+L2 Error %: 0.55
+Cosine Similarity: 0.84
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.55
+Cosine Similarity 0.84
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.55
+Cosine Similarity 0.84
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.55
+Cosine Similarity 0.84
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  24.0  24.0  72.0
+L2 Error %: 0.55
+Cosine Similarity: 0.84
+
+
+
+
+
+                    ################ Sample 54 #################
+############################# Initial Composition ####################################
+   DBS4  DBS6  DBS9  DBS11
+0  18.0  13.0  24.0  183.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+   DBS11
+0  238.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS11']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS11']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS11']
+L2 Error % 0.44
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS11
+0  238.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 55 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  50.0  22.0   9.0  27.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  73.497138  34.502862
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.43
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  73.0  35.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 56 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  15.0   6.0  39.0  81.0
+L2 Error %: 0.53
+Cosine Similarity: 0.85
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6       DBS9
+0  15.824608  41.287284  83.888108
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.54
+Cosine Similarity 0.84
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.54
+Cosine Similarity 0.84
+
+#################### Final Composition #################################
+['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.54
+Cosine Similarity 0.84
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6  DBS9
+0  16.0  41.0  84.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+
+
+
+
+
+                    ################ Sample 57 #################
+############################# Initial Composition ####################################
+   DBS4  DBS6  DBS9  DBS11
+0   8.0  50.0  30.0    1.0
+L2 Error %: 0.61
+Cosine Similarity: 0.8
+############################## Composition After Initial Remove ###############################
+        DBS6       DBS9
+0  54.517551  34.482449
+L2 Error %: 0.63
+Cosine Similarity: 0.78
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.63
+Cosine Similarity 0.78
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.63
+Cosine Similarity 0.78
+
+#################### Final Composition #################################
+['DBS6', 'DBS9']
+L2 Error % 0.63
+Cosine Similarity 0.78
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS9
+0  55.0  34.0
+L2 Error %: 0.63
+Cosine Similarity: 0.78
+
+
+
+
+
+                    ################ Sample 58 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   4.0   6.0  10.0  26.0   20.0
+L2 Error %: 0.74
+Cosine Similarity: 0.68
+############################## Composition After Initial Remove ###############################
+        DBS9      DBS11
+0  38.287455  27.712545
+L2 Error %: 0.8
+Cosine Similarity: 0.6
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS9', 'DBS11']
+L2 Error % 0.8
+Cosine Similarity 0.6
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS9', 'DBS11']
+L2 Error % 0.8
+Cosine Similarity 0.6
+
+#################### Final Composition #################################
+['DBS9', 'DBS11']
+L2 Error % 0.8
+Cosine Similarity 0.6
+####################################### Composition After Add-Remove #######################################
+   DBS9  DBS11
+0  38.0   28.0
+L2 Error %: 0.8
+Cosine Similarity: 0.6
+
+
+
+
+
+                    ################ Sample 59 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  37.0  18.0  47.0  33.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+   DBS2  DBS4  DBS6  DBS9
+0  37.0  18.0  47.0  33.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.36
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6  DBS9
+0  37.0  18.0  46.0  34.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 60 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0   7.0  67.0  19.0  49.0
+L2 Error %: 0.28
+Cosine Similarity: 0.96
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS9
+0  80.873406  61.126594
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['DBS4', 'DBS9']
+L2 Error % 0.35
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS9
+0  81.0  61.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 61 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  36.0  50.0   5.0  67.0    2.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  37.601183  52.020643  70.378173
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.39
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  38.0  52.0  70.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 62 #################
+############################# Initial Composition ####################################
+   DBS2  DBS6  DBS9
+0   2.0  49.0  47.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+############################## Composition After Initial Remove ###############################
+       DBS6      DBS9
+0  50.37166  47.62834
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS6', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS9
+0  50.0  48.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 63 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS9
+0  62.0  38.0  20.0
+L2 Error %: 0.31
+Cosine Similarity: 0.95
+############################## Composition After Initial Remove ###############################
+       DBS2      DBS4
+0  73.91495  46.08505
+L2 Error %: 0.33
+Cosine Similarity: 0.95
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.33
+Cosine Similarity 0.95
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.33
+Cosine Similarity 0.95
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.33
+Cosine Similarity 0.95
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  74.0  46.0
+L2 Error %: 0.33
+Cosine Similarity: 0.95
+
+
+
+
+
+                    ################ Sample 64 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  26.0   7.0  87.0  59.0    9.0
+L2 Error %: 0.52
+Cosine Similarity: 0.85
+############################## Composition After Initial Remove ###############################
+       DBS2       DBS6       DBS9
+0  27.34602  93.562142  67.091838
+L2 Error %: 0.53
+Cosine Similarity: 0.85
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.53
+Cosine Similarity 0.85
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.53
+Cosine Similarity 0.85
+
+#################### Final Composition #################################
+['DBS2', 'DBS6', 'DBS9']
+L2 Error % 0.53
+Cosine Similarity 0.85
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6  DBS9
+0  27.0  94.0  67.0
+L2 Error %: 0.53
+Cosine Similarity: 0.85
+
+
+
+
+
+                    ################ Sample 65 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  12.0   4.0  26.0  15.0   30.0
+L2 Error %: 0.62
+Cosine Similarity: 0.78
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6      DBS11
+0  14.790408  32.564413  39.645178
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS11']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6', 'DBS11']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+#################### Final Composition #################################
+['DBS2', 'DBS6', 'DBS11']
+L2 Error % 0.64
+Cosine Similarity 0.77
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6  DBS11
+0  15.0  33.0   39.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+
+
+
+
+                    ################ Sample 66 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  15.0  36.0  10.0  40.0   40.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9      DBS11
+0  15.917425  38.313689  43.696548  43.072337
+L2 Error %: 0.55
+Cosine Similarity: 0.84
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9', 'DBS11']
+L2 Error % 0.55
+Cosine Similarity 0.84
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9', 'DBS11']
+L2 Error % 0.55
+Cosine Similarity 0.84
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9', 'DBS11']
+L2 Error % 0.55
+Cosine Similarity 0.84
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9  DBS11
+0  16.0  38.0  44.0   43.0
+L2 Error %: 0.55
+Cosine Similarity: 0.84
+
+
+
+
+
+                    ################ Sample 67 #################
+############################# Initial Composition ####################################
+   DBS2  DBS6  DBS9  DBS11
+0  22.0  21.0   9.0    2.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6
+0  27.974875  26.025125
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.41
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.41
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.41
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6
+0  28.0  26.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 68 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   4.0   8.0  20.0  29.0   30.0
+L2 Error %: 0.76
+Cosine Similarity: 0.64
+############################## Composition After Initial Remove ###############################
+        DBS6      DBS11
+0  37.042426  53.957574
+L2 Error %: 0.83
+Cosine Similarity: 0.56
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS11']
+L2 Error % 0.83
+Cosine Similarity 0.56
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS11']
+L2 Error % 0.83
+Cosine Similarity 0.56
+
+#################### Final Composition #################################
+['DBS6', 'DBS11']
+L2 Error % 0.83
+Cosine Similarity 0.56
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS11
+0  37.0   54.0
+L2 Error %: 0.83
+Cosine Similarity: 0.56
+
+
+
+
+
+                    ################ Sample 69 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  23.0  96.0  37.0  18.0   20.0
+L2 Error %: 0.38
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+        DBS2        DBS4       DBS6
+0  27.791709  118.466397  47.741894
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.41
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.41
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.41
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+   DBS2   DBS4  DBS6
+0  28.0  118.0  48.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 70 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   5.0  27.0  26.0  43.0    3.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6       DBS9
+0  29.279748  27.837893  46.882359
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.79
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.79
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS9']
+L2 Error % 0.61
+Cosine Similarity 0.79
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS9
+0  29.0  28.0  47.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+
+
+
+
+
+                    ################ Sample 71 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  29.0   9.0  31.0   7.0    5.0
+L2 Error %: 0.34
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6
+0  37.666024  43.333976
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.39
+Cosine Similarity 0.92
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.39
+Cosine Similarity 0.92
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6
+0  38.0  43.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+
+
+
+
+
+                    ################ Sample 72 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  37.0  46.0  11.0  37.0
+L2 Error %: 0.35
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  39.995866  49.256813  41.747321
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.36
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.36
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  40.0  49.0  42.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 73 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   5.0  38.0   8.0  38.0   23.0
+L2 Error %: 0.39
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS9      DBS11
+0  42.261932  44.156508  25.581561
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9', 'DBS11']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9', 'DBS11']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['DBS4', 'DBS9', 'DBS11']
+L2 Error % 0.42
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS9  DBS11
+0  42.0  44.0   26.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 74 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  35.0  23.0  15.0  29.0    8.0
+L2 Error %: 0.51
+Cosine Similarity: 0.86
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  64.450413  45.549587
+L2 Error %: 0.58
+Cosine Similarity: 0.82
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.58
+Cosine Similarity 0.82
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.58
+Cosine Similarity 0.82
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.58
+Cosine Similarity 0.82
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  64.0  46.0
+L2 Error %: 0.58
+Cosine Similarity: 0.82
+
+
+
+
+
+                    ################ Sample 75 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  25.0   9.0  49.0  27.0   21.0
+L2 Error %: 0.66
+Cosine Similarity: 0.75
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6
+0  41.947343  89.052657
+L2 Error %: 0.73
+Cosine Similarity: 0.68
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.73
+Cosine Similarity 0.68
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.73
+Cosine Similarity 0.68
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.73
+Cosine Similarity 0.68
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6
+0  42.0  89.0
+L2 Error %: 0.73
+Cosine Similarity: 0.68
+
+
+
+
+
+                    ################ Sample 76 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   2.0  18.0  47.0  40.0   35.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6       DBS9      DBS11
+0  18.505201  47.426095  40.277455  35.791249
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.54
+Cosine Similarity 0.84
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.54
+Cosine Similarity 0.84
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.54
+Cosine Similarity 0.84
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS9  DBS11
+0  19.0  47.0  40.0   36.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+
+
+
+
+
+                    ################ Sample 77 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  21.0  12.0   6.0  72.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS9
+0  24.527522  86.472478
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9']
+L2 Error % 0.59
+Cosine Similarity 0.81
+
+#################### Final Composition #################################
+['DBS2', 'DBS9']
+L2 Error % 0.59
+Cosine Similarity 0.81
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9
+0  25.0  86.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+
+
+
+
+
+                    ################ Sample 78 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   3.0  52.0  45.0   5.0    4.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6
+0  58.365255  50.634745
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS4', 'DBS6']
+L2 Error % 0.6
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6
+0  58.0  51.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 79 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  56.0  51.0  10.0  40.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  80.442319  76.557681
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.44
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  80.0  77.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 80 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  47.0  16.0   5.0  60.0    5.0
+L2 Error %: 0.22
+Cosine Similarity: 0.97
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  50.375088  17.252804  65.372108
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.23
+Cosine Similarity 0.97
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.23
+Cosine Similarity 0.97
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  50.0  17.0  66.0
+L2 Error %: 0.23
+Cosine Similarity: 0.97
+
+
+
+
+
+                    ################ Sample 81 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS11
+0  81.0  49.0   15.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4
+0  90.186978  54.813022
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS2', 'DBS4']
+L2 Error % 0.43
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4
+0  90.0  55.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 82 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0   7.0  88.0  18.0  22.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+############################## Composition After Initial Remove ###############################
+    DBS4
+0  135.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+#################### Final Composition #################################
+['DBS4']
+L2 Error % 0.64
+Cosine Similarity 0.77
+####################################### Composition After Add-Remove #######################################
+    DBS4
+0  135.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+
+
+
+
+                    ################ Sample 83 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  26.0  41.0  16.0  47.0
+L2 Error %: 0.56
+Cosine Similarity: 0.83
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  28.526681  46.368038  55.105282
+L2 Error %: 0.58
+Cosine Similarity: 0.82
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.58
+Cosine Similarity 0.82
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.58
+Cosine Similarity 0.82
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.58
+Cosine Similarity 0.82
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  29.0  46.0  55.0
+L2 Error %: 0.58
+Cosine Similarity: 0.82
+
+
+
+
+
+                    ################ Sample 84 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  51.0  90.0  36.0  22.0
+L2 Error %: 0.36
+Cosine Similarity: 0.93
+############################## Composition After Initial Remove ###############################
+        DBS2        DBS4       DBS6
+0  57.336311  100.008883  41.654805
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.37
+Cosine Similarity 0.93
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.37
+Cosine Similarity 0.93
+####################################### Composition After Add-Remove #######################################
+   DBS2   DBS4  DBS6
+0  57.0  100.0  42.0
+L2 Error %: 0.37
+Cosine Similarity: 0.93
+
+
+
+
+
+                    ################ Sample 85 #################
+############################# Initial Composition ####################################
+   DBS2  DBS6  DBS9
+0  55.0  17.0  10.0
+L2 Error %: 0.17
+Cosine Similarity: 0.99
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6
+0  62.277662  19.722338
+L2 Error %: 0.17
+Cosine Similarity: 0.98
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.17
+Cosine Similarity 0.98
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.17
+Cosine Similarity 0.98
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.17
+Cosine Similarity 0.98
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6
+0  62.0  20.0
+L2 Error %: 0.17
+Cosine Similarity: 0.98
+
+
+
+
+
+                    ################ Sample 86 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   1.0  17.0  10.0   1.0   90.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+############################## Composition After Initial Remove ###############################
+        DBS4      DBS11
+0  19.103659  99.896341
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS11']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS11']
+L2 Error % 0.44
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS4', 'DBS11']
+L2 Error % 0.44
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS11
+0  19.0  100.0
+L2 Error %: 0.44
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 87 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  31.0  29.0  45.0  27.0    4.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6
+0  39.160457  37.803649  59.035894
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.46
+Cosine Similarity 0.89
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.46
+Cosine Similarity 0.89
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6
+0  39.0  38.0  59.0
+L2 Error %: 0.46
+Cosine Similarity: 0.89
+
+
+
+
+
+                    ################ Sample 88 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  14.0  39.0  19.0  32.0    4.0
+L2 Error %: 0.56
+Cosine Similarity: 0.83
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS9
+0  17.499638  47.588329  42.912033
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS9
+0  17.0  48.0  43.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+
+
+
+
+                    ################ Sample 89 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  35.0  16.0  24.0  24.0
+L2 Error %: 0.38
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS4       DBS6
+0  44.645184  21.937496  32.417321
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.42
+Cosine Similarity 0.91
+
+#################### Final Composition #################################
+['DBS2', 'DBS4', 'DBS6']
+L2 Error % 0.42
+Cosine Similarity 0.91
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS4  DBS6
+0  45.0  22.0  32.0
+L2 Error %: 0.42
+Cosine Similarity: 0.91
+
+
+
+
+
+                    ################ Sample 90 #################
+############################# Initial Composition ####################################
+   DBS2  DBS6  DBS9
+0  52.0  69.0  60.0
+L2 Error %: 0.57
+Cosine Similarity: 0.82
+############################## Composition After Initial Remove ###############################
+        DBS2        DBS6
+0  76.695079  104.304921
+L2 Error %: 0.62
+Cosine Similarity: 0.79
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.62
+Cosine Similarity 0.79
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.62
+Cosine Similarity 0.79
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.62
+Cosine Similarity 0.79
+####################################### Composition After Add-Remove #######################################
+   DBS2   DBS6
+0  77.0  104.0
+L2 Error %: 0.62
+Cosine Similarity: 0.79
+
+
+
+
+
+                    ################ Sample 91 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  29.0  21.0  21.0  67.0   25.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+############################## Composition After Initial Remove ###############################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  29.0  21.0  21.0  67.0   25.0
+L2 Error %: 0.4
+Cosine Similarity: 0.92
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+                    ################ Sample 92 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   4.0  13.0  21.0  43.0   35.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+       DBS4       DBS6       DBS9      DBS11
+0  13.91602  21.873266  43.842046  36.368668
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.43
+Cosine Similarity 0.9
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS9', 'DBS11']
+L2 Error % 0.43
+Cosine Similarity 0.9
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS9  DBS11
+0  14.0  22.0  44.0   36.0
+L2 Error %: 0.43
+Cosine Similarity: 0.9
+
+
+
+
+
+                    ################ Sample 93 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  19.0  14.0  16.0  57.0   26.0
+L2 Error %: 0.61
+Cosine Similarity: 0.79
+############################## Composition After Initial Remove ###############################
+       DBS2       DBS9      DBS11
+0  23.57164  75.871584  32.556776
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.68
+Cosine Similarity 0.73
+
+#################### Final Composition #################################
+['DBS2', 'DBS9', 'DBS11']
+L2 Error % 0.68
+Cosine Similarity 0.73
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS9  DBS11
+0  24.0  75.0   33.0
+L2 Error %: 0.68
+Cosine Similarity: 0.73
+
+
+
+
+
+                    ################ Sample 94 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0  10.0  31.0  46.0  24.0   27.0
+L2 Error %: 0.59
+Cosine Similarity: 0.81
+############################## Composition After Initial Remove ###############################
+       DBS4      DBS6     DBS11
+0  40.68428  59.47897  37.83675
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.64
+Cosine Similarity 0.77
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.64
+Cosine Similarity 0.77
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS11
+0  41.0  59.0   38.0
+L2 Error %: 0.64
+Cosine Similarity: 0.77
+
+
+
+
+
+                    ################ Sample 95 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9
+0  32.0  12.0  59.0  22.0
+L2 Error %: 0.41
+Cosine Similarity: 0.91
+############################## Composition After Initial Remove ###############################
+        DBS2       DBS6
+0  43.446589  81.553411
+L2 Error %: 0.47
+Cosine Similarity: 0.88
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.47
+Cosine Similarity 0.88
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS2', 'DBS6']
+L2 Error % 0.47
+Cosine Similarity 0.88
+
+#################### Final Composition #################################
+['DBS2', 'DBS6']
+L2 Error % 0.47
+Cosine Similarity 0.88
+####################################### Composition After Add-Remove #######################################
+   DBS2  DBS6
+0  43.0  82.0
+L2 Error %: 0.47
+Cosine Similarity: 0.88
+
+
+
+
+
+                    ################ Sample 96 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   2.0  18.0  18.0  81.0   17.0
+L2 Error %: 0.54
+Cosine Similarity: 0.84
+############################## Composition After Initial Remove ###############################
+        DBS4        DBS9
+0  24.715329  111.284671
+L2 Error %: 0.63
+Cosine Similarity: 0.78
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.63
+Cosine Similarity 0.78
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS9']
+L2 Error % 0.63
+Cosine Similarity 0.78
+
+#################### Final Composition #################################
+['DBS4', 'DBS9']
+L2 Error % 0.63
+Cosine Similarity 0.78
+####################################### Composition After Add-Remove #######################################
+   DBS4   DBS9
+0  25.0  111.0
+L2 Error %: 0.63
+Cosine Similarity: 0.78
+
+
+
+
+
+                    ################ Sample 97 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   1.0  49.0  43.0   4.0   38.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6      DBS11
+0  50.761956  44.427941  39.810103
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.33
+Cosine Similarity 0.94
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.33
+Cosine Similarity 0.94
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS11
+0  51.0  44.0   40.0
+L2 Error %: 0.33
+Cosine Similarity: 0.94
+
+
+
+
+
+                    ################ Sample 98 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS11
+0   8.0  32.0  50.0    3.0
+L2 Error %: 0.7
+Cosine Similarity: 0.71
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6
+0  36.470531  56.529469
+L2 Error %: 0.72
+Cosine Similarity: 0.69
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.72
+Cosine Similarity 0.69
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6']
+L2 Error % 0.72
+Cosine Similarity 0.69
+
+#################### Final Composition #################################
+['DBS4', 'DBS6']
+L2 Error % 0.72
+Cosine Similarity 0.69
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6
+0  36.0  57.0
+L2 Error %: 0.72
+Cosine Similarity: 0.69
+
+
+
+
+
+                    ################ Sample 99 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   4.0  30.0  35.0  25.0   25.0
+L2 Error %: 0.58
+Cosine Similarity: 0.81
+############################## Composition After Initial Remove ###############################
+        DBS4       DBS6      DBS11
+0  38.623654  45.592918  34.783428
+L2 Error %: 0.62
+Cosine Similarity: 0.79
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.62
+Cosine Similarity 0.79
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.62
+Cosine Similarity 0.79
+
+#################### Final Composition #################################
+['DBS4', 'DBS6', 'DBS11']
+L2 Error % 0.62
+Cosine Similarity 0.79
+####################################### Composition After Add-Remove #######################################
+   DBS4  DBS6  DBS11
+0  39.0  45.0   35.0
+L2 Error %: 0.62
+Cosine Similarity: 0.79
+
+
+
+
+
+                    ################ Sample 100 #################
+############################# Initial Composition ####################################
+   DBS2  DBS4  DBS6  DBS9  DBS11
+0   1.0  12.0  50.0  52.0    2.0
+L2 Error %: 0.56
+Cosine Similarity: 0.83
+############################## Composition After Initial Remove ###############################
+        DBS6       DBS9
+0  56.546123  60.453877
+L2 Error %: 0.6
+Cosine Similarity: 0.8
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['DBS6', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+
+#################### Final Composition #################################
+['DBS6', 'DBS9']
+L2 Error % 0.6
+Cosine Similarity 0.8
+####################################### Composition After Add-Remove #######################################
+   DBS6  DBS9
+0  57.0  60.0
+L2 Error %: 0.6
+Cosine Similarity: 0.8
