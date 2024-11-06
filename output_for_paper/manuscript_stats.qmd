@@ -21,7 +21,7 @@ output_for_paper_dir = "."
 ```{r}
 fread(
   file.path(output_for_paper_dir,
-            "all_summary_stats_SBS.csv")) %>%
+            "summary_stats_SBS.csv")) %>%
   filter(Tool %in% global_raw_tools_to_plot) %>%
   arrange(desc(m.Combined)) %>% 
   head() %>% select(Tool, m.Combined)
@@ -49,15 +49,18 @@ wilcox.test(x = sbs_assessment[Tool == "musical",]$Combined,
 ```{r}
 sbs_tool_rank = 
 fread("tools_ranked_in_each_cancer_type_SBS.csv")
+
+# To inspect the data:
 filter(sbs_tool_rank, Tool == "MutPat") %>%
-  select(cancer.type, Tool, rank_in_cancer_type, `mean(Combined_Score)`)
+  select(`Cancer type`, Tool,`Rank within cancer type`, `mean (Combined Score)`)
+
 sbs_tool_rank %>%
   group_by(Tool) %>%
  summarize(
-    min_rank = min(rank_in_cancer_type),
-    max_rank = max(rank_in_cancer_type),
+    min_rank = min(`Rank within cancer type`),
+    max_rank = max(`Rank within cancer type`),
     difference = max_rank - min_rank
-  )
+  ) 
 
 
 ```
@@ -65,6 +68,8 @@ sbs_tool_rank %>%
 ### SBS: Worst cancer type for each tool
 
 ```{r}
+#| eval: false
+# Not used in paper; the .csv input has been replaced by an Excel file.
 
 fread(
   file.path(
@@ -86,7 +91,7 @@ fread(
 ```{r}
 fread(
   file.path(output_for_paper_dir,
-            "all_summary_stats_DBS.csv")) %>%
+            "summary_stats_DBS.csv")) %>%
   arrange(desc(m.Combined)) %>%
   filter(Tool %in% global_raw_tools_to_plot) %>%
   head() %>% select(Tool, m.Combined)
@@ -121,11 +126,11 @@ dbs_tool_rank %>%
   )
 
 ```
+
 ```{r}
 dbs_tool_rank %>% 
   filter(Tool %in% c("DeconSig", "SigPro"), rank_in_cancer_type %in% c(1,12))
 ```
-
 
 ### DBS: comparison for recall for each tool versus SBS
 
@@ -168,7 +173,7 @@ nrow(filter(foo, mean_dif > 0))
 ```{r}
 fread(
   file.path(output_for_paper_dir,
-            "all_summary_stats_ID.csv")) %>%
+            "summary_stats_ID.csv")) %>%
   filter(Tool %in% global_raw_tools_to_plot) %>%
   arrange(desc(m.Combined)) %>%
   head() %>% 
@@ -202,5 +207,3 @@ id_tool_rank %>%
 ```{r}
 id_tool_rank %>% filter(Tool == "SigPro")
 ```
-
-
