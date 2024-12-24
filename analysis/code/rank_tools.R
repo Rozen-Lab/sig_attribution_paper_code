@@ -122,7 +122,7 @@ rank_tools_multiple_measures = function(summary_stats) {
     # browser()
     newcolname = paste0("rank_by_", colname)
     nexttable[ , newcolname] = min_rank(desc(pull(nexttable, colname)))
-    dplyr::relocate(nexttable, newcolname, .after = colname) -> nexttable
+    dplyr::relocate(nexttable, all_of(newcolname), .after = colname) -> nexttable
   }
 
   # browser()
