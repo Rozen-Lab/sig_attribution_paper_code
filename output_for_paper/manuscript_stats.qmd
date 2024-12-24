@@ -1,0 +1,237 @@
+---
+title: "Statistics for the manuscript"
+format: html
+editor: visual
+---
+
+## Libraries
+
+```{r}
+#| warning: false
+#| message: false
+library(data.table)
+library(tidyverse)
+library(huxtable)
+source("../analysis/code/common_utils.R")
+output_for_paper_dir = "."
+```
+
+## Results, SBS subsection
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "summary_stats_SBS.csv")) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  arrange(desc(m.Combined)) %>% 
+  head() %>% select(Tool, m.Combined)
+
+sbs_file <- file.path(output_for_paper_dir, 
+                      "assessment_each_sample_SBS.csv")
+
+sbs_assessment <- data.table::fread(sbs_file)
+```
+
+#### Results, SBS subsection, page 18
+
+"The Combined Scores of PASA and MuSiCal across all 900 synthetic SBS spectra were similar (means 2.64 and 2.62, respectively, p = 0.072, 2-sided Wilcoxon rank-sum test). "
+
+```{r}
+wilcox.test(x = sbs_assessment[Tool == "pasa",]$Combined, 
+              y = sbs_assessment[Tool == "musical",]$Combined) %>% `$`(p.value)
+```
+
+```{r}
+wilcox.test(x = sbs_assessment[Tool == "pasa",]$Combined, 
+            y = sbs_assessment[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+wilcox.test(x = sbs_assessment[Tool == "musical",]$Combined, 
+            y = sbs_assessment[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+```
+
+### MutationalPatterns SBS ranks
+
+Pge 18, "As another example, the ranks of MutationalPatterns ranged from 4 (Kidney-RCC and Ovary-AdenoCA) to 12 (Skin-Melanoma). "
+
+```{r}
+sbs_tool_rank = 
+fread("tools_ranked_in_each_cancer_type_SBS.csv")
+
+# To inspect the data:
+filter(sbs_tool_rank, Tool == "MutPat") %>%
+  select(`Cancer type`, Tool,`Rank within cancer type`, `mean (Combined Score)`)
+
+sbs_tool_rank %>%
+  group_by(Tool) %>%
+ summarize(
+    min_rank = min(`Rank within cancer type`),
+    max_rank = max(`Rank within cancer type`),
+    difference = max_rank - min_rank
+  ) 
+
+
+```
+
+### SBS: Worst cancer type for each tool
+
+```{r}
+#| eval: false
+# Not used in paper; the .csv input has been replaced by an Excel file.
+
+fread(
+  file.path(
+    output_for_paper_dir,
+    "summary_stats_by_cancer_type_SBS.csv")) %>%
+  select(Tool, cancer.type, m.Combined) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  group_by(Tool) %>% 
+  mutate(rank_in_tool = min_rank(m.Combined)) %>%
+  arrange(m.Combined, .by_group = TRUE) %>%
+  dplyr::slice(1:2) %>% 
+  filter(cancer.type == "Skin-Melanoma") %>%
+  data.frame()
+
+```
+
+## Results, DBS subsection
+
+Page 18, "On synthetic DBS spectra, PASA had the highest Combined Score, which was significantly higher than that of FitMS, which had the next highest (mean 2.78 versus 2.74, p\<9.9×10\^(-9), 2-sided Wilcoxon rank-sum test, Figure 4, S4, Table S12). The Combined Scores of the other approaches were much lower, with 3rd-ranked MuSiCal having a mean Combined Score of 2.57, significantly lower that of FitMS (p \< 3.9×10\^(-44), 2-sided Wilcoxon rank-sum test). "
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "summary_stats_DBS.csv")) %>%
+  arrange(desc(m.Combined)) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  head() %>% select(Tool, m.Combined)
+
+dbs_file <- file.path(output_for_paper_dir, 
+                      "assessment_each_sample_DBS.csv")
+dbs_assessment <- fread(dbs_file)
+
+wilcox.test(
+  x = dbs_assessment[Tool == "pasa",]$Combined, 
+  y = dbs_assessment[Tool == "fitms_0.010",]$Combined) %>%
+  `$`(p.value)
+
+
+wilcox.test(
+  x = dbs_assessment[Tool == "fitms_0.010",]$Combined, 
+  y = dbs_assessment[Tool == "musical",]$Combined) %>%
+  `$`(p.value)
+
+
+```
+
+```{r}
+dbs_tool_rank = 
+fread("tools_ranked_in_each_cancer_type_DBS.csv")
+dbs_tool_rank %>%
+  group_by(Tool) %>%
+ summarize(
+    min_rank = min(`Rank within cancer type`),
+    max_rank = max(`Rank within cancer type`),
+    difference = max_rank - min_rank
+  )
+
+```
+
+Page 20, "As another example, deconstructSigs and SigPro tied for 1st in Skin-Melanoma but were both ranked 12th in several cancer types."
+
+```{r}
+dbs_tool_rank %>% 
+  filter(Tool %in% c("DeconSig", "SigPro"), `Rank within cancer type` %in% c(1,12))
+```
+
+### DBS: comparison for recall for each tool versus SBS
+
+Page 20, paragraph starting "Recall (sensitivity) for DBS attributions was significantly better than for SBSs for 10 of the approaches ..."
+
+```{r}
+getwd()
+sbss = select(sbs_assessment, Tool, Sample.ID, cancer.type, sens)
+dbss = select(dbs_assessment, Tool, Sample.ID, cancer.type, sens)
+inner_join(sbss, dbss, 
+           by = join_by(Tool == Tool, 
+                        cancer.type == cancer.type, 
+                        Sample.ID == Sample.ID)) %>%
+  mutate(SBS.recall = sens.x, DBS.recall = sens.y,
+         .keep = "unused") %>%
+  filter(Tool %in% tools_to_plot_and_order("DBS")) %>%
+  group_by(Tool) %>%
+  summarize(
+    median_dif = median(DBS.recall - SBS.recall),
+    mean_dif = mean(DBS.recall - SBS.recall),
+    wilcox.test = list(
+      broom::tidy(
+        wilcox.test(jitter(SBS.recall),
+                    DBS.recall, paired = TRUE)
+      )
+    )
+  ) %>%
+  unnest(cols = c(wilcox.test)) %>%
+  mutate(method = NULL, 
+         statistic = NULL, 
+         alternative = NULL,
+         FDR = p.adjust(p.value)) %>%
+  filter(FDR < 0.1) ->foo
+foo
+```
+
+```{r}
+cat("Number of tools with better recall in DBS: ", nrow(filter(foo, mean_dif < 0)), "\n")
+
+cat("Number of tools with worse recall in DBS: ", nrow(filter(foo, mean_dif > 0)))
+ 
+```
+
+## Results, ID subsection
+
+Page 21, 1st paragrap of "Accuracy on ID...."
+
+```{r}
+fread(
+  file.path(output_for_paper_dir,
+            "summary_stats_ID.csv")) %>%
+  filter(Tool %in% global_raw_tools_to_plot) %>%
+  arrange(desc(m.Combined)) %>%
+  head() %>% 
+  select(Tool, m.Combined) %>%
+  filter(Tool %in% c("pasa", "fitms_0.010", "musical"))
+
+id_file <- file.path(output_for_paper_dir, 
+                     "assessment_each_sample_ID.csv")
+id_dt <- data.table::fread(id_file)
+
+wilcox.test(x = id_dt[Tool == "pasa",]$Combined, 
+            y = id_dt[Tool == "fitms_0.010",]$Combined) %>% `$`(p.value)
+
+wilcox.test(x = id_dt[Tool == "fitms_0.010",]$Combined, 
+            y = id_dt[Tool == "musical",]$Combined) %>% `$`(p.value)
+```
+
+```{r}
+id_tool_rank = 
+fread("tools_ranked_in_each_cancer_type_ID.csv")
+
+id_tool_rank %>%
+  filter(Tool == "PASA")
+```
+
+```{r}
+
+id_tool_rank %>%
+  group_by(Tool) %>%
+ summarize(
+    min_rank = min(`Rank within cancer type`),
+    max_rank = max(`Rank within cancer type`),
+    difference = max_rank - min_rank
+  ) %>% as_huxtable() %>% huxtable::set_caption("ID: difference between min and max ranks")
+
+
+```
+
+```{r}
+id_tool_rank %>% filter(Tool == "SigPro")
+```

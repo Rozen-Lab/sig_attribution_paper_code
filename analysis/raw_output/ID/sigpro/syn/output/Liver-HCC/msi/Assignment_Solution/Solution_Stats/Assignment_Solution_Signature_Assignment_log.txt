@@ -1,0 +1,40 @@
+************************ Stepwise Description of Signature Assignment to Samples ************************
+
+
+
+
+                    ################ Sample 1 #################
+############################# Initial Composition ####################################
+       ID1     ID2   ID9
+0  18219.0  6015.0  21.0
+L2 Error %: 0.02
+Cosine Similarity: 1.0
+############################## Composition After Initial Remove ###############################
+            ID1          ID2
+0  18234.082624  6020.917376
+L2 Error %: 0.02
+Cosine Similarity: 1.0
+
+############################## Performing Add-Remove Step ##############################
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 0 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2']
+L2 Error % 0.02
+Cosine Similarity 1.0
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 1 !!!!!!!!!!!!!!!!!!!!!!!!!
+Best Signature Composition ['ID1', 'ID2']
+L2 Error % 0.02
+Cosine Similarity 1.0
+
+#################### Final Composition #################################
+['ID1', 'ID2']
+L2 Error % 0.02
+Cosine Similarity 1.0
+####################################### Composition After Add-Remove #######################################
+       ID1     ID2
+0  18234.0  6021.0
+L2 Error %: 0.02
+Cosine Similarity: 1.0

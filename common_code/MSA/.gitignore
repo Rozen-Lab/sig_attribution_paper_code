@@ -1,0 +1,15 @@
+.DS_Store
+*#
+*~
+output_tables*
+input_mutation_tables/*/*_fitted_values.csv
+input_mutation_tables/*/*_residuals.csv
+plots*
+test*
+work
+*.pyc
+logs*
+trace.txt*
+report.html*
+timeline.html*
+.nextflow*

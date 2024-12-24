@@ -1,0 +1,4 @@
+Sample Names	Total Mutations	Cosine Similarity	L1 Norm	L1_Norm_%	L2 Norm	L2_Norm_%	KL Divergence	Correlation
+Kidney-RCC::MSI-H.S.1	110	0.995	36.655	33.323%	18.515	19.024%	0.15188	0.996
+Kidney-RCC::MSI-H.S.2	29	0.982	13.534	46.669%	4.613	24.693%	0.4724	0.982
+Kidney-RCC::MSI-H.S.3	5	0.134	8.936	178.72%	5.143	124.736%	2.35175	0.115

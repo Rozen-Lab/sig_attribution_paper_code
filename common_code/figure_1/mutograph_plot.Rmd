@@ -1,0 +1,781 @@
+---
+title: "PCAWG \"mutograph\" figure"
+author: "Alvin Wei Tian Ng, Mi Ni Huang, Nanhai Jiang, Steven G. Rozen"
+output: html_document
+---
+## Generate stacked barcharts for tumors in the PCAWG dataset 
+This markdown generates a "mutograph" plot, with each sample having <= 5 signatures.
+If > 5 sigs for either SNV, DINUC or INDEL, margins of 
+the figure has to be changed (see `layout()` function).
+This plot was originally developed by Alvin Wei Tian Ng and Mi Ni Huang for
+Alexandrov, L. B., Kim, J., Haradhvala, N. J., Huang, M. N., Tian Ng, A. W., Wu, Y., et al,
+ (2020). The repertoire of mutational signatures in human cancer. Nature, 578(7793), 94-101. https://doi.org/10.1038/s41586-020-1943-3
+
+### Note:
+Please install the dependencies before running the script.
+Required packages are on CRAN except mSigAct and PCAWG7.
+Set `eval = T` in the next chunk if you want to automatically
+install these packages.
+
+```{r non_cran, eval = F}
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github(repo = "steverozen/PCAWG7", ref = "v0.1.3-branch")
+remotes::install_github(repo = "steverozen/mSigAct", ref = "v3.0.1-branch")
+```
+
+Load non-CRAN packages:
+
+```{r load non-CRAN packages}
+library(PCAWG7)
+library(mSigAct)
+```
+
+Install and load CRAN packages:
+
+```{r, install and load CRAN packages, message=FALSE}
+pkg.names <-
+  c(
+    "dplyr", "readr", "stringr", "RColorBrewer", "gtools", "plotrix",
+    "TeachingDemos", "knitr", "cosmicsig"
+  )
+is.installed <- pkg.names %in% rownames(installed.packages())
+if (any(!is.installed)) {
+  install.packages(pkg.names[!is.installed])
+}
+
+library(dplyr)
+library(readr)
+library(stringr)
+library(RColorBrewer)
+library(gtools)
+library(plotrix)
+library(TeachingDemos)
+library(knitr)
+library(cosmicsig)
+```
+
+Prepare input:
+
+```{r input} 
+snv.sigs <- cosmicsig::COSMIC_v3.2$signature$GRCh37$SBS96
+indel.sigs <- cosmicsig::COSMIC_v3.2$signature$GRCh37$ID
+dinuc.sigs <- cosmicsig::COSMIC_v3.2$signature$GRCh37$DBS78
+
+snv.counts <- PCAWG7::spectra$PCAWG$SBS96
+indel.counts <- PCAWG7::spectra$PCAWG$ID
+dinuc.counts <- PCAWG7::spectra$PCAWG$DBS78
+
+snv.act <- PCAWG7::exposure$PCAWG$SBS96
+indel.act <- PCAWG7::exposure$PCAWG$ID
+dinuc.act <- PCAWG7::exposure$PCAWG$DBS78
+```
+
+Define functions:
+
+```{r process.input}
+
+## function to select mutation counts, assignments and active signature for 1 sample
+process.input <- function(x) { ## sample name to grep out
+
+  ## subset all the count matrices by grepping sample ids
+  s.counts <- snv.counts[, grep(x, colnames(snv.counts)), drop = F]
+  i.counts <- indel.counts[, grep(x, colnames(indel.counts)), drop = F]
+  d.counts <- dinuc.counts[, grep(x, colnames(dinuc.counts)), drop = F]
+
+  ## do the same for activity assignment
+  s.act <- snv.act[, grep(x, colnames(snv.act)), drop = F]
+  s.act <- s.act[s.act != 0, , drop = F]
+
+  i.act <- indel.act[, grep(x, colnames(indel.act)), drop = F]
+  i.act <- i.act[i.act != 0, , drop = F]
+
+  d.act <- dinuc.act[, grep(x, colnames(dinuc.act)), drop = F]
+  d.act <- d.act[d.act != 0, , drop = F]
+
+  ## subset active signatures
+  s.sigs <- rownames(s.act)
+  i.sigs <- rownames(i.act)
+  d.sigs <- rownames(d.act)
+
+  list(
+    counts = list(
+      "snv" = s.counts,
+      "indel" = i.counts,
+      "dinuc" = d.counts
+    ),
+    activity = list(
+      "snv" = s.act,
+      "indel" = i.act,
+      "dinuc" = d.act
+    ),
+    sigs = list(
+      "snv" = s.sigs,
+      "indel" = i.sigs,
+      "dinuc" = d.sigs
+    )
+  )
+}
+```
+
+
+```{r format.colors}
+cols <- c(
+  "#a6cee3",
+  "#2079b4",
+  "#b0dd8b",
+  "#36a12e",
+  "#fb9898",
+  "#e31b1c",
+  "#fdbe6f",
+  "#ff8001",
+  "#c8afd5",
+  "#6c409a",
+  "#fbeeac",
+  "#b15928",
+  "#b8c8d1",
+  "#4d7088",
+  "#b2c5a3",
+  "#547f51",
+  "#98eff9",
+  "#00035b",
+  "#ffcfdc",
+  "#ff81c0",
+  "#9aae07",
+  "#045c5a",
+  "#d8dcd6",
+  "#59656d"
+)
+```
+
+```{r snv}
+plot_snvs <- function(counts, mut.type, display.name, class, labels, rect,
+                      grid = F, line = F) {
+  num.classes <- length(counts)
+
+  class.col <- c(
+    "#03bcee",
+    "#010101",
+    "#e32926",
+    "#999999",
+    "#a1ce63",
+    "#ebc6c4"
+  )
+
+  cols <- rep(class.col, each = 16)
+  ## get ylim
+  ymax <- ifelse(max(counts) * 1.3 > 1, 1, max(counts) * 1.3)
+  # barplot
+  bp <- barplot(counts,
+    main = "", xaxt = "n", ylim = c(0, ymax), xlab = "", yaxt = "n",
+    ylab = NA, lwd = if (num.classes < 200) 3 else 1, space = 1.35, border = NA,
+    col = cols, xpd = NA
+  )
+
+  if (grid == T) {
+    # draw box and grid lines
+    rect(
+      xleft = bp[1] - 1, 0, xright = bp[num.classes] + 1, ymax, col = NA,
+      border = "grey60", lwd = 1.5
+    )
+  }
+
+  if (line == T) {
+    axis(1,
+      col = "grey60", at = c(1, 225), lwd = 0.5,
+      col.ticks = NA, labels = NA, xpd = NA
+    )
+  }
+
+  # draw lines above each class:
+  x.left <- bp[seq(0, 80, 16) + 1] - 0.5
+  x.right <- bp[seq(16, 96, 16)] + 0.5
+  if (rect == T) {
+    rect(
+      xleft = x.left, ymax * 1.01, xright = x.right, ymax * 1.15,
+      col = class.col, border = NA, xpd = NA
+    )
+  }
+
+  # mutation class labels at the top of the figure:
+  maj.class.names <- c("C>A", "C>G", "C>T", "T>A", "T>C", "T>G")
+
+  if (class == T) {
+    text((x.left + x.right) / 2, ymax * 1.25,
+      labels = maj.class.names,
+      cex = 1, xpd = NA
+    )
+  }
+
+  # x axis label
+  if (labels == T) {
+    text(bp, -ymax / 100,
+      labels = mut.type, cex = 0.5, srt = 90, adj = 1,
+      family = "Courier", col = "black", xpd = NA
+    )
+  }
+
+  # sig name
+  display.name <- gsub("\\.", " ", display.name)
+  text(1.5, ymax * 7 / 8, labels = display.name, adj = 0, cex = 1, font = 2)
+}
+```
+
+```{r indel}
+plot_indels <- function(counts, mut.type, display.name, class, labels,
+                        rect, grid = F, line = F) {
+  num.classes <- length(counts)
+
+  indel.class.col <- c(
+    "#fdbe6f",
+    "#ff8001",
+    "#b0dd8b",
+    "#36a12e",
+    "#fdcab5",
+    "#fc8a6a",
+    "#f14432",
+    "#bc141a",
+    "#d0e1f2",
+    "#94c4df",
+    "#4a98c9",
+    "#1764ab",
+    "#e2e2ef",
+    "#b6b6d8",
+    "#8683bd",
+    "#61409b"
+  )
+
+  cols <- rep(
+    indel.class.col,
+    c(
+      6, 6, 6, 6,
+      6, 6, 6, 6,
+      6, 6, 6, 6,
+      1, 2, 3, 5
+    )
+  )
+  ## get ylim
+  ymax <- ifelse(max(counts) * 1.3 > 1, 1, max(counts) * 1.3)
+  # barplot
+
+  bp <- barplot(counts,
+    main = "", xaxt = "n", ylim = c(0, ymax), xlab = "", yaxt = "n",
+    ylab = NA, lwd = if (num.classes < 200) 3 else 1, space = 1.35,
+    border = NA, col = cols, xpd = NA
+  )
+
+  if (grid == T) {
+    # draw box and grid lines
+    rect(
+      xleft = bp[1] - 1, 0, xright = bp[num.classes] + 1, ymax,
+      col = NA, border = "grey60", lwd = 1.5
+    )
+  }
+
+  if (line == T) {
+    axis(1,
+      col = "grey60", at = c(1, 196), lwd = 0.5,
+      col.ticks = NA, labels = NA, xpd = NA
+    )
+  }
+
+  # draw lines above each class:
+  x.left <- bp[c(seq(0, 66, 6), 72, 73, 75, 78) + 1] - 0.5
+  x.right <- bp[c(seq(6, 72, 6), 73, 75, 78, 83)] + 0.5
+  category.lab <- c(rep(c("C", "T"), 2), rep(c("2", "3", "4", "5+"), 3))
+  if (rect == T) {
+    rect(
+      xleft = x.left, ymax * 1.01, xright = x.right, ymax * 1.15,
+      col = indel.class.col, border = NA, xpd = NA
+    )
+    text((x.left + x.right) / 2, ymax * 1.25,
+      labels = category.lab,
+      cex = 1, xpd = NA
+    )
+  }
+
+  # mutation class labels at the top of the figure:
+  maj.class.names <- c(
+    "1bp\ndeletions", "1bp\ninsertions",
+    ">1bp deletions\nat repeats",
+    ">1bp insertions\nat repeats",
+    "Deletions with\nmicrohomology"
+  )
+
+  class.pos <- c(
+    (x.left[seq(1, 4, 2)] + x.right[seq(2, 5, 2)]) / 2,
+    (x.left[c(5, 9)] + x.right[c(8, 12)]) / 2,
+    (x.left[13] + x.right[length(x.left)]) / 2
+  )
+
+  if (class == T) {
+    text(class.pos, ymax * 1.7,
+      labels = maj.class.names,
+      cex = 1, xpd = NA
+    )
+  }
+
+  # x axis label
+  if (labels == T) {
+    text(bp, -ymax / 100,
+      labels = mut.type, cex = 0.5, srt = 90,
+      adj = 1, family = "Courier", col = "black", xpd = NA
+    )
+  }
+
+  # sig name
+  display.name <- gsub("\\.", " ", display.name)
+  text(1.5, ymax * 7 / 8, labels = display.name, adj = 0, cex = 1, font = 2)
+}
+```
+
+```{r dinuc}
+plot_dinucs <- function(counts, mut.type, display.name, class,
+                        labels, rect, grid = F, line = F) {
+  num.classes <- length(counts)
+
+  dinuc.class.col <- brewer.pal(10, "Paired")
+  cols <- rep(dinuc.class.col, c(9, 6, 9, 6, 9, 6, 6, 9, 9, 9))
+
+  ## get ylim
+  ymax <- ifelse(max(counts) * 1.3 > 1, 1, max(counts) * 1.3)
+  # barplot
+  bp <- barplot(counts,
+    main = "", xaxt = "n", ylim = c(0, ymax), xlab = "", yaxt = "n",
+    ylab = NA, lwd = if (num.classes < 200) 3 else 1, space = 1.35,
+    border = NA, col = cols, xpd = NA
+  )
+
+  if (grid == T) {
+    # draw box and grid lines
+    rect(
+      xleft = bp[1] - 1, 0, xright = bp[num.classes] + 1, ymax, col = NA,
+      border = "grey60", lwd = 1.5
+    )
+  }
+
+  if (line == T) {
+    axis(1,
+      col = "grey60", at = c(1, 185), lwd = 0.5,
+      col.ticks = NA, labels = NA, xpd = NA
+    )
+  }
+
+  # draw lines above each class:
+  x.left <- bp[c(0, 9, 15, 24, 30, 39, 45, 51, 60, 69) + 1] - 0.5
+  x.right <- bp[c(9, 15, 24, 30, 39, 45, 51, 60, 69, 78)] + 0.5
+  if (rect == T) {
+    rect(
+      xleft = x.left, ymax * 1.01, xright = x.right,
+      ymax * 1.15, col = dinuc.class.col, border = NA, xpd = NA
+    )
+  }
+
+  # mutation class labels at the top of the figure:
+  maj.class.names <- c(
+    "AC>NN", "AT>NN", "CC>NN", "CG>NN", "CT>NN",
+    "GC>NN", "TA>NN", "TC>NN", "TG>NN", "TT>NN"
+  )
+
+  if (class == T) {
+    text((x.left + x.right) / 2, ymax * 1.25,
+      labels = maj.class.names,
+      cex = 1, xpd = NA
+    )
+  }
+
+  # x axis label
+  if (labels == T) {
+    text(bp, -ymax / 100,
+      labels = mut.type, cex = 0.5, srt = 90,
+      adj = 1, family = "Courier", col = "black", xpd = NA
+    )
+  }
+
+  # sig name
+  display.name <- gsub("\\.", " ", display.name)
+  text(1.5, ymax * 7 / 8, labels = display.name, adj = 0, cex = 1, font = 2)
+}
+```
+
+
+Function for mutograph plot:
+```{r}
+## function to use the layout to arrange plots and assemble figure
+plot.mutograph <- function(input, name, file.type) {
+  name2 <- sub("::", "_", name)
+  
+  if (file.type == "pdf") {
+        pdf(paste(name2, "mutograph.pdf", sep = "."),
+      width = 8.2677,
+      height = 11.6929
+  )
+  } else if (file.type == "png") {
+        png(paste(name2, "mutograph.png", sep = "."),
+      width = 8.2677,
+      height = 11.6929, units = "in", res = 720
+  )
+    }
+
+par(mar = c(0.1, 2, 0.3, 0), oma = c(35, 2, 2, 0), xpd = NA)
+
+## use the number of signatures to fit into the plot
+num.snv.sigs <- length(input$sigs$snv)
+
+num.dinuc.sigs <- 2
+
+num.indel.sigs <- 3
+
+snv.sig.ind <- as.vector(rbind(
+  rep(3, each = num.snv.sigs),
+  3 + seq(num.snv.sigs)
+))
+max.snv.ind <- max(snv.sig.ind) + 1
+
+dinuc.sig.ind <- as.vector(rbind(
+  rep(max.snv.ind + 2,
+      each = num.dinuc.sigs
+  ),
+  max.snv.ind + 2 + seq(num.dinuc.sigs)
+))
+max.dinuc.ind <- max(dinuc.sig.ind) + 1
+
+indel.sig.ind <- as.vector(rbind(
+  rep(max.dinuc.ind + 2, each = num.indel.sigs),
+  max.dinuc.ind + 2 + seq(num.indel.sigs)
+))
+max.indel.ind <- max(indel.sig.ind) + 1
+
+layout.mat <- matrix(c(
+  0, 0,
+  0, 1,
+  0, 1,
+  0, 2,
+  0, 2,
+  snv.sig.ind, ## snv sigs start
+  0, 0,
+  0, 0,
+  0, max.snv.ind, ## dinuc spectra
+  0, max.snv.ind,
+  0, max.snv.ind + 1,
+  0, max.snv.ind + 1,
+  dinuc.sig.ind, ## dinuc sigs
+  0, 0,
+  0, 0,
+  0, 0,
+  0, max.dinuc.ind, ## indel spectra
+  0, max.dinuc.ind,
+  0, max.dinuc.ind + 1,
+  0, max.dinuc.ind + 1,
+  indel.sig.ind, ## indel sigs
+  0, 0,
+  0, 0
+),
+29,
+2,
+byrow = T
+)
+layout(layout.mat,
+       width = rep(c(0.2, 3.6), 12)
+)
+
+spectra <- input$counts
+activity <- input$activity
+signatures <- input$sigs
+
+## counts for spectra
+snv.c <- unlist(spectra$snv)
+indel.c <- unlist(spectra$indel)
+dinuc.c <- unlist(spectra$dinuc)
+
+## activity for stacked barplot
+snv.a <- activity$snv
+indel.a <- activity$indel
+dinuc.a <- activity$dinuc
+
+## signature for sig plots
+snv.s <- signatures$snv
+indel.s <- signatures$indel
+dinuc.s <- signatures$dinuc
+
+## snv spectra, plot as proportion
+snv.prop <- as.vector(snv.c / sum(snv.c))
+
+plot_snvs(snv.prop,
+          NA, NA,
+          class = T,
+          labels = F,
+          rect = T,
+          grid = T
+)
+
+snv.exp <- snv.a
+snv.exp <- snv.exp[nrow(snv.exp):1, , drop = F]
+
+## plot reconstruction
+recon <- snv.sigs[, rev(snv.s), drop = F] %*% snv.exp
+recon.prop <- as.vector(recon / sum(recon))
+
+plot_snvs(recon.prop,
+          NA, NA,
+          class = F,
+          labels = F,
+          rect = F,
+          grid = T
+)
+
+title(paste0(
+  "Cosine similarity : ",
+  round(mSigAct::cossim(snv.prop, recon.prop), 3)
+),
+cex.main = 1, line = -1
+)
+
+##  snv exposure bar plot
+bar1 <- barplot(snv.exp,
+                xaxt = "n", yaxt = "n",
+                col = as.vector(snv.col.df[
+                  match(rev(snv.s), snv.col.df$sig),
+                  "color"
+                ]),
+                space = 5,
+                border = NA,
+                xpd = NA
+)
+
+## text for mutations counts
+bar.pos1 <- cumsum(snv.exp)
+total.snv <- round(sum(snv.exp))
+
+title(
+  main = paste("SBS Spectrum\n(", total.snv, ")\n\nReconstructed\nSpectrum",
+               sep = ""
+  ),
+  ylab = "Signature\nContributions",
+  line = 0.6,
+  cex.main = 1.1,
+  cex.lab = 0.9
+)
+
+## SNV signatures, ~5 sigs
+for (sig in snv.s) {
+  snv.sig.names <- colnames(snv.sigs[, sig, drop = F])
+  plot_snvs(as.numeric(snv.sigs[, sig]),
+            rownames(snv.sigs),
+            snv.sig.names,
+            class = F,
+            labels = F,
+            rect = F,
+            grid = F
+  )
+}
+
+
+## plot dinc spectra
+dinuc.prop <- as.vector(dinuc.c / sum(dinuc.c))
+plot_dinucs(dinuc.prop,
+            NA, NA,
+            class = T,
+            labels = F,
+            rect = T,
+            grid = T
+)
+
+dinuc.exp <- dinuc.a
+dinuc.exp <- dinuc.exp[nrow(dinuc.exp):1, , drop = F]
+
+dinuc.recon <-
+  as.matrix(dinuc.sigs[, rev(dinuc.s), drop = F]) %*% dinuc.exp
+dinuc.recon.prop <- as.vector(dinuc.recon / sum(dinuc.recon))
+
+## plot dinuc reconstruction
+plot_dinucs(dinuc.recon.prop,
+            NA, NA,
+            class = F,
+            labels = F,
+            rect = F,
+            grid = T
+)
+title(paste0(
+  "Cosine similarity : ",
+  round(mSigAct::cossim(dinuc.prop, dinuc.recon.prop), 3)
+),
+cex.main = 1, line = -1
+)
+
+## dinuc exposure
+bar2 <- barplot(dinuc.exp,
+                xaxt = "n", yaxt = "n",
+                col = as.vector(di.col.df[
+                  match(rev(dinuc.s), di.col.df$sig),
+                  "color"
+                ]),
+                space = 5,
+                border = NA,
+                xpd = NA
+)
+
+## text for mutation counts
+bar.pos3 <- cumsum(dinuc.exp)
+
+total.dinuc <- round(sum(dinuc.exp))
+title(
+  main = paste("DBS Spectrum\n(", total.dinuc, ")\n\nReconstructed\nSpectrum",
+               sep = ""
+  ),
+  ylab = "Signature\nContributions", line = 0.6, cex.main = 1.1,
+  cex.lab = 0.9
+)
+
+## dinuc signatures
+for (sig in dinuc.s) {
+  dinuc.sig.names <- colnames(dinuc.sigs[, sig, drop = F])
+  plot_dinucs(as.numeric(dinuc.sigs[, sig]),
+              dinuc.sigs[, 1],
+              dinuc.sig.names,
+              class = F,
+              labels = F,
+              rect = F,
+              grid = F
+  )
+}
+
+
+## indel spectra
+indel.prop <- as.vector(indel.c / sum(indel.c))
+plot_indels(indel.prop, NA, NA,
+            class = T,
+            labels = F,
+            rect = T,
+            grid = T
+)
+
+indel.exp <- indel.a
+
+## need to reverse the sequence of plotting, plot from top to bottom
+indel.exp <- indel.exp[nrow(indel.exp):1, , drop = F]
+indel.recon <- as.matrix(indel.sigs[, rev(indel.s), drop = F]) %*% indel.exp
+indel.recon.prop <- as.vector(indel.recon / sum(indel.recon))
+
+plot_indels(indel.recon.prop,
+            NA, NA,
+            class = F,
+            labels = F,
+            rect = F,
+            grid = T
+)
+
+title(paste0(
+  "Cosine similarity : ",
+  round(mSigAct::cossim(indel.prop, indel.recon.prop), 3)
+),
+cex.main = 1, line = -1
+)
+
+## indel exposure
+bar3 <- barplot(indel.exp,
+                xaxt = "n", yaxt = "n",
+                col = as.vector(indel.col.df[match(rev(indel.s), indel.col.df$sig), "color"]),
+                space = 5,
+                border = NA,
+                xpd = NA
+)
+
+## text for mutations counts
+bar.pos2 <- cumsum(indel.exp)
+
+total.indel <- round(sum(indel.exp))
+title(
+  main = paste("ID Spectrum\n(", total.indel, ")\n\nReconstructed\nSpectrum",
+               sep = ""
+  ),
+  ylab = "Signature\nContributions", line = 0.8, cex.main = 1.1, cex.lab = 0.9
+)
+
+## indel signatures
+for (sig in indel.s) {
+  indel.sig.names <- colnames(indel.sigs[, sig, drop = F])
+  plot_indels(as.numeric(indel.sigs[, sig]),
+              c(""),
+              indel.sig.names,
+              class = F,
+              labels = F,
+              rect = F,
+              grid = F
+  )
+}
+  
+dev.off()
+
+  invisible(TRUE)
+}
+```
+
+Process sample:
+
+```{r process.samples, comment=NA, message=FALSE, warning=FALSE, error=FALSE}
+output.list <- lapply("Lung-AdenoCA::SP52667", process.input)
+
+# Get colors
+snv.sig.col <- rev(
+  mixedsort(
+    unique(
+      unlist(
+        lapply(
+          output.list, function(x) x$sigs$snv
+        )
+      )
+    )
+  )
+)
+
+dinuc.sig.col <- rev(
+  mixedsort(
+    unique(
+      unlist(
+        lapply(
+          output.list, function(x) x$sigs$dinuc
+        )
+      )
+    )
+  )
+)
+
+indel.sig.col <- rev(
+  mixedsort(
+    unique(
+      unlist(
+        lapply(
+          output.list, function(x) x$sigs$indel
+        )
+      )
+    )
+  )
+)
+
+
+snv.col.df <- data.frame(
+  sig = rev(snv.sig.col),
+  color = cols[1:length(snv.sig.col)]
+)
+
+di.col.df <- data.frame(
+  sig = rev(dinuc.sig.col),
+  color = cols[seq(1, length(dinuc.sig.col) * 2, by = 2)]
+)
+
+indel.col.df <- data.frame(
+  sig = indel.sig.col,
+  color = cols[seq(1, length(indel.sig.col) * 2, by = 2) + 1]
+)
+
+plot.mutograph(output.list[[1]], "Lung-AdenoCA::SP52667", "pdf")
+plot.mutograph(output.list[[1]], "Lung-AdenoCA::SP52667", "png")
+
+```
+
+Show the mutograph plot:
+```{r, fig.cap='For Figure 1 in manuscript, We manually added the lines between the stacked bars on the left and the corresponding signatures.', fig.topcaption=TRUE, out.width="100%", out.height="50%"}
+knitr::include_graphics("Lung-AdenoCA_SP52667.mutograph.png")
+```
