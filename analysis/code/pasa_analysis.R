@@ -25,9 +25,10 @@ run_pasa <- function(mut_type, more_args) {
   msigact_version = packageVersion("mSigAct")
   if (msigact_version < "3.0.1") {
     stop(
-    paste("Require mSigAct version >= 3.0.1",
-    "do:",
-    "remotes::install_github(\"steverozen\mSigAct\")"))
+      paste("Require mSigAct version >= 3.0.1",
+            "do:",
+            "remotes::install_github(\"steverozen\mSigAct\")",
+            sep = "\n"))
   }
   output_home <-
     file.path("analysis/raw_output", mut_type, "pasa/syn")
