@@ -22,6 +22,13 @@ call_pasa <- function (spectra,
 
 
 run_pasa <- function(mut_type, more_args) {
+  msigact_version = packageVersion("mSigAct")
+  if (msigact_version < "3.0.1") {
+    stop(
+    paste("Require mSigAct version >= 3.0.1",
+    "do:",
+    "remotes::install_github(\"steverozen\mSigAct\")"))
+  }
   output_home <-
     file.path("analysis/raw_output", mut_type, "pasa/syn")
   message("PASA, writing to ", output_home)
