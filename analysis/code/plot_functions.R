@@ -273,7 +273,7 @@ one_boxplot_by_cancer_type <-
         theme(
           axis.text.x = element_text(angle = 0, vjust = 0.5),
           legend.position = "bottom",
-          legend.text = element_text(angle = 90, vjust = 1),
+          legend.text = element_text(angle = 90, vjust = 0.5),
           plot.margin = margin(
             t = 0,
             r = 30,
