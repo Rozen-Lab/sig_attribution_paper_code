@@ -7,8 +7,25 @@ n_samples_per_type <- 800L
 library(cosmicsig)
 library(PCAWG7)
 library(ICAMS)
+# remotes::install_github("steverozen/SynSigGen")
 library(SynSigGen)
 library(mSigTools)
+
+# Compatibility shim: SynSigGen::GenerateNoisyTumors() calls
+# mSigAct::WriteExposure(), which was renamed to mSigTools::write_exposure().
+# Inject a WriteExposure alias into the mSigAct namespace and exports so the
+# `mSigAct::WriteExposure` qualified call resolves.
+local({
+  patched <- SynSigGen::GenerateNoisyTumors
+  body(patched) <- as.call(lapply(as.list(body(patched)), function(e) {
+    if (is.call(e) &&
+        identical(e[[1]], quote(mSigAct::WriteExposure))) {
+      e[[1]] <- quote(mSigTools::write_exposure)
+    }
+    e
+  }))
+  assignInNamespace("GenerateNoisyTumors", patched, ns = "SynSigGen")
+})
 
 ##################################################################
 ##                      Data preprocessing                      ##
@@ -18,15 +35,21 @@ real_exposures_sbs96 <- PCAWG7::exposure$PCAWG$SBS96
 pcawg_sbs96_catalog <- PCAWG7::spectra$PCAWG$SBS96
 rownames(real_exposures_sbs96) <-
   gsub(
-    pattern = "SBS22", replacement = "SBS22a",
+    pattern = "SBS22",
+    replacement = "SBS22a",
     x = rownames(real_exposures_sbs96)
   )
 
 # Only select samples that belong to the selected cancer types
 cancer_types <- c(
-  "Breast-AdenoCA", "ColoRect-AdenoCA", "Eso-AdenoCA",
-  "Liver-HCC", "Lung-AdenoCA",
-  "Ovary-AdenoCA", "Skin-Melanoma", "Stomach-AdenoCA"
+  "Breast-AdenoCA",
+  "ColoRect-AdenoCA",
+  "Eso-AdenoCA",
+  "Liver-HCC",
+  "Lung-AdenoCA",
+  "Ovary-AdenoCA",
+  "Skin-Melanoma",
+  "Stomach-AdenoCA"
 )
 indices_selected_types <- unlist(sapply(cancer_types, FUN = function(x) {
   grep(x, colnames(real_exposures_sbs96))
@@ -87,10 +110,13 @@ pole_sample_ids <- names(pole_sample_indices_selected_types)
 length(pole_sample_ids) # 8
 
 real_exposures_sbs96_no_msi_pole <-
-  real_exposures_sbs96[, -c(
-    msi_sample_indices_selected_types,
-    pole_sample_indices_selected_types
-  ), drop = FALSE]
+  real_exposures_sbs96[,
+    -c(
+      msi_sample_indices_selected_types,
+      pole_sample_indices_selected_types
+    ),
+    drop = FALSE
+  ]
 real_exposures_sbs96_no_msi_pole <-
   remove_zero_activity_sigs(real_exposures_sbs96_no_msi_pole)
 real_exposures_sbs96_msi <-
@@ -98,14 +124,18 @@ real_exposures_sbs96_msi <-
 real_exposures_sbs96_msi <- remove_zero_activity_sigs(real_exposures_sbs96_msi)
 real_exposures_sbs96_pole <-
   real_exposures_sbs96[, pole_sample_indices_selected_types, drop = FALSE]
-real_exposures_sbs96_pole <- remove_zero_activity_sigs(real_exposures_sbs96_pole)
+real_exposures_sbs96_pole <- remove_zero_activity_sigs(
+  real_exposures_sbs96_pole
+)
 
 num_samples_total <- calculate_num_samples(real_exposures_sbs96)
 num_samples_msi <- calculate_num_samples(real_exposures_sbs96_msi)
 cancer_types_msi <- names(num_samples_msi)
 num_samples_pole <- calculate_num_samples(real_exposures_sbs96_pole)
 cancer_types_pole <- names(num_samples_pole)
-num_samples_no_msi_pole <- calculate_num_samples(real_exposures_sbs96_no_msi_pole)
+num_samples_no_msi_pole <- calculate_num_samples(
+  real_exposures_sbs96_no_msi_pole
+)
 
 # Generate n_samples_per_type synthetic tumors for the selected cancer types.
 # Scale the original number of tumors in each cancer type in real exposure accordingly
@@ -139,15 +169,18 @@ num_samples_no_msi_pole_scaled[cancer_types_pole] <-
   num_samples_no_msi_pole_scaled[cancer_types_pole] - num_samples_pole_scaled
 
 # Make sure the total number of synthetic tumors is 8 * n_samples_per_type
-sum(num_samples_msi_scaled) + sum(num_samples_pole_scaled) +
+sum(num_samples_msi_scaled) +
+  sum(num_samples_pole_scaled) +
   sum(num_samples_no_msi_pole_scaled)
 
 # Calculate number of MSI-H samples in real kidney
 msi_sig_names <-
   c("SBS6", "SBS14", "SBS15", "SBS20", "SBS21", "SBS26", "SBS44")
 tmp <-
-  real_kidney_exposures_sbs96[rownames(real_kidney_exposures_sbs96) %in%
-    msi_sig_names, ]
+  real_kidney_exposures_sbs96[
+    rownames(real_kidney_exposures_sbs96) %in%
+      msi_sig_names,
+  ]
 tmp2 <- tmp[, colSums(tmp) > 0]
 
 kidney_msi_sample_ids <- colnames(tmp2)
@@ -180,7 +213,8 @@ num_samples_kidney_msi_scaled <-
   ceiling(kidney_scale_factor * num_kidney_samples_msi)
 
 # Calculate the number of non MSI-H synthetic tumors in kidney
-num_samples_kidney_no_msi_scaled <- n_samples_per_type - num_samples_kidney_msi_scaled
+num_samples_kidney_no_msi_scaled <- n_samples_per_type -
+  num_samples_kidney_msi_scaled
 
 ##################################################################
 ##                 Generation of synthetic data                 ##
@@ -208,11 +242,10 @@ input_sigs_sbs96 <- cbind(input_sigs_sbs96, sbs40)
 
 real_exposures_sbs96_all <-
   SynSigGen::MergeExposures(
-    list.of.exposures =
-      list(
-        real_exposures_sbs96,
-        real_kidney_exposures_sbs96
-      )
+    list.of.exposures = list(
+      real_exposures_sbs96,
+      real_kidney_exposures_sbs96
+    )
   )
 
 sig_params_sbs96_all_types <-
@@ -339,11 +372,10 @@ synthetic_exposures_kidney_sbs96 <-
 # Generate the combined synthetic tumors
 synthetic_exposures_sbs96_all <-
   SynSigGen::MergeExposures(
-    list.of.exposures =
-      list(
-        synthetic_exposures_sbs96,
-        synthetic_exposures_kidney_sbs96
-      )
+    list.of.exposures = list(
+      synthetic_exposures_sbs96,
+      synthetic_exposures_kidney_sbs96
+    )
   )
 
 output_dir_sbs96 <-
@@ -366,7 +398,7 @@ input_sigs_sbs96_v3 <- cbind(input_sigs_sbs96_v2, sbs40)
 
 catalog.info <- SynSigGen:::CreateSynCatalogs(
   signatures = input_sigs_sbs96_v3,
-  exposures  = synthetic_exposures_sbs96_all
+  exposures = synthetic_exposures_sbs96_all
 )
 ICAMS::WriteCatalog(
   catalog.info$ground.truth.catalog,
@@ -374,7 +406,7 @@ ICAMS::WriteCatalog(
 )
 mSigTools::write_exposure(
   exposure = synthetic_exposures_sbs96_all,
-  file     = file.path(output_dir_sbs96, "ground.truth.syn.exposures.csv")
+  file = file.path(output_dir_sbs96, "ground.truth.syn.exposures.csv")
 )
 
 # Add noise to the synthetic tumors
@@ -411,7 +443,9 @@ data_distribution_file <-
   "synthetic_data/SBS_7200/intermed_results/SBS_syn_data_distribution.pdf"
 grDevices::pdf(
   file = data_distribution_file,
-  width = 11.6929, height = 8.2677, onefile = TRUE
+  width = 11.6929,
+  height = 8.2677,
+  onefile = TRUE
 )
 par(mfrow = c(3, 3))
 plot_exposure_distribution(
