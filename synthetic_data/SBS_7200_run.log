@@ -1557,3 +1557,82 @@ Installing package into ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4’
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (mSigAct)
+Using GitHub PAT from the git credential store.
+Downloading GitHub repo steverozen/ICAMSxtra@HEAD
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpQN15oJ/remotesf44133782cd81/steverozen-ICAMSxtra-3b132da/DESCRIPTION’ ... OK
+* preparing ‘ICAMSxtra’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ICAMSxtra_0.1.0.tar.gz’
+Warning: invalid uid value replaced by that for user 'nobody'
+Warning: invalid gid value replaced by that for user 'nobody'
+
+Installing package into ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4’
+(as ‘lib’ is unspecified)
+* installing *source* package ‘ICAMSxtra’ ...
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘rtracklayer’
+Calls: <Anonymous> ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+ERROR: lazy loading failed for package ‘ICAMSxtra’
+* removing ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4/ICAMSxtra’
+Warning message:
+In i.p(...) :
+  installation of package ‘/tmp/RtmpQN15oJ/filef441316fa8e93/ICAMSxtra_0.1.0.tar.gz’ had non-zero exit status
+Using GitHub PAT from the git credential store.
+Downloading GitHub repo steverozen/SynSigGen@HEAD
+Downloading GitHub repo steverozen/ICAMSxtra@v0.1.0
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpQN15oJ/remotesf441389e00b9/steverozen-ICAMSxtra-066c096/DESCRIPTION’ ... OK
+* preparing ‘ICAMSxtra’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ICAMSxtra_0.1.0.tar.gz’
+Warning: invalid uid value replaced by that for user 'nobody'
+Warning: invalid gid value replaced by that for user 'nobody'
+
+Installing package into ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4’
+(as ‘lib’ is unspecified)
+* installing *source* package ‘ICAMSxtra’ ...
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘rtracklayer’
+Calls: <Anonymous> ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
+ERROR: lazy loading failed for package ‘ICAMSxtra’
+* removing ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4/ICAMSxtra’
+Downloading GitHub repo steverozen/ICAMSxtra@v0.1.0
+Skipping ICAMSxtra, it is already being installed
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpQN15oJ/remotesf44136f019e9b/steverozen-SynSigGen-a5e55f6/DESCRIPTION’ ... OK
+* preparing ‘SynSigGen’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘SynSigGen_1.1.1.tar.gz’
+Warning: invalid uid value replaced by that for user 'nobody'
+Warning: invalid gid value replaced by that for user 'nobody'
+
+Installing package into ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4’
+(as ‘lib’ is unspecified)
+ERROR: dependency ‘ICAMSxtra’ is not available for package ‘SynSigGen’
+* removing ‘/hpc/home/sr110/R/x86_64-pc-linux-gnu-library/4.4/SynSigGen’
+Warning messages:
+1: In i.p(...) :
+  installation of package ‘/tmp/RtmpQN15oJ/filef4413778f6aef/ICAMSxtra_0.1.0.tar.gz’ had non-zero exit status
+2: In i.p(...) :
+  installation of package ‘/tmp/RtmpQN15oJ/filef441324493bd4/SynSigGen_1.1.1.tar.gz’ had non-zero exit status
